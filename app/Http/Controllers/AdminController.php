@@ -7,14 +7,23 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function base(Request $request){
+        return view('pages.admin.index');       
+    }
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(){
+        
     }
 
     /**

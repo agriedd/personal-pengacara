@@ -13,6 +13,6 @@ class Admin extends Authenticatable
 
     protected $table = "admin";
     protected $guarded = [];
-
+    protected $redirectTo = "admin";
 
 }

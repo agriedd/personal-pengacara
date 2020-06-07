@@ -22,6 +22,9 @@ Route::get('/artikel', 'ArtikelController@index')->name('artikel');
 Route::get('/artikel/{slug}', 'ArtikelController@artikel')->name('artikel');
 Route::get('/artikel/{date}/{slug}', 'ArtikelController@artikelwithdate')->name('artikelwithdate');
 
+//Admin
+Route::get('/admin', 'AdminController@index')->name('admin');
+
 //Socialite
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
