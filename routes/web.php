@@ -22,10 +22,11 @@ Route::get('/artikel', 'ArtikelController@index')->name('artikel');
 Route::get('/artikel/{slug}', 'ArtikelController@artikel')->name('artikel');
 Route::get('/artikel/{date}/{slug}', 'ArtikelController@artikelwithdate')->name('artikelwithdate');
 
-
 //Socialite
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
+//Import
 
 Auth::routes();
