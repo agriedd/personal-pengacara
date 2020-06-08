@@ -6,7 +6,7 @@ use App\Halaman;
 
 class HalamanRepository{
 
-    public function all($request){
+    public static function all($request){
         return Halaman::with('info')->get();
     }
 }
