@@ -14,10 +14,13 @@
             @forelse ($halaman as $data)
                 <li>
                     <div class="font-weight-bold">
-                        {{ $data->slug }}
+                        {{ $data->info->title }}
+                    </div>
+                    <div class="small py-2 text-muted">
+                        {{ $data->created_at }}
                     </div>
                     <div class="small">
-                        {!! $data->body !!}
+                        {!! $data->info->body !!}
                     </div>
                 </li>
             @empty
