@@ -27,6 +27,7 @@ Route::prefix("/admin")->group(function($app){
     Route::get('/user', 'Admin\UserController@index')->name('admin.user');
     Route::get('/client', 'Admin\ClientController@index')->name('admin.client');
     Route::get('/artikel', 'Admin\ArticleController@index')->name('admin.artikel');
+    Route::get('/halaman', 'Admin\HalamanController@index')->name('admin.halaman');
 });
 
 //Socialite

@@ -21,4 +21,7 @@ class Admin extends Authenticatable
     public function artikel(){
         return $this->hasMany(Article::class, "id_admin", "id");
     }
+    public function halaman(){
+        return $this->hasMany(Halaman::class, 'id_admin', 'id');
+    }
 }
