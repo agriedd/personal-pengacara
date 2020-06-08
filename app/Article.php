@@ -11,4 +11,11 @@ class Article extends Model
     public function createdBy(){
         return $this->belongsTo(Admin::class, 'id_admin', 'id');
     }
+
+    public function info(){
+        return $this->hasOne(ArticleHistory::class, 'id_article', 'id')->latest();
+    }
+    public function histories(){
+        return $this->hasMany(ArticleHistory::class, 'id_article', 'id');
+    }
 }
