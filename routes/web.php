@@ -22,8 +22,11 @@ Route::get('/artikel/{slug}', 'ArtikelController@artikel')->name('artikel');
 Route::get('/artikel/{date}/{slug}', 'ArtikelController@artikelwithdate')->name('artikelwithdate');
 
 //Admin
-Route::get('/admin', 'AdminController@index')->name('admin');
-Route::get('/admin/user', 'Admin\UserController@index')->name('admin.user');
+Route::prefix("/admin")->group(function($app){
+    Route::get('/', 'AdminController@index')->name('admin');
+    Route::get('/user', 'Admin\UserController@index')->name('admin.user');
+    Route::get('/client', 'Admin\ClientController@index')->name('admin.client');
+});
 
 //Socialite
 
