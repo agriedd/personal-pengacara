@@ -14,7 +14,10 @@
         <ul>
             @forelse ($users as $user)
                 <li>
-                    {{ $user->nama }}
+                    {{ $user->nama }} - 
+                    @isset($user->info->facebook)
+                        facebook {{ $user->info->facebook }}
+                    @endisset
                 </li>
             @empty
                 <li>
