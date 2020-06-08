@@ -15,8 +15,10 @@ class Admin extends Authenticatable
     protected $guarded = [];
     protected $redirectTo = "admin";
 
-    public function client()
-    {
+    public function client(){
         return $this->hasMany(Client::class, "id_admin", "id");
+    }
+    public function artikel(){
+        return $this->hasMany(Article::class, "id_admin", "id");
     }
 }

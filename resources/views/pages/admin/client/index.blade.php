@@ -1,6 +1,5 @@
 {{-- Halaman Panel Admin 🔥 --}}
 
-
 @extends('layouts.admin')
 
 @section('content')
