@@ -21,10 +21,10 @@ class CreateHalamenTable extends Migration
             $table->unsignedBigInteger('id_admin')->nullable();
 
             $table->string('slug')->unique();
-            $table->text('body')->nullable();
             $table->string('location')->nullable();
             $table->text('catatan')->nullable();
             $table->bigInteger('status')->default(0);
+            $table->bigInteger('full')->default(0);
 
             $table->foreign('id_article')->references('id')->on('article')
                 ->onDelete('set null')

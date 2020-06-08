@@ -11,4 +11,10 @@ class Halaman extends Model
     public function admin(){
         return $this->belongsTo(Admin::class, 'id_admin', 'id');
     }
+    public function history(){
+        return $this->hasMany(HalamanHistory::class, 'id_halaman', 'id');
+    }
+    public function info(){
+        return $this->hasOne(HalamanHistory::class, 'id_halaman', 'id')->latest();
+    }
 }
