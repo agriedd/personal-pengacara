@@ -17,9 +17,10 @@ class CreateKunjungansTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('location')->nullable();
-            $table->text('header')->nullable();
             $table->string('ip_address')->nullable();
-            $table->string('path')->nullable();
+            $table->string('uri')->nullable();
+            $table->string('user_agent')->nullable();
+            $table->string('referer')->nullable();
         });
     }
 

@@ -5,7 +5,11 @@ namespace App\Repository;
 use App\Kunjungan;
 
 class KunjunganRepository{
-    public static function store($request){
-        return Kunjungan::create($request->only([ "ip_address" ]));
+    public static function store($data){
+        $data = collect($data);
+
+        return Kunjungan::create(
+            $data->all()
+        );
     }
 }

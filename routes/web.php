@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+\Auth::routes();
 
 
 //Guest
@@ -37,4 +38,3 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 
 //Import
 
-Auth::routes();
