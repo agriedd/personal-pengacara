@@ -2,9 +2,11 @@
 
 namespace App\Repository;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Halaman;
 
-class HalamanRepository extends Model
-{
-    //
+class HalamanRepository{
+
+    public function all($request){
+        return Halaman::with('info')->get();
+    }
 }
