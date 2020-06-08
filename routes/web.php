@@ -16,14 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 //Guest
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/artikel', 'ArtikelController@index')->name('artikel');
+Route::get('/artikel', 'ArtikelController@index')->name('home.artikel');
 Route::get('/artikel/{slug}', 'ArtikelController@artikel')->name('artikel');
 Route::get('/artikel/{date}/{slug}', 'ArtikelController@artikelwithdate')->name('artikelwithdate');
 
 //Admin
 Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin/user', 'Admin\UserController@index')->name('admin.user');
 
 //Socialite
 

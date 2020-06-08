@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             // $table->string('username')->unique();
             // $table->string('password');
 
-            $table->unsignedBigInteger("id_info");
+            $table->unsignedBigInteger("id_info")->nullable();
 
 
             $table->rememberToken();
