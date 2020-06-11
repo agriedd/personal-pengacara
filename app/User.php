@@ -40,8 +40,10 @@ class User extends Authenticatable
     ];
 
 
-    public function info()
-    {
+    public function info(){
         return $this->hasOne(InformasiUser::class, "id_user", "id")->latest();
+    }
+    public function foto(){
+        return $this->morphOne(Gambar::class, 'gambarable')->latest();
     }
 }

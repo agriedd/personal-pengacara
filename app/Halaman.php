@@ -17,4 +17,7 @@ class Halaman extends Model
     public function info(){
         return $this->hasOne(HalamanHistory::class, 'id_halaman', 'id')->latest();
     }
+    public function thumbnail(){
+        return $this->morphOne(Gambar::class, 'gambarable')->latest();
+    }
 }

@@ -24,4 +24,7 @@ class Admin extends Authenticatable
     public function halaman(){
         return $this->hasMany(Halaman::class, 'id_admin', 'id');
     }
+    public function gambar(){
+        return $this->hasMany(Gambar::class, 'id_admin', 'id');
+    }
 }
