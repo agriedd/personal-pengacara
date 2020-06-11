@@ -27,4 +27,7 @@ class Admin extends Authenticatable
     public function gambar(){
         return $this->hasMany(Gambar::class, 'id_admin', 'id');
     }
+    public function album(){
+        return $this->hasMany(Album::class, 'id_admin', 'id');
+    }
 }
