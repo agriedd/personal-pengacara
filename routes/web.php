@@ -29,6 +29,10 @@ Route::prefix("/admin")->group(function($app){
     Route::get('/client', 'Admin\ClientController@index')->name('admin.client');
     Route::get('/artikel', 'Admin\ArticleController@index')->name('admin.artikel');
     Route::get('/halaman', 'Admin\HalamanController@index')->name('admin.halaman');
+    Route::prefix('/gambar')->group(function($app){
+        Route::get('/', 'Admin\GambarController@index')->name('admin.gambar');
+        Route::post('/', 'Admin\GambarController@upload')->name('admin.gambar.upload');
+    });
 });
 
 //Socialite

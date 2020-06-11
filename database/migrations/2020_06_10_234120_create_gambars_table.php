@@ -22,13 +22,13 @@ class CreateGambarsTable extends Migration
             // 1024px x 1024px
             $table->text('src_ori')->nullable();
             // 1024px
-            $table->text('src_hd')->nullable();
+            $table->text('src_lg')->nullable();
             // 500px
             $table->text('src_md')->nullable();
             // 250px
             $table->text('src_sm')->nullable();
             // 100px
-            $table->text('src_xm')->nullable();
+            $table->text('src_xs')->nullable();
 
             $table->string('alt')->nullable();
 
