@@ -10,4 +10,7 @@ class Album extends Model{
     public function createdBy(){
         return $this->belongsTo(Admin::class, 'id_admin', 'id');
     }
+    public function galeri(){
+        return $this->hasMany(Galeri::class, 'id_album', 'id');
+    }
 }
