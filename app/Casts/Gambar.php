@@ -18,7 +18,9 @@ class Gambar implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
-        return Storage::url($value);
+        if(file_exists(storage_path("app/public/{$value}")) && is_file(storage_path("app/public/{$value}")))
+            return Storage::url($value);
+        return asset('img/import_placeholder.png');
     }
 
     /**
