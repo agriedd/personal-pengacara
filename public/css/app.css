@@ -10928,3 +10928,35 @@ a.text-dark:focus {
   }
 }
 
+.img-lg {
+  height: 10rem;
+  width: 10rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.img-md {
+  height: 5rem;
+  width: 5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.img-sm {
+  height: 2.5rem;
+  width: 2.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.img-xs {
+  height: 1.25rem;
+  width: 1.25rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+

@@ -5,19 +5,19 @@
 @section('content')
     <div>
         <h4 class="font-weight-light">
-            Panel Admin | Gambar 🔖
+            Panel Admin | Album 🔖
         </h4>
     </div>
     <div>
-        Tambah gambar
+        Tambah Album
         <form action="" method="POST" enctype="multipart/form-data">
             @csrf
-            <div>
-                <input type="file" name="foto" id="foto" class="form-control-file">
+            <div class="form-group">
+                <input type="text" name="nama" id="nama" class="form-control form-control-sm">
             </div>
-            @error('foto')
+            @error('nama')
                 <div class="alert alert-danger small">
-                    @foreach ($errors->get('foto') as $error)
+                    @foreach ($errors->get('nama') as $error)
                         <div>
                             {{ $error }}
                         </div>
@@ -32,15 +32,20 @@
         </form>
     </div>
     <div>
-        List Gambar
+        List Album
         <ul>
-            @forelse ($listgambar as $gambar)
+            @forelse ($albums as $album)
                 <li>
-                    <div>
-                        <div class="img-lg" style="background-image: url('{{ $gambar->src_sm }}')"></div>
+                    <a href="{{ route('admin.album.info', [ 'album' => $album->id ]) }}">
+                        <div class="font-weight-bold">
+                            {{ $album->nama }}
+                        </div>
+                    </a>
+                    <div class="text-muted small">
+                        {{ $album->keterangan }}
                     </div>
-                    <div class="font-weight-bold">
-                        {{ $gambar->alt }}
+                    <div class="text-muted small">
+                        {{ $album->total_galeri }} Galeri
                     </div>
                 </li>
             @empty

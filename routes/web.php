@@ -34,6 +34,12 @@ Route::prefix("/admin")->group(function($app){
         Route::get('/', 'Admin\GambarController@index')->name('admin.gambar');
         Route::post('/', 'Admin\GambarController@upload')->name('admin.gambar.upload');
     });
+    Route::prefix('/album')->group(function($app){
+        Route::get('/', 'Admin\AlbumController@index')->name('admin.album');
+        Route::get('/{album}', 'Admin\AlbumController@info')->name('admin.album.info');
+        Route::post('/{album}', 'Admin\AlbumController@tambahGaleri')->name('admin.album.galeri.tambah');
+        // Route::post('/', 'Admin\AlbumController@upload')->name('admin.gambar.upload');
+    });
 });
 
 //Socialite

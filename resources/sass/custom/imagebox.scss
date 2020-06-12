@@ -1,0 +1,15 @@
+$box-img: (
+    'lg': 10rem,
+    'md': 5rem,
+    'sm': 2.5rem,
+    'xs': 1.25rem,
+);
+
+@each $name, $box in $box-img {
+    .img-#{$name}{
+        height: $box; width: $box;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}
