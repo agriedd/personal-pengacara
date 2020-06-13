@@ -1,0 +1,18 @@
+$sidebar-width: 270px;
+$sidebar-height: 100vh;
+$sidebar-color: $blue;
+
+.sidebar{
+    max-width: $sidebar-width;
+    max-height: $sidebar-height;
+    min-height: $sidebar-height;
+    background-color: $sidebar-color;
+
+    & > .inner-sidebar{
+        position: fixed;
+        top: 0px; left: 0px;
+        width: 100%; max-width: $sidebar-width;
+        height: $sidebar-height;
+        background-color: $sidebar-color;
+    }
+}

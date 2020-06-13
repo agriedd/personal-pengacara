@@ -16,6 +16,7 @@
 <body>
     @yield('beforecontent')
     <div id="app">
+        @yield('sidebar')
         <main class="py-4">
             @yield('content')
         </main>

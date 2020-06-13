@@ -38,7 +38,6 @@ Route::prefix("/admin")->group(function($app){
         Route::get('/', 'Admin\AlbumController@index')->name('admin.album');
         Route::get('/{album}', 'Admin\AlbumController@info')->name('admin.album.info');
         Route::post('/{album}', 'Admin\AlbumController@tambahGaleri')->name('admin.album.galeri.tambah');
-        // Route::post('/', 'Admin\AlbumController@upload')->name('admin.gambar.upload');
     });
 });
 

@@ -10960,3 +10960,20 @@ a.text-dark:focus {
   background-size: cover;
 }
 
+.sidebar {
+  max-width: 270px;
+  max-height: 100vh;
+  min-height: 100vh;
+  background-color: #007bff;
+}
+
+.sidebar > .inner-sidebar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  max-width: 270px;
+  height: 100vh;
+  background-color: #007bff;
+}
+
