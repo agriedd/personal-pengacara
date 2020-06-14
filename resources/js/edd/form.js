@@ -10,7 +10,7 @@ const Form = class {
         tab: null,
         image: {},
         form: {},
-        collaspse: {},
+        collapse: {},
     }){
         this.option = option
         this.data = {}

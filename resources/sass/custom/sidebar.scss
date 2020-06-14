@@ -1,18 +1,289 @@
-$sidebar-width: 270px;
+$sidebar-width: 286px;
 $sidebar-height: 100vh;
-$sidebar-color: $blue;
+$sidebar-color: $light;
+$sidebar-mini-size: 60px;
+$sidebar-item-height: $sidebar-mini-size;
+$sidebar-active-item-color: #00cba9;
+$sidebar-item-icon-color: #34495e;
+$sidebar-item-icon-color-dark: #adb5bd;
 
+/* Sidebar Large min-width 992*/
+
+.sidebar-open{
+	overflow: unset;
+}
 .sidebar{
-    max-width: $sidebar-width;
-    max-height: $sidebar-height;
-    min-height: $sidebar-height;
-    background-color: $sidebar-color;
-
+	width: 100%; max-width: $sidebar-width;
+	position: relative; z-index: 500;
+	height: 100%; min-height: $sidebar-height;
+	background-color: $sidebar-color;
+    transition: max-width .25s ease, max-height .25s ease;
     & > .inner-sidebar{
-        position: fixed;
-        top: 0px; left: 0px;
         width: 100%; max-width: $sidebar-width;
+        position: fixed; z-index: 500;
+        background: $sidebar-color;
         height: $sidebar-height;
-        background-color: $sidebar-color;
+        transition: max-height 0s linear, max-width 0s linear, background .3s ease-out;
+        display: flex;
+        flex-direction: column;
+
+        & > .sidebar-header{
+            width: 100%;
+        }
+        & > .sidebar-body{
+            width: 100%;
+            flex: 1 1 auto;
+            overflow-y: hidden;
+        }
+    }
+
+    &:not(.mini) > .inner-sidebar > .sidebar-body.scrollable,
+    &:not(.mini)[scrollable] > .inner-sidebar > .sidebar-body{
+        overflow-y: auto;
+    }
+    &.mini{
+        max-width: $sidebar-mini-size;
+
+        &.dark{
+            /*background: #34495e;*/
+            
+            & > .inner-sidebar{
+                background: #34495e;
+            }
+            .item{
+                &:not(.active){
+                    & > .inner-item{
+                        & > .icon{
+                            color: $sidebar-item-icon-color-dark;
+                        }
+                    } 
+                }
+                &.active{
+                    & > .inner-item{
+                        & > .icon{
+                            color: $sidebar-active-item-color;
+                        }
+                    }
+                }
+            }
+        }
+        .item{
+            max-height: $sidebar-item-height;
+
+            &.active{
+                position: relative;
+                &::before{
+                    content: "";
+                    height: 90%;
+                    width: 4px;
+                    position: absolute; left: unset; right: 0px; top: 50%;
+                    border-radius: 0px;
+                    background: $sidebar-active-item-color;
+                    transform: translateY(-50%);
+                }
+            }
+            &:not(.disabled){
+                & > .inner-item{
+                    &:hover{
+                        background: rgba(255,255,255,.025);
+                    }
+                    &:active{
+                        background: rgba(255,255,255,.05);
+                    }
+                }
+            }
+            &[hide-mini*="false"]{
+                display: block!important;
+            }
+            &:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(5)):not(:nth-child(6)){
+                display: none;
+            }
+            & > .inner-item {
+                & > .icon {
+                    width: 100%;
+                    margin: 0px;
+                    padding-left: unset;
+                    text-align: center;
+                    font-size: 1rem;
+                    
+                    svg {
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        margin: 0 auto;
+                    }
+                }
+                & > .label {
+                    display: none;
+                }
+                & > .sub-item {
+                    display: none;
+                }
+            }
+        }
+        & > .inner-sidebar{
+            max-width: $sidebar-mini-size;
+            display: flex; flex-direction: column;
+            transition: max-width 0s linear;
+
+            & > .sidebar-header{}
+            & > .sidebar-body{
+                width: 100%;
+                display: flex; flex-direction: column; justify-content: flex-end;
+                scroll-behavior: smooth;
+            }
+        }
+
+        *[hide-mini*="true"],
+        item[hide-mini*="true"],
+        & > .inner-sidebar > .sidebar-header > *:not(.item),
+        & > .inner-sidebar > .sidebar-body > *:not(.item){
+        	display: none;
+        }
+    }
+
+    .item{
+        height: fit-content; min-height: $sidebar-mini-size;
+        width: 100%;
+        user-select: none;
+        transition: all .25s ease;
+        
+        &.show{
+            & > .sub-item{
+                display: block;
+            }
+        }
+
+        & > .sub-item{
+            display: none;
+            background: rgba(0,0,0,.01);
+    		padding-left: 3rem;
+        }
+        & > .inner-item{
+            display: flex; flex-direction: row;
+            width: 100%;
+            height: 100%; min-height: $sidebar-item-height;
+            transition: border-radius 1s ease, transform .25s ease;
+
+            & > .icon{
+                color: $sidebar-item-icon-color;
+                padding-left: 2rem;
+                
+                & > .inner-icon{
+                    height: 100%;
+                    display: flex; flex-direction: column; justify-content: center;
+                }
+                svg{
+                    width: 1.2rem;
+                    height: 1.2rem;
+                }
+            }
+            & > .label{
+                padding-left: 2rem;
+                flex-grow: 1;
+                overflow: hidden;
+
+                & > .inner-label{
+                    height: 100%;
+                    display: flex; flex-direction: column; justify-content: center;
+
+                    & > *{
+                        max-width: 100%;
+                        overflow: hidden; text-overflow: ellipsis;
+                        white-space: nowrap;
+                        padding-right: 1rem;
+                    }
+                }
+            }
+            .toggler{
+                height: 26px;
+                width: 26px;
+                border: none; border-radius: 26px;
+                font-size: 100%;
+                background-color: rgba(0,153,255,0);
+                transition: background-color .25s ease;
+                outline: none;
+                position: relative; z-index: 2;
+                
+                ::before{
+                    content: "";
+                    height: 100%;
+                    width: 100%;
+                    opacity: 0;
+                    background-color: rgba(0,153,255,.25);
+                    position: absolute; left: 0px; top: 0px; z-index: 1;
+                    border-radius: 50%;
+                    transform: scale(0);
+                    transition: background-color .5s ease, transform .25s ease-out, opacity .25s ease;
+                }
+                &:hover{
+                    &::before{
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                }
+                &:active{
+                    background-color: rgba(0,153,255,.5);
+                    color: #fff!important;
+                }
+            }
+        }
+        & > a.inner-item{
+            text-decoration: unset;
+            color: unset;
+        }
+
+        &:not(.disabled){
+            & > .inner-item{
+                &:hover{
+                    background: rgba(0,0,0,.025);
+                    cursor: pointer;
+                }
+                &:active{
+                    background: rgba(0,0,0,.05);
+                    transform: scale(.98);
+                    /*border-radius: 10rem;*/
+                }
+            }
+        }
+
+        &.active{
+            position: relative;
+
+            &::before{
+                position: absolute; left: 0px; top: 50%;
+                height: 60%;
+                width: 4px;
+                border-radius: 0px 4px 4px 0px;
+                content: "";
+                background: $sidebar-active-item-color;
+                transform: translateY(-50%);
+            }
+            & > .inner-item {
+
+                & > .icon{
+                    color: $sidebar-active-item-color;
+                }
+                & > .label{
+                    /*font-weight: bold;*/
+                    color: $sidebar-active-item-color;
+                }
+            }
+        }
     }
 }
+.section-body{
+    width: 100%; max-width: calc(100vw - $sidebar-mini-size);
+	min-height: $sidebar-height;
+	padding: 15px;
+	box-sizing: border-box;
+    transition: max-width .25s ease;
+    
+    &.sidebar-active{
+        max-width: calc(100vw - $sidebar-width);
+    }
+}
+.wrapper{
+    display: flex;
+}
+
+@import './sidebar/sm.scss'

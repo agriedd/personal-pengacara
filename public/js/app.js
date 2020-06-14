@@ -13334,6 +13334,7 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edd_error__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edd/error */ "./resources/js/edd/error.js");
 /* harmony import */ var _edd_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edd/form */ "./resources/js/edd/form.js");
+/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar */ "./resources/js/navbar.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -13342,9 +13343,13 @@ __webpack_require__.r(__webpack_exports__);
 // require('./bootstrap');
 
 
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 window.Error = _edd_error__WEBPACK_IMPORTED_MODULE_0__["default"];
 window.Form = _edd_form__WEBPACK_IMPORTED_MODULE_1__["default"];
+window.Mixins = {
+  Navbar: Object(_navbar__WEBPACK_IMPORTED_MODULE_2__["default"])(_edd_form__WEBPACK_IMPORTED_MODULE_1__["default"])
+};
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -13637,7 +13642,7 @@ var Form = function Form(data) {
     tab: null,
     image: {},
     form: {},
-    collaspse: {}
+    collapse: {}
   };
 
   _classCallCheck(this, Form);
@@ -13690,12 +13695,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 /* harmony default export */ __webpack_exports__["default"] = (function (e) {
-  e.prototype.setCollapse = function (vue, collapse) {
-    for (var key in collapse) {
+  e.prototype.setCollapse = function () {
+    var vue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+    var collapse = arguments.length > 1 ? arguments[1] : undefined;
+    if (vue == null) this.option.collapse = _objectSpread(_objectSpread({}, this.option.collapse), collapse);else for (var key in collapse) {
       vue.$set(this.option.collapse, key, collapse[key]);
     }
-
     return this;
   };
 
@@ -14736,6 +14748,30 @@ __webpack_require__.r(__webpack_exports__);
 
     return this.option.tab == name;
   };
+});
+
+/***/ }),
+
+/***/ "./resources/js/navbar.js":
+/*!********************************!*\
+  !*** ./resources/js/navbar.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (vue, form) {
+  var navbar = new window.Form({}).setCollapse(null, {
+    sidebar: false
+  });
+  return Vue.extend({
+    data: function data() {
+      return {
+        navbar: navbar
+      };
+    }
+  });
 });
 
 /***/ }),

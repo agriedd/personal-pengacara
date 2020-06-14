@@ -8,10 +8,13 @@
 
 import error from './edd/error';
 import Form from './edd/form';
+import Navbar from './navbar';
 
 window.Vue = require('vue');
 window.Error = error;
 window.Form = Form;
+
+window.Mixins = { Navbar: Navbar(Form) };
 
 /**
  * The following block of code may be used to automatically register your

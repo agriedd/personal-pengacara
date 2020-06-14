@@ -14,3 +14,15 @@
         </h4>
     </div>
 @endsection
+
+@push('footer')
+    <script async>
+        var app = new Vue({
+            el: "#app",
+            mixins: [ window.Mixins.Navbar ],
+            created(){
+                console.log("wtf");
+            }
+        })
+    </script>
+@endpush

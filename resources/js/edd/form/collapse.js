@@ -1,9 +1,13 @@
 export default e => {
-    
-    e.prototype.setCollapse = function(vue, collapse){
-        for(let key in collapse){
-            vue.$set(this.option.collapse, key, collapse[key]);
-        }
+    e.prototype.setCollapse = function(vue = null, collapse){
+        if(vue == null)
+            this.option.collapse = {
+                ...this.option.collapse,
+                ...collapse
+            }
+        else
+            for(let key in collapse)
+                vue.$set(this.option.collapse, key, collapse[key]);
         return this;
     }
     e.prototype.getCollapse = function(key, defaultValue = null){
