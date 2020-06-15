@@ -53,8 +53,8 @@
 
             & > .inner-sidebar{
                 padding-top: 0rem;
-                display: flex;
-                flex-direction: row-reverse;
+                display: flex; flex-direction: row-reverse;
+                border-radius: 0px;
                 
                 & > .sidebar-header{
                     display: flex;

@@ -1,0 +1,19 @@
+@include media-breakpoint-down(md) {
+	.sidebar{
+        max-width: $sidebar-mini-size;
+        & > .inner-sidebar{
+            box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+            transition: max-width .25s cubic-bezier(0.03, 0.18, 0.51, 1.0), max-height .25s ease;
+        }
+        &.mini{
+            & > .inner-sidebar{
+                transition: max-width .25s ease, max-height .25s ease;
+            }
+        }
+	}
+    .section-body{
+        &.sidebar-active{
+            max-width: calc(100vw - $sidebar-mini-size);
+        }
+    }
+}

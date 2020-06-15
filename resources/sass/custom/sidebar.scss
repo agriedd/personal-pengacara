@@ -165,8 +165,9 @@ $sidebar-item-icon-color-dark: #adb5bd;
             transition: border-radius 1s ease, transform .25s ease;
 
             & > .icon{
+                height: $sidebar-mini-size;
+                width: $sidebar-mini-size;
                 color: $sidebar-item-icon-color;
-                padding-left: 2rem;
                 
                 & > .inner-icon{
                     height: 100%;
@@ -175,10 +176,11 @@ $sidebar-item-icon-color-dark: #adb5bd;
                 svg{
                     width: 1.2rem;
                     height: 1.2rem;
+                    margin: 0px auto;
                 }
             }
             & > .label{
-                padding-left: 2rem;
+                padding-left: 1rem;
                 flex-grow: 1;
                 overflow: hidden;
 
@@ -286,4 +288,6 @@ $sidebar-item-icon-color-dark: #adb5bd;
     display: flex;
 }
 
-@import './sidebar/sm.scss'
+@import './sidebar/sm.scss';
+@import './sidebar/md.scss';
+@import './sidebar/lg.scss';

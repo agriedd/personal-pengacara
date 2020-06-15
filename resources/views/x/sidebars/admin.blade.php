@@ -1,4 +1,4 @@
-<div class="sidebar" :class="{mini: navbar.getCollapse('sidebar', false)}">
+<div class="sidebar dark" :class="{mini: navbar.getCollapse('sidebar', false)}">
     <div class="inner-sidebar">
         @component('x.sidebars.item')
             @slot('attributes') @click="navbar.toggleCollapse('sidebar')" @endslot
