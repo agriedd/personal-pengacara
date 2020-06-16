@@ -1,13 +1,26 @@
 $sidebar-width: 286px;
 $sidebar-height: 100vh;
 $sidebar-color: $light;
+$sidebar-color-dark: #34495e;
 $sidebar-mini-size: 60px;
 $sidebar-item-height: $sidebar-mini-size;
 $sidebar-active-item-color: #00cba9;
 $sidebar-item-icon-color: #34495e;
 $sidebar-item-icon-color-dark: #adb5bd;
+$sidebar-backdrop-color: rgba(0,0,0,.5);
 
 /* Sidebar Large min-width 992*/
+
+@mixin hide-sidebar-backdrop{
+    visibility: hidden;
+    transform: translateX(-100%);
+    @content;
+}
+@mixin show-sidebar-backdrop{
+    visibility: visible;
+    transform: translateX(0%);
+    @content;
+}
 
 .sidebar-open{
 	overflow: unset;
@@ -18,6 +31,16 @@ $sidebar-item-icon-color-dark: #adb5bd;
 	height: 100%; min-height: $sidebar-height;
 	background-color: $sidebar-color;
     transition: max-width .25s ease, max-height .25s ease;
+
+    .sidebar-backdrop{
+        height: 100vh;
+        width: 100vw;
+        background-color: $sidebar-backdrop-color;
+        position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; z-index: 0;
+        transition: background-color .5s ease;
+        @include hide-sidebar-backdrop();
+    }
+
     & > .inner-sidebar{
         width: 100%; max-width: $sidebar-width;
         position: fixed; z-index: 500;
@@ -48,7 +71,7 @@ $sidebar-item-icon-color-dark: #adb5bd;
             /*background: #34495e;*/
             
             & > .inner-sidebar{
-                background: #34495e;
+                background: $sidebar-color-dark;
             }
             .item{
                 &:not(.active){
@@ -56,7 +79,17 @@ $sidebar-item-icon-color-dark: #adb5bd;
                         & > .icon{
                             color: $sidebar-item-icon-color-dark;
                         }
-                    } 
+                    }
+                }
+                &:not(.disabled){
+                    & > .inner-item{
+                        &:hover{
+                            background: lighten($sidebar-color-dark, 10);
+                        }
+                        &:active{
+                            background: lighten($sidebar-color-dark, 20);
+                        }
+                    }
                 }
                 &.active{
                     & > .inner-item{
@@ -85,10 +118,10 @@ $sidebar-item-icon-color-dark: #adb5bd;
             &:not(.disabled){
                 & > .inner-item{
                     &:hover{
-                        background: rgba(255,255,255,.025);
+                        background: darken($light, 10);
                     }
                     &:active{
-                        background: rgba(255,255,255,.05);
+                        background: darken($light, 20);
                     }
                 }
             }
@@ -272,6 +305,7 @@ $sidebar-item-icon-color-dark: #adb5bd;
             }
         }
     }
+
 }
 .section-body{
     width: 100%; max-width: calc(100vw - $sidebar-mini-size);

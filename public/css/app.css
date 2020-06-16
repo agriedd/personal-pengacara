@@ -10977,6 +10977,21 @@ a.text-dark:focus {
   transition: max-width 0.25s ease, max-height 0.25s ease;
 }
 
+.sidebar .sidebar-backdrop {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 0;
+  transition: background-color 0.5s ease;
+  visibility: hidden;
+  transform: translateX(-100%);
+}
+
 .sidebar > .inner-sidebar {
   width: 100%;
   max-width: 286px;
@@ -11020,6 +11035,14 @@ a.text-dark:focus {
   color: #adb5bd;
 }
 
+.sidebar.mini.dark .item:not(.disabled) > .inner-item:hover {
+  background: #46637f;
+}
+
+.sidebar.mini.dark .item:not(.disabled) > .inner-item:active {
+  background: #587ca0;
+}
+
 .sidebar.mini.dark .item.active > .inner-item > .icon {
   color: #00cba9;
 }
@@ -11046,11 +11069,11 @@ a.text-dark:focus {
 }
 
 .sidebar.mini .item:not(.disabled) > .inner-item:hover {
-  background: rgba(255, 255, 255, 0.025);
+  background: #dae0e5;
 }
 
 .sidebar.mini .item:not(.disabled) > .inner-item:active {
-  background: rgba(255, 255, 255, 0.05);
+  background: #bdc6d0;
 }
 
 .sidebar.mini .item[hide-mini*=false] {
@@ -11287,7 +11310,7 @@ a.text-dark:focus {
     min-height: unset;
     width: 100%;
     max-width: 100vw !important;
-    background: rgba(0, 0, 0, 0.5);
+    background: transparent;
     display: flex;
     overflow: unset;
     padding: 1rem;
@@ -11427,6 +11450,11 @@ a.text-dark:focus {
 
   .sidebar.mini > .inner-sidebar {
     transition: max-width 0.25s ease, max-height 0.25s ease;
+  }
+
+  .sidebar:not(.mini) .sidebar-backdrop {
+    visibility: visible;
+    transform: translateX(0%);
   }
 
   .section-body.sidebar-active {

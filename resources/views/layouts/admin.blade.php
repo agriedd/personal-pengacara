@@ -22,6 +22,9 @@
                 @yield('content')
             </main>
         </div>
+        <div class="placeholder">
+            
+        </div>
     </div>
     @stack('footer')
 </body>

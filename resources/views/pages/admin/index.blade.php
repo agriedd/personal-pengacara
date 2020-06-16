@@ -8,15 +8,32 @@
 @endsection
 
 @section('content')
-    <div>
+    <div class="container">
         <h4 class="font-weight-light">
-            Panel Admin
+            Informasi panel admin
         </h4>
+        <ol>
+            <li>
+                informasi artikel
+            </li>
+            <li>
+                Kunjungan
+            </li>
+            <li>
+                Percobaan Login
+            </li>
+            <li>
+                Link diklik
+            </li>
+            <li>
+                pengaturan
+            </li>
+        </ol>
     </div>
 @endsection
 
 @push('footer')
-    <script async>
+    <script defer>
         var app = new Vue({
             el: "#app",
             mixins: [ window.Mixins.Navbar ],

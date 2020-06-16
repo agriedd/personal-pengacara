@@ -32,4 +32,5 @@
             </div>
         </div>
     </div>
+    <div class="sidebar-backdrop" v-on:click.self="navbar.toggleCollapse('sidebar', true)"></div>
 </div>
