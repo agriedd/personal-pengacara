@@ -200,7 +200,7 @@ $sidebar-backdrop-color: rgba(0,0,0,.5);
             & > .icon{
                 height: $sidebar-mini-size;
                 width: $sidebar-mini-size;
-                min-width: $sidebar-width;
+                min-width: $sidebar-mini-size;
                 color: $sidebar-item-icon-color;
                 
                 & > .inner-icon{
