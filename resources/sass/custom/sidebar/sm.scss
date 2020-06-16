@@ -66,6 +66,7 @@
                     position: relative;
                     display: flex; flex: 1 1 auto; flex-direction: row-reverse; justify-content: start;
                     border-radius: 0rem 0rem;
+                    overflow: hidden;
                 }
                 .item{
                     &.toggler{
@@ -116,7 +117,10 @@
             & > div > :not(.item){
                 display: none;
             }
-        } 
+            .item-wrapper{
+                flex-direction: row;
+            }
+        }
 
 	}
     /*Section Body*/

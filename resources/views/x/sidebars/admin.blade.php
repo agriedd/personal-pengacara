@@ -10,10 +10,17 @@
                 @endslot
             @endcomponent
             <div class="p-2">
-                <div class="card border-0 shadow-sm bg-primary text-light">
+                <div class="card border-0 shadow-sm text-dark">
                     <div class="card-body">
                         <div class="small">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque porro tempore magnam exercitationem ab in, nemo culpa reprehenderit dolore autem iure temporibus ratione, sed repudiandae corporis dicta natus nihil vero.
+                            @lang('sidebars.info-sidebar-admin')
+                        </div>
+                        <div class="mt-3">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm btn-primary">
+                                    Mengerti
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -99,6 +106,23 @@
                         <svg class="bi bi-layout-text-window-reverse" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M2 1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm12-1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
                             <path fill-rule="evenodd" d="M5 15V4H4v11h1zM.5 4h15V3H.5v1zM13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z"/>
+                        </svg>
+                    @endslot
+                @endcomponent
+                @component('x.sidebars.item', [ 'name' => 'album', 'link' => route('admin.album') ])
+                    @slot('label')
+                        <div>
+                            Galeri
+                        </div>
+                        <div class="small text-muted font-weight-normal">
+                            Kelola galeri yang akan ditampilkan
+                        </div>
+                    @endslot
+                    @slot('icon')
+                        <svg class="bi bi-images" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M12.002 4h-10a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-10-1a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-10z"/>
+                            <path d="M10.648 8.646a.5.5 0 0 1 .577-.093l1.777 1.947V14h-12v-1l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71z"/>
+                            <path fill-rule="evenodd" d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM4 2h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1v1a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2h1a1 1 0 0 1 1-1z"/>
                         </svg>
                     @endslot
                 @endcomponent

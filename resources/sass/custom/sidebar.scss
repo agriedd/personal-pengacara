@@ -155,7 +155,7 @@ $sidebar-backdrop-color: rgba(0,0,0,.5);
         }
         .item-wrapper{
             padding-left: unset;
-            display: flex; flex-direction: row;
+            display: flex; flex-direction: column;
         }
         & > .inner-sidebar{
             max-width: $sidebar-mini-size;
@@ -332,7 +332,7 @@ $sidebar-backdrop-color: rgba(0,0,0,.5);
         padding-left: #{$sidebar-mini-size};
         display: none;
         &.show{
-            display: flex; flex-direction: row;
+            display: flex; flex-direction: column;
         }
     }
 

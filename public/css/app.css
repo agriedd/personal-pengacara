@@ -11109,7 +11109,7 @@ a.text-dark:focus {
 .sidebar.mini .item-wrapper {
   padding-left: unset;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .sidebar.mini > .inner-sidebar {
@@ -11313,7 +11313,7 @@ a.text-dark:focus {
 
 .sidebar .item-wrapper.show {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .sidebar.clean .item.active::before {
@@ -11416,6 +11416,7 @@ a.text-dark:focus {
     flex-direction: row-reverse;
     justify-content: start;
     border-radius: 0rem 0rem;
+    overflow: hidden;
   }
 
   .sidebar.mini > .inner-sidebar .item.toggler {
@@ -11470,6 +11471,10 @@ a.text-dark:focus {
   .sidebar.mini .item[hide-mini*=true],
   .sidebar.mini > div > :not(.item) {
     display: none;
+  }
+
+  .sidebar.mini .item-wrapper {
+    flex-direction: row;
   }
 
   /*Section Body*/
