@@ -4,7 +4,7 @@
     $isActive = !!preg_match("/^(admin\/)($name)(.*)/", request()->route()->uri());
 @endphp
 <div class="item {{ $isActive ? "active" : null }}" {{ $attributes ?? '' }}>
-    <div class="inner-item">
+    <a href="{{ $link ?? '#' }}" class="inner-item">
         @isset($icon)
             <div class="icon">
                 <div class="inner-icon">
@@ -21,5 +21,5 @@
                 {{ $label ?? '' }}
             </div>
         </div>
-    </div>
+    </a>
 </div>

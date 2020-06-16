@@ -8,10 +8,13 @@
                 </svg>
             @endslot
         @endcomponent
-        @component('x.sidebars.item', [ 'name' => 'artikel' ])
+        @component('x.sidebars.item', [ 'name' => 'artikel', 'link' => route('admin.artikel') ])
             @slot('label')
                 <div>
                     Artikel Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, ut?
+                </div>
+                <div class="small text-muted">
+                    Lorem, ipsum dolor sit amet
                 </div>
             @endslot
             @slot('iconActive')
