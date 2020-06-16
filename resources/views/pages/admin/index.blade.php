@@ -33,13 +33,15 @@
 @endsection
 
 @push('footer')
-    <script defer>
-        var app = new Vue({
-            el: "#app",
-            mixins: [ window.Mixins.Navbar ],
-            created(){
-                console.log("wtf");
-            }
+    <script>
+        window.addEventListener('load', ()=>{
+            var app = new Vue({
+                el: "#app",
+                mixins: [ window.Mixins.Navbar ],
+                created(){
+                    console.log("wtf");
+                }
+            })
         })
     </script>
 @endpush

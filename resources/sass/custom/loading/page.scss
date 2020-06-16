@@ -1,0 +1,91 @@
+$backdrop-color: $light;
+$loading-bar-color: linear-gradient(45deg, darken($blue, 40), #f28);
+$loading-bar-color: lighten($blue, 10);
+$loading-color: lighten($dark, 75);
+$loading-height: 1rem;
+$loading-width: 4rem;
+
+.placeholder{
+    height: 100vh;
+    width: 100vw;
+    position: fixed; z-index: 100000; top: 0px; left: 0px; right: 0px; bottom: 0px;
+    background-color: $backdrop-color;
+    display: none;
+
+    &[v-cloak]{
+        display: flex!important; flex-direction: column; justify-content: end;
+    }
+    
+    .loading{
+        background-color: $backdrop-color;
+        height: $loading-height;
+        width: 100%; max-width: $loading-width;
+        background-color: $loading-color;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+        filter: blur(10px) contrast(10px);
+        border-radius: 10rem;
+        
+        &.bottom{
+            margin-bottom: 2rem;
+        }
+        &.right{
+            margin-right: 2rem;
+        }
+        &.top{
+            margin-left: 2rem;
+        }
+        &.left{
+            margin-left: 2rem;
+        }
+        &.center{
+            margin: 0px auto;
+        }
+        &.middle{
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        
+        .loading-bar{
+            width: 0px;
+            height: 100%;
+            animation: loading-bar 4s ease infinite;
+            background: $loading-bar-color;
+            border-radius: 10rem;
+        }
+        &::before{
+            content: '';
+            height: $loading-height;
+            width: $loading-height;
+            background: $loading-bar-color;
+            position: absolute; top: 0px; left: 0px;
+            border-radius: 10rem;
+        }
+        &::after{
+            content: '';
+            height: $loading-height;
+            width: $loading-height;
+            background: $loading-bar-color;
+            position: absolute; top: 0px; right: 0px;
+            border-radius: 10rem;
+        }
+    }
+}
+@keyframes loading-bar{
+    0%{
+        width: 0%;
+        left: 0%;
+        transform: translateX(-100%);
+    }
+    75%{
+        width: 100%;
+        left: 100%;
+        transform: translateX(120%);
+    }
+    100%{
+        width: 100%;
+        left: 100%;
+        transform: translateX(100%);
+    }
+}

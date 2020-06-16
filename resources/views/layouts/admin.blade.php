@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @stack('meta')
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <script src="{{ asset('js/app.js') }}" async></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('script')
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -22,8 +22,10 @@
                 @yield('content')
             </main>
         </div>
-        <div class="placeholder">
-            
+        <div class="placeholder" v-cloak>
+            <div class="loading center middle">
+                <div class="loading-bar"></div>
+            </div>
         </div>
     </div>
     @stack('footer')
