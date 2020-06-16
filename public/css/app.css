@@ -11106,6 +11106,12 @@ a.text-dark:focus {
   display: none;
 }
 
+.sidebar.mini .item-wrapper {
+  padding-left: unset;
+  display: flex;
+  flex-direction: row;
+}
+
 .sidebar.mini > .inner-sidebar {
   max-width: 60px;
   display: flex;
@@ -11124,7 +11130,7 @@ a.text-dark:focus {
 .sidebar.mini *[hide-mini*=true],
 .sidebar.mini item[hide-mini*=true],
 .sidebar.mini > .inner-sidebar > .sidebar-header > *:not(.item),
-.sidebar.mini > .inner-sidebar > .sidebar-body > *:not(.item) {
+.sidebar.mini > .inner-sidebar > .sidebar-body > *:not(.item):not(.item-wrapper) {
   display: none;
 }
 
@@ -11200,6 +11206,25 @@ a.text-dark:focus {
   white-space: nowrap;
   padding-right: 1rem;
   font-weight: 600;
+}
+
+.sidebar .item > .inner-item > .action {
+  height: 60px;
+  width: 60px;
+  min-width: 60px;
+}
+
+.sidebar .item > .inner-item > .action > .inner-action {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar .item > .inner-item > .action > .inner-action svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: 0px auto;
 }
 
 .sidebar .item > .inner-item .toggler {
@@ -11281,9 +11306,27 @@ a.text-dark:focus {
   color: #00cba9;
 }
 
+.sidebar .item-wrapper {
+  padding-left: 60px;
+  display: none;
+}
+
+.sidebar .item-wrapper.show {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar.clean .item.active::before {
+  height: 0%;
+  width: 0px;
+  border-radius: 0px 4px 4px 0px;
+  content: "";
+  background: transparent;
+}
+
 .section-body {
   width: 100%;
-  max-width: calc(100vw - $sidebar-mini-size);
+  max-width: calc(100vw - 60px);
   min-height: 100vh;
   padding: 15px;
   box-sizing: border-box;
@@ -11291,7 +11334,7 @@ a.text-dark:focus {
 }
 
 .section-body.sidebar-active {
-  max-width: calc(100vw - $sidebar-width);
+  max-width: calc(100vw - 60px);
 }
 
 .wrapper {
@@ -11317,7 +11360,6 @@ a.text-dark:focus {
     overflow: unset;
     padding: 1rem;
     transition: max-width 0.15s ease, max-height 0.15s ease-out;
-    /*Section Body*/
   }
 
   .sidebar > .inner-sidebar {
@@ -11430,12 +11472,14 @@ a.text-dark:focus {
     display: none;
   }
 
-  .sidebar .section-body {
+  /*Section Body*/
+
+  .section-body {
     max-width: 100vw;
-    padding-bottom: 100px;
+    padding-bottom: 100px !important;
   }
 
-  .sidebar .section-body.sidebar-active {
+  .section-body.sidebar-active {
     max-width: 100vw !important;
   }
 }
@@ -11460,7 +11504,7 @@ a.text-dark:focus {
   }
 
   .section-body.sidebar-active {
-    max-width: calc(100vw - $sidebar-mini-size);
+    max-width: calc(100vw - 60px);
   }
 }
 

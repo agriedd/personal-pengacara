@@ -18,7 +18,7 @@
 	}
     .section-body{
         &.sidebar-active{
-            max-width: calc(100vw - $sidebar-mini-size);
+            max-width: calc(100vw - #{$sidebar-mini-size});
         }
     }
 }
