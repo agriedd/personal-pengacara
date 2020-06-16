@@ -11163,6 +11163,7 @@ a.text-dark:focus {
 .sidebar .item > .inner-item > .icon {
   height: 60px;
   width: 60px;
+  min-width: 286px;
   color: #34495e;
 }
 
