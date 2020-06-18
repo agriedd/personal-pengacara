@@ -18,7 +18,7 @@
     <div id="app">
         <div class="wrapper">
             @yield('sidebar')
-            <main class="py-4 section-body" :class="{'sidebar-active': navbar.getCollapse('sidebar', false)}">
+            <main class="section-body bg-light" :class="{'sidebar-active': navbar.getCollapse('sidebar', false)}">
                 @yield('content')
             </main>
         </div>

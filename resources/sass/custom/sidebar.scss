@@ -1,11 +1,13 @@
-$sidebar-width: 286px;
+$sidebar-width: 320px;
 $sidebar-height: 100vh;
-$sidebar-color: $light;
+$sidebar-color: $white;
 $sidebar-color-dark: #34495e;
 $sidebar-mini-size: 60px;
 $sidebar-item-height: $sidebar-mini-size;
-$sidebar-active-item-color: #00cba9;
-$sidebar-item-icon-color: #34495e;
+$sidebar-active-item-color: darken($gray-600, 0);
+$sidebar-active-item-color: $dark;
+$sidebar-item-icon-color: $gray-600;
+$sidebar-item-label-color: $gray-600;
 $sidebar-item-icon-color-dark: #adb5bd;
 $sidebar-backdrop-color: rgba(0,0,0,.5);
 
@@ -27,7 +29,7 @@ $sidebar-backdrop-color: rgba(0,0,0,.5);
 }
 .sidebar{
 	width: 100%; max-width: $sidebar-width;
-	position: relative; z-index: 500;
+	position: relative; z-index: 10000;
 	height: 100%; min-height: $sidebar-height;
 	background-color: $sidebar-color;
     transition: max-width .25s ease, max-height .25s ease;
@@ -212,8 +214,8 @@ $sidebar-backdrop-color: rgba(0,0,0,.5);
                     display: flex; flex-direction: column; justify-content: center;
                 }
                 svg{
-                    width: 1.2rem;
-                    height: 1.2rem;
+                    width: 1rem;
+                    height: 1rem;
                     margin: 0px auto;
                 }
             }
@@ -221,6 +223,7 @@ $sidebar-backdrop-color: rgba(0,0,0,.5);
                 padding-left: 1rem;
                 flex-grow: 1;
                 overflow: hidden;
+                color: $sidebar-item-label-color;
 
                 & > .inner-label{
                     height: 100%;
@@ -231,7 +234,6 @@ $sidebar-backdrop-color: rgba(0,0,0,.5);
                         overflow: hidden; text-overflow: ellipsis;
                         white-space: nowrap;
                         padding-right: 1rem;
-                        font-weight: 600;
                     }
                 }
             }
@@ -322,7 +324,7 @@ $sidebar-backdrop-color: rgba(0,0,0,.5);
                     color: $sidebar-active-item-color;
                 }
                 & > .label{
-                    /*font-weight: bold;*/
+                    font-weight: 600;
                     color: $sidebar-active-item-color;
                 }
             }
@@ -355,7 +357,6 @@ $sidebar-backdrop-color: rgba(0,0,0,.5);
 .section-body{
     width: 100%; max-width: calc(100vw - #{$sidebar-mini-size});
 	min-height: $sidebar-height;
-	padding: 15px;
 	box-sizing: border-box;
     transition: max-width .25s ease;
     

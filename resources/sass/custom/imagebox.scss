@@ -2,7 +2,7 @@ $box-img: (
     'lg': 10rem,
     'md': 5rem,
     'sm': 2.5rem,
-    'xs': 1.25rem,
+    'xs': 1.8rem,
 );
 
 @each $name, $box in $box-img {

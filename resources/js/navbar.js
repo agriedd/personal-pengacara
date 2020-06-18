@@ -5,6 +5,8 @@ export default (vue, form) => {
     }).setCollapse(null, {
         sidebar: false,
         navHalaman: false,
+        sidebarInfoAdmin: true,
+        dropdownHeaderUser: false,
     })
     return Vue.extend({
         data(){

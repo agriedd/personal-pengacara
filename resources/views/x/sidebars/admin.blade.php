@@ -9,7 +9,7 @@
                     </svg>
                 @endslot
             @endcomponent
-            <div class="p-2">
+            <div class="p-2" v-if="navbar.getCollapse('sidebarInfoAdmin', true)">
                 <div class="card border-0 shadow-sm text-dark">
                     <div class="card-body">
                         <div class="small">
@@ -17,7 +17,7 @@
                         </div>
                         <div class="mt-3">
                             <div class="d-flex justify-content-end">
-                                <button class="btn btn-sm btn-primary">
+                                <button class="btn btn-sm btn-primary" @click.prevent="navbar.toggleCollapse('sidebarInfoAdmin', false)">
                                     Mengerti
                                 </button>
                             </div>
@@ -30,10 +30,10 @@
             @component('x.sidebars.item', [ 'name' => 'artikel', 'link' => route('admin.artikel') ])
                 @slot('label')
                     <div>
-                        Artikel Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, ut?
+                        Artikel
                     </div>
-                    <div class="small text-muted font-weight-normal">
-                        Lorem, ipsum dolor sit amet
+                    <div class="small text-gray-light font-weight-normal">
+                        Kelola Artikel
                     </div>
                 @endslot
                 @slot('iconActive')
@@ -53,7 +53,7 @@
                     <div>
                         Client
                     </div>
-                    <div class="small text-muted font-weight-normal">
+                    <div class="small text-gray-light font-weight-normal">
                         Kelola Daftar Client
                     </div>
                 @endslot
@@ -74,7 +74,7 @@
                     <div>
                         Halaman
                     </div>
-                    <div class="small text-muted font-weight-normal">
+                    <div class="small text-gray-light font-weight-normal">
                         Kelola Halaman
                     </div>
                 @endslot
@@ -98,7 +98,7 @@
                         <div>
                             Halaman
                         </div>
-                        <div class="small text-muted font-weight-normal">
+                        <div class="small text-gray-light font-weight-normal">
                             Kelola Halaman
                         </div>
                     @endslot
@@ -114,7 +114,7 @@
                         <div>
                             Galeri
                         </div>
-                        <div class="small text-muted font-weight-normal">
+                        <div class="small text-gray-light font-weight-normal">
                             Kelola galeri yang akan ditampilkan
                         </div>
                     @endslot
@@ -132,7 +132,7 @@
                     <div>
                         Kunjungan
                     </div>
-                    <div class="small text-muted font-weight-normal">
+                    <div class="small text-gray-light font-weight-normal">
                         Informasi Kunjungan
                     </div>
                 @endslot
@@ -149,7 +149,7 @@
                     <div>
                         Tim
                     </div>
-                    <div class="small text-muted font-weight-normal">
+                    <div class="small text-gray-light font-weight-normal">
                         Mengelola tim / pengelola
                     </div>
                 @endslot
@@ -165,7 +165,7 @@
                 <div>
                     Pengaturan
                 </div>
-                <div class="small text-muted font-weight-normal">
+                <div class="small text-gray-light font-weight-normal">
                 </div>
             @endslot
             @slot('iconActive')

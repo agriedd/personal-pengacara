@@ -1,0 +1,6 @@
+.card{
+    &.clean{
+        @extend .border-0;
+        @extend .shadow-sm;
+    }
+}

@@ -1,0 +1,15 @@
+$svg-size-sm: .8rem;
+
+.btn{
+    &.btn-sm{
+        svg{
+            height: $svg-size-sm;
+            width: $svg-size-sm;
+        }
+    }
+    &.btn-rounded{
+        @extend .py-2;
+        @extend .px-3;
+        @extend .rounded-pill;
+    }
+}

@@ -14764,7 +14764,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (vue, form) {
   var navbar = new window.Form({}).setCollapse(null, {
     sidebar: false,
-    navHalaman: false
+    navHalaman: false,
+    sidebarInfoAdmin: true,
+    dropdownHeaderUser: false
   });
   return Vue.extend({
     data: function data() {
