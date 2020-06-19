@@ -28,7 +28,12 @@ Route::prefix("/admin")->group(function($app){
     Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/user', 'Admin\UserController@index')->name('admin.user');
     Route::get('/client', 'Admin\ClientController@index')->name('admin.client');
-    Route::get('/artikel', 'Admin\ArticleController@index')->name('admin.artikel');
+    Route::prefix("/artikel")->group(function($app){
+        Route::get('/{id}', function(){
+            return "Hello";
+        })->name('admin.artikel.show');
+        Route::get('/', 'Admin\ArticleController@index')->name('admin.artikel');
+    });
     Route::get('/halaman', 'Admin\HalamanController@index')->name('admin.halaman');
     Route::get('/pengaturan', 'Admin\PengaturanController@index')->name('admin.pengaturan');
     Route::prefix('/gambar')->group(function($app){
@@ -40,6 +45,11 @@ Route::prefix("/admin")->group(function($app){
         Route::get('/{album}', 'Admin\AlbumController@info')->name('admin.album.info');
         Route::post('/{album}', 'Admin\AlbumController@tambahGaleri')->name('admin.album.galeri.tambah');
     });
+});
+
+//Api
+Route::prefix("/api")->group(function($app){
+    Route::resource('artikel', 'Api\ArtikelController');
 });
 
 //Socialite

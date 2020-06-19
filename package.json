@@ -10,7 +10,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "axios": "^0.19",
+        "axios": "^0.19.2",
         "bootstrap": "^4.0.0",
         "cross-env": "^7.0",
         "jquery": "^3.2",
@@ -24,6 +24,22 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-adapter-ckfinder": "^19.0.1",
+        "@ckeditor/ckeditor5-autoformat": "^19.0.1",
+        "@ckeditor/ckeditor5-basic-styles": "^19.0.1",
+        "@ckeditor/ckeditor5-block-quote": "^19.0.1",
+        "@ckeditor/ckeditor5-build-classic": "^19.0.2",
+        "@ckeditor/ckeditor5-editor-classic": "^19.0.1",
+        "@ckeditor/ckeditor5-essentials": "^19.0.1",
+        "@ckeditor/ckeditor5-heading": "^19.0.1",
+        "@ckeditor/ckeditor5-image": "^19.0.1",
+        "@ckeditor/ckeditor5-link": "^19.0.1",
+        "@ckeditor/ckeditor5-list": "^19.0.1",
+        "@ckeditor/ckeditor5-paragraph": "^19.1.0",
+        "@ckeditor/ckeditor5-upload": "^19.0.1",
+        "@ckeditor/ckeditor5-utils": "^19.0.1",
+        "@ckeditor/ckeditor5-vue": "^1.0.1",
+        "@tinymce/tinymce-vue": "^3.2.2",
         "bootstrap": "^4.5.0",
         "bootstrap-icons": "^1.0.0-alpha4"
     }

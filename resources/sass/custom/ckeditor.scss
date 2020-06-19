@@ -1,0 +1,7 @@
+.ck-editor__editable {
+    min-height: 500px;
+}
+body {
+    --ck-z-default: 100;
+    --ck-z-modal: calc( var(--ck-z-default) + 999 );
+}

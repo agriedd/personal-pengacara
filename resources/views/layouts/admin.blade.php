@@ -6,11 +6,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @stack('meta')
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    @isset($appjs)
+        <script src="{{ asset("js/{$appjs}") }}" defer></script>
+    @else
+        <script src="{{ asset('js/app.js') }}" defer></script>
+    @endisset
     @stack('script')
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/js/eddlibrary.css') }}">
     @stack('css')
 </head>
 <body>

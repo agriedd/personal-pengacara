@@ -9,12 +9,21 @@
 import error from './edd/error';
 import Form from './edd/form';
 import Navbar from './navbar';
+import Init from './init'
+import Axios from 'axios'
 
 window.Vue = require('vue');
 window.Error = error;
 window.Form = Form;
+window.axios = Axios
 
-window.Mixins = { Navbar: Navbar(Form) };
+const init = {
+    methods: {
+        ...Init
+    }
+}
+
+window.Mixins = { Navbar: Navbar(Form), Init: init };
 
 /**
  * The following block of code may be used to automatically register your

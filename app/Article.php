@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $table = 'article';
+    protected $appends = ['info_url', 'info_url_admin', 'created_at_diff', 'rating'];
+    protected $with = ['info', 'cover'];
 
     public function createdBy(){
         return $this->belongsTo(Admin::class, 'id_admin', 'id');
@@ -20,5 +22,18 @@ class Article extends Model
     }
     public function cover(){
         return $this->morphOne(Gambar::class, 'gambarable')->latest();
+    }
+
+    public function getInfoUrlAttribute(){
+        return route('artikel.show', $this->id);
+    }
+    public function getInfoUrlAdminAttribute(){
+        return route('admin.artikel.show', $this->id);
+    }
+    public function getCreatedAtDiffAttribute(){
+        return $this->created_at->diffForHumans();
+    }
+    public function getRatingAttribute(){
+        return $this->rate_up - $this->rate_down;
     }
 }

@@ -3,10 +3,13 @@ export default e => {
     e.prototype.getModal = function(key){
         return this.option.modal[key]
     }
-    e.prototype.pushModal = function(Vue, data){
-        for(let key in data){
-            Vue.$set(this.option.modal, key, data[key]);
-        }
+    e.prototype.pushModal = function(data, Vue = null){
+        if(Vue)
+            for(let key in data){
+                Vue.$set(this.option.modal, key, data[key]);
+            }
+        else
+            this.option.modal = {...this.option.modal, ...data }
         return this;
     }
     e.prototype.closeModal = function(key, reset = true, callback = null){

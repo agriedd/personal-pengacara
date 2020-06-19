@@ -29,7 +29,7 @@ $sidebar-backdrop-color: rgba(0,0,0,.5);
 }
 .sidebar{
 	width: 100%; max-width: $sidebar-width;
-	position: relative; z-index: 10000;
+	position: relative; z-index: 1030;
 	height: 100%; min-height: $sidebar-height;
 	background-color: $sidebar-color;
     transition: max-width .25s ease, max-height .25s ease;
