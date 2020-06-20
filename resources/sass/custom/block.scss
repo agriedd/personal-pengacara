@@ -1,0 +1,9 @@
+$block-position: ( 'top', 'left', 'right', 'bottom' );
+
+@each $pos in $block-position {
+    @each $name, $value in $theme-colors {
+        .block-#{$pos}-#{$name}{
+            border-#{$pos}: .25rem solid $value;
+        }
+    }
+}

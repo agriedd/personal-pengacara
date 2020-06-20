@@ -1,0 +1,56 @@
+$fly-distance: 2rem;
+$fly-to: ( 
+    'up': (
+        'direction': 'Y',
+        'from': #{$fly-distance},
+        'to': -#{$fly-distance},
+    ),
+    'left': (
+        'direction': 'X',
+        'from': #{$fly-distance},
+        'to': -#{$fly-distance},
+    ),
+    'right': (
+        'direction': 'X',
+        'from': -#{$fly-distance},
+        'to': #{$fly-distance},
+    ),
+    'down': (
+        'direction': 'Y',
+        'from': -#{$fly-distance},
+        'to': #{$fly-distance},
+    ),
+);
+$fly-transition: all .5s ease;
+$fly-transition-leave: $fly-transition;
+
+@each $to, $val in $fly-to {
+    .fly-#{$to}{
+        &-enter{
+
+            transform: translate#{map-get($val, 'direction')}(#{map-get($val, 'from')});
+            opacity: 0;
+            
+            &-active{
+                transition: $fly-transition;
+            }
+            &-to{
+                transform: translate#{map-get($val, 'direction')}(0rem);
+                opacity: 1;
+            }
+        }
+        &-leave{
+            
+            transform: translate#{map-get($val, 'direction')}(0rem);
+            opacity: 1;
+            
+            &-active{
+                transition: $fly-transition-leave;
+            }
+            &-to{
+                transform: translate#{map-get($val, 'direction')}(#{map-get($val, 'from')});
+                opacity: 0;
+            }
+        }
+    }
+}

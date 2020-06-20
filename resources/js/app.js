@@ -11,11 +11,13 @@ import Form from './edd/form';
 import Navbar from './navbar';
 import Init from './init'
 import Axios from 'axios'
+import src from './directives/src';
 
 window.Vue = require('vue');
-window.Error = error;
 window.Form = Form;
 window.axios = Axios
+
+window.Vue.directive('src', src)
 
 const init = {
     methods: {

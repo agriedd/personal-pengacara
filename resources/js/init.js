@@ -3,14 +3,14 @@ export default {
         try {
             var v = document.querySelector(`meta[name="${name}"`).content;
             if(replace){
-                _.keys(replace).map((e) =>{
+                for(let e in replace){
                     let r = new RegExp(`${e}`, "ig");
                     v = v.replace(r, replace[ e ]);
-                });
+                }
             }
             return v;
         } catch(e) {
-            console.log('Error', name);
+            console.log('Error', name, e);
         }
     },
     lazy: function(callback, time = null){

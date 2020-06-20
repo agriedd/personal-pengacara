@@ -7,6 +7,7 @@ export default (vue, form) => {
         navHalaman: false,
         sidebarInfoAdmin: true,
         dropdownHeaderUser: false,
+        menuHome: false,
     })
     return Vue.extend({
         data(){
@@ -14,5 +15,17 @@ export default (vue, form) => {
                 navbar: navbar
             }
         },
+        watch: {
+            'navbar.option.collapse.sidebar': function(n){
+                this.navbar.setStore('sidebar', n, false);
+            },
+        },
+        created(){
+            this.navbar.setCollapse(this, {
+                sidebar: this.navbar.getStore('sidebar', this.navbar.getCollapse('sidebar'), e => {
+                    return e == 'true' ? true : false
+                }, false)
+            })
+        }
     })
 }

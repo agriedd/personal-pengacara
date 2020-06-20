@@ -15183,6 +15183,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _init__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./init */ "./resources/js/init.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _directives_src__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./directives/src */ "./resources/js/directives/src.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -15200,10 +15201,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-window.Error = _edd_error__WEBPACK_IMPORTED_MODULE_0__["default"];
 window.Form = _edd_form__WEBPACK_IMPORTED_MODULE_1__["default"];
 window.axios = axios__WEBPACK_IMPORTED_MODULE_4___default.a;
+window.Vue.directive('src', _directives_src__WEBPACK_IMPORTED_MODULE_5__["default"]);
 var init = {
   methods: _objectSpread({}, _init__WEBPACK_IMPORTED_MODULE_3__["default"])
 };
@@ -15230,6 +15232,25 @@ window.Mixins = {
 // const app = new Vue({
 //     el: '#app',
 // });
+
+/***/ }),
+
+/***/ "./resources/js/directives/src.js":
+/*!****************************************!*\
+  !*** ./resources/js/directives/src.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  inserted: function inserted(el, bind) {
+    var size = "sm";
+    size = bind.arg != null ? bind.arg : size;
+    if (bind.value != null) el.style.backgroundImage = "url('".concat(bind.value["src_".concat(size)], "')");
+  }
+});
 
 /***/ }),
 
@@ -15822,12 +15843,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var url = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
     var item = this.getSelected(),
         action = this.getAction('remove');
-    if (index) item = this.getData(index);
+    if (index != null) item = this.getData(index);
     if (callback) action = callback;
     if (action == null) throw new Error("😕 Sepertinya aksi REMOVE belum di atur");
     var urlprefix = this.getAction('url_prefix') ? this.getAction('url_prefix')() : '',
         target_url = this.getAction('url')("".concat(urlprefix, "delete"), {
-      '{id}': item.id
+      '#id': item.id
     });
     if (url) target_url = url;
     if (target_url == null) throw new Error("😕 Sepertinya aksi URL belum di atur");
@@ -15896,7 +15917,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     if (action == null) throw new Error("😕 Sepertinya aksi UPDATE belum di atur");
     var urlprefix = this.getAction('url_prefix') ? this.getAction('url_prefix')() : '',
         target_url = this.getAction('url')("".concat(urlprefix, "update"), {
-      '{id}': this.data.id
+      '#id': this.data.id
     });
     if (target_url == null) throw new Error("😕 Sepertinya aksi URL belum di atur");
     this.error.clear();
@@ -16000,11 +16021,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _error__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../error */ "./resources/js/edd/error.js");
+
 /* harmony default export */ __webpack_exports__["default"] = (function (e) {
   e.prototype.setError = function () {
-    if (window.Errors != undefined) return this.error = new window.Errors({});
-    this.error = {};
-    return this;
+    return this.error = new _error__WEBPACK_IMPORTED_MODULE_0__["default"]({});
   };
 });
 
@@ -16463,24 +16484,33 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 /* harmony default export */ __webpack_exports__["default"] = (function (e) {
   e.prototype.errorHandling = function (vue, exception) {
-    vue.danger(exception);
+    if (exception.message.search(/422/m) != -1) {
+      this.error.setError(exception.response.data.errors, vue);
+      vue.danger(exception.response.data.message);
+    } else vue.danger(exception);
+
     console.log('Error => ', exception);
     return this;
   };
 
   e.prototype.responseHandler = function (vue, res) {
     var callback = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-    var error = _typeof(res) !== "object" || res.status != null && !res.status || res.error || Object.keys(res).length < 1;
+    var error = _typeof(res) !== "object" || res.status != null && !res.status || res.error || Object.keys(res).length < 1 || res.errors;
     /**
      * error jika validasi gagal
      * 
+     * @deprecated 💔
      * 1. jika respon memilik key status dan bernilai false
      * 2. atau jika respon memilik key error dan bernilai true
      * 3. dan memiliki key data dan bertype object
      * 
+     * 🔥
+     * 1. jika respon memiliki key errors dan message
+     * 2. dan memiliki key errors bertype object
      */
+    // let validate_error = typeof res === "object" && ((res.status != null && !res.status) || (res.error != null && res.error)) && (res.data != null && typeof res.data == "object");
 
-    var validate_error = _typeof(res) === "object" && (res.status != null && !res.status || res.error != null && res.error) && res.data != null && _typeof(res.data) == "object";
+    var validate_error = _typeof(res) === "object" && res.message != null && res.errors != null && _typeof(res.errors) == "object";
     /**
      * debug development
      * 1. jika respon memiliki key debug dan bernilai true
@@ -16488,8 +16518,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
      */
 
     var debug = _typeof(res) === "object" && res.debug != null && res.debug;
-    if (debug) return vue.debug(res.data || "Empty Data");
-    if (validate_error) this.error.setError(res.data, vue);
+    if (debug) return vue.debug(res.message || "Empty Data");
+    if (validate_error) this.error.setError(res.errors, vue);
     if (callback && error) callback(res.pesan || res.message || res);
     if (callback) return !error;
     if (error) throw new Error(_typeof(res) === "object" ? res.pesan || res.message || res : "Terjadi sebuah kesalahan ⚠");
@@ -16555,8 +16585,13 @@ __webpack_require__.r(__webpack_exports__);
   };
 
   e.prototype.setStore = function (key, value) {
-    var path = window.location.pathname;
-    key = "".concat(path, "@").concat(key);
+    var pathStatus = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+    if (pathStatus) {
+      var path = window.location.pathname;
+      key = "".concat(path, "@").concat(key);
+    }
+
     window.localStorage.setItem(key, value);
     return this;
   };
@@ -16564,8 +16599,13 @@ __webpack_require__.r(__webpack_exports__);
   e.prototype.getStore = function (key) {
     var defaultValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
     var parser = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-    var path = window.location.pathname;
-    key = "".concat(path, "@").concat(key);
+    var pathStatus = arguments.length > 3 ? arguments[3] : undefined;
+
+    if (pathStatus) {
+      var path = window.location.pathname;
+      key = "".concat(path, "@").concat(key);
+    }
+
     var value = window.localStorage.getItem(key);
     if (typeof parser === "function" && value != null) return parser(value);
     if (value == null) return defaultValue;
@@ -16634,15 +16674,15 @@ __webpack_require__.r(__webpack_exports__);
       var v = document.querySelector("meta[name=\"".concat(name, "\"")).content;
 
       if (replace) {
-        _.keys(replace).map(function (e) {
+        for (var e in replace) {
           var r = new RegExp("".concat(e), "ig");
           v = v.replace(r, replace[e]);
-        });
+        }
       }
 
       return v;
     } catch (e) {
-      console.log('Error', name);
+      console.log('Error', name, e);
     }
   },
   lazy: function lazy(callback) {
@@ -16711,15 +16751,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 /* harmony default export */ __webpack_exports__["default"] = (function (vue, form) {
   var artikel = new window.Form({
+    id: null,
     title: '',
     body: '',
-    cover: null
+    cover: null,
+    info: {
+      title: '',
+      body: ''
+    }
   }).setCollapse(null, {
     navHalaman: false
   }).pushModal({
@@ -16733,7 +16784,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get(url, context.getFilter())["catch"](function (e) {
+                return axios.get(url, {
+                  params: context.getFilter()
+                })["catch"](function (e) {
                   reject(e);
                 });
 
@@ -16757,6 +16810,126 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return _ref.apply(this, arguments);
       };
     }());
+  }).pushAction("insert", function (context, url, item, vue) {
+    return new Promise( /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(resolve, reject) {
+        var res, status;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios.post(url, item)["catch"](function (e) {
+                  reject(e);
+                });
+
+              case 2:
+                res = _context2.sent;
+                status = context.responseHandler(vue, res.data, function (error) {
+                  return reject(error);
+                });
+                if (status) context.getAction('afterInsert')(context, res, vue);
+                resolve(res);
+
+              case 6:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function (_x3, _x4) {
+        return _ref2.apply(this, arguments);
+      };
+    }());
+  }).pushAction("afterInsert", function (context, res, vue) {
+    context.resetForm(vue);
+    context.closeModal('tambah');
+    vue.success("Data berhasil ditambahkan 😎");
+    context.all(vue);
+  }).pushAction("remove", function (context, url, item, vue) {
+    return new Promise( /*#__PURE__*/function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(resolve, reject) {
+        var res, status, afterRemove;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios.post(url, _objectSpread(_objectSpread({}, item), {}, {
+                  _method: "DELETE"
+                }))["catch"](function (e) {
+                  reject(e);
+                });
+
+              case 2:
+                res = _context3.sent;
+                status = context.responseHandler(vue, res.data, function (error) {
+                  return reject(error);
+                });
+
+                if (status) {
+                  afterRemove = context.getAction('afterRemove');
+                  if (afterRemove) afterRemove(context, res, vue);
+                }
+
+                resolve(res);
+
+              case 6:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }));
+
+      return function (_x5, _x6) {
+        return _ref3.apply(this, arguments);
+      };
+    }());
+  }).pushAction("afterRemove", function (context, res, vue) {
+    context.closeModal('hapus');
+    vue.success(res.data.message || 'Berhasil menghapus data 🔥');
+    context.all(vue);
+  }).pushAction("update", function (context, url, item, vue) {
+    return new Promise( /*#__PURE__*/function () {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(resolve, reject) {
+        var res, status;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return axios.post(url, item)["catch"](function (e) {
+                  reject(e);
+                });
+
+              case 2:
+                res = _context4.sent;
+                status = context.responseHandler(vue, res.data, function (err) {
+                  return reject(err);
+                });
+                if (status) context.getAction('afterUpdate')(context, res, vue);
+                resolve(res);
+
+              case 6:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }));
+
+      return function (_x7, _x8) {
+        return _ref4.apply(this, arguments);
+      };
+    }());
+  }).pushAction("afterUpdate", function (context, res, vue) {
+    context.resetForm(vue);
+    context.closeModal('ubah');
+    vue.success("Data berhasil disimpan 😎");
+    context.all(vue);
   });
   return Vue.extend({
     data: function data() {
@@ -16764,13 +16937,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         artikel: artikel
       };
     },
-    created: function created() {
-      var _this = this;
+    watch: {
+      'artikel.option.filter.search': function artikelOptionFilterSearch(val) {
+        var _this = this;
 
-      console.log(this.artikel);
+        this.lazy(function () {
+          _this.artikel.all(_this);
+        });
+      }
+    },
+    created: function created() {
+      var _this2 = this;
+
       this.artikel.pushAction('url', function (name) {
         var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-        return _this.meta(name, option);
+        return _this2.meta(name, option);
       }).pushAction('url_prefix', function () {
         return "artikel_";
       }).all(this);
@@ -16794,13 +16975,26 @@ __webpack_require__.r(__webpack_exports__);
     sidebar: false,
     navHalaman: false,
     sidebarInfoAdmin: true,
-    dropdownHeaderUser: false
+    dropdownHeaderUser: false,
+    menuHome: false
   });
   return Vue.extend({
     data: function data() {
       return {
         navbar: navbar
       };
+    },
+    watch: {
+      'navbar.option.collapse.sidebar': function navbarOptionCollapseSidebar(n) {
+        this.navbar.setStore('sidebar', n, false);
+      }
+    },
+    created: function created() {
+      this.navbar.setCollapse(this, {
+        sidebar: this.navbar.getStore('sidebar', this.navbar.getCollapse('sidebar'), function (e) {
+          return e == 'true' ? true : false;
+        }, false)
+      });
     }
   });
 });

@@ -9,6 +9,7 @@ class Article extends Model
     protected $table = 'article';
     protected $appends = ['info_url', 'info_url_admin', 'created_at_diff', 'rating'];
     protected $with = ['info', 'cover'];
+    protected $guarded = [];
 
     public function createdBy(){
         return $this->belongsTo(Admin::class, 'id_admin', 'id');

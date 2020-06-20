@@ -9,7 +9,7 @@ export default e => {
         if(action == null)
             throw new Error("😕 Sepertinya aksi UPDATE belum di atur");
         let urlprefix = this.getAction('url_prefix') ? this.getAction('url_prefix')() : '',
-            target_url = this.getAction('url')(`${urlprefix}update`, { '{id}': this.data.id });
+            target_url = this.getAction('url')(`${urlprefix}update`, { '#id': this.data.id });
 
         if(target_url == null)
             throw new Error("😕 Sepertinya aksi URL belum di atur");

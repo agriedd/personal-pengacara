@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    @stack('script')
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -22,9 +22,10 @@
 <body>
     <div id="app">
         @include('x.navbars.public')
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     </div>
+    @stack('footer')
 </body>
 </html>

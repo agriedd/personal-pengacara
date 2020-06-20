@@ -4,15 +4,15 @@ export default e => {
         let item = this.getSelected(),
             action = this.getAction('remove');
             
-        if(index) item = this.getData(index);
+        if(index != null) item = this.getData(index);
         if(callback) action = callback;
 
         
         if(action == null)
             throw new Error("😕 Sepertinya aksi REMOVE belum di atur");
-                        
+        
         let urlprefix = this.getAction('url_prefix') ? this.getAction('url_prefix')() : '',
-            target_url = this.getAction('url')(`${urlprefix}delete`, { '{id}': item.id });
+            target_url = this.getAction('url')(`${urlprefix}delete`, { '#id': item.id });
         
         if(url) target_url = url;
 

@@ -32,6 +32,9 @@
                 <div class="loading-bar"></div>
             </div>
         </div>
+        <div class="d-flex" style="z-index: 1040">
+            <notification></notification>
+        </div>
     </div>
     @stack('footer')
 </body>

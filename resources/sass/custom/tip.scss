@@ -1,0 +1,74 @@
+$posx: (
+    'left': (
+        'position': 'left',
+        'value': 10%,
+        'transform': translateX(-50%),
+    ),
+    'right': (
+        'position': 'right',
+        'value': 10%,
+        'transform': translateX(-50%)
+    ),
+    'center': (
+        'position': 'left',
+        'value': 50%,
+        'transform': translateX(-50%)
+    )
+);
+$posy: (
+    'top': (
+        'position': 'top',
+        'value': 0%,
+        'transform': translateY(-100%),
+        'border': 'bottom',
+        'border_value': unset,
+    ),
+    'bottom': (
+        'position': 'bottom',
+        'value': 0%,
+        'transform': translateY(100%),
+        'border': 'top',
+        'border_value': unset,
+    ),
+    'middle': (
+        'position': 'top',
+        'value': 50%,
+        'transform': translateY(-50%),
+        'border': 'left',
+        'border_value': unset,
+    )
+);
+
+@each $namex, $valuex in $posx {
+    .tip-#{$namex}{
+        @each $namey, $valuey in $posy {
+            &-#{$namey}{
+                position: relative;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    height: 0px;
+                    width: 0px;
+                    border: 10px solid transparent;
+                    #{map-get($valuey, "position")}: #{map-get($valuey, "value")};
+                    @if($namey == "middle"){
+                        @if($namex == "left"){
+                            #{map-get($valuex, "position")}: 0px;
+                            transform: translateX(-100%) #{map-get($valuey, "transform")};
+                            border-right-color: unset;
+                        }
+                        @if($namex == "right"){
+                            #{map-get($valuex, "position")}: 0px;
+                            transform: translateX(100%) #{map-get($valuey, "transform")};
+                            border-left-color: unset;
+                        }
+                    }@else{
+                        transform: #{map-get($valuex, "transform")} #{map-get($valuey, "transform")};
+                        #{map-get($valuex, "position")}: #{map-get($valuex, "value")};
+                        border-#{map-get($valuey, "border")}-color: unset;
+                    }
+                }
+            }
+        }
+    }
+}

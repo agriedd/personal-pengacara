@@ -1,9 +1,12 @@
+@php
+    $model = $model ?? "navbar";
+@endphp
 <div>
     <div class="card-body">
-        <form action="" method="POST" v-on:submit.prevent="artikel.submit(getContext())">
+        <form action="" method="POST" v-on:submit.prevent="{{ $model }}.submit(getContext())">
             <div class="d-flex w-100">
                 <div class="pr-3">
-                    <button class="btn btn-sm btn-primary shadow-sm btn-rounded" type="button" v-on:click.prevent="artikel.openModal('tambah')">
+                    <button class="btn btn-sm btn-primary shadow-sm btn-rounded" type="button" v-on:click.prevent="{{ $model }}.openModal('tambah')">
                         <div class="d-flex">
                             <div>
                                 Tambah
@@ -20,7 +23,7 @@
                     </button>
                 </div>
                 <div class="px-3 w-100">
-                    <input type="search" name="search" id="search" class="form-control bg-light rounded-pill px-3 py-2 w-100" placeholder="Temukan">
+                    <input type="search" name="search" id="search" class="form-control bg-light rounded-pill px-3 py-2 w-100" placeholder="Temukan" v-model="{{ $model }}.option.filter.search">
                 </div>
                 <div>
                     <button class="btn btn-link text-decoration-none" type="button">
