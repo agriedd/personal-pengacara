@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Album;
 use App\Http\Controllers\Controller;
 use App\Repository\AlbumRepository;
+use App\Repository\GambarRepostory;
 use Illuminate\Http\Request;
 
 class AlbumController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request){
-        return AlbumRepository::filter($request)->paginate(10);
+        return AlbumRepository::filter($request)
+            ->with(['galeri'])
+            ->without(['galeri.album'])
+            ->paginate(10);
     }
 
     /**
@@ -22,20 +22,17 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        $data = $request->validate([
+            "nama" => 'required|min:4',
+            'keterangan' => 'required',
+        ]);
+        $data = collect($data);
+        $album = Album::create($data->only(['nama', 'keterangan'])->all());
+        return $album;
     }
 
     /**
@@ -67,19 +64,39 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id){
+        $data = $request->validate([
+            "nama" => 'required|min:4',
+            'keterangan' => 'required',
+        ]);
+        $data = collect($data);
+        $album = Album::find($id);
+        $status = $album->update($data->only(['nama', 'keterangan'])->all());
+        return [
+            "status"=> $status,
+            "message"=> $status ? "Berhasil menyimpan perubahan 😎" : "Gagal menyimpan perubahan"
+        ];
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
+        //hapus file gambar
+        //hapus gambar
+        //hapus galeri
+        //hapus album
+        
+        $album = Album::findOrFail($id);
+        if($album->total_galeri){
+            foreach($album->galeri as $galeri){
+                GambarRepostory::destroy($galeri->gambar);
+            }
+            $album->galeri()->delete();
+        }
+        
+        $status = $album->delete();
+
+        return [
+            "status"=> $status,
+            "message"=> $status ? "Berhasil menghapus data 😎" : "Gagal menghapus data"
+        ];
     }
 }

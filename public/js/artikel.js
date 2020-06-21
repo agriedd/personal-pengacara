@@ -32326,13 +32326,12 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _edd_error__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edd/error */ "./resources/js/edd/error.js");
-/* harmony import */ var _edd_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edd/form */ "./resources/js/edd/form.js");
-/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar */ "./resources/js/navbar.js");
-/* harmony import */ var _init__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./init */ "./resources/js/init.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _directives_src__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./directives/src */ "./resources/js/directives/src.js");
+/* harmony import */ var _edd_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edd/form */ "./resources/js/edd/form.js");
+/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar */ "./resources/js/navbar.js");
+/* harmony import */ var _init__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./init */ "./resources/js/init.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _directives_src__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./directives/src */ "./resources/js/directives/src.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -32350,16 +32349,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-window.Form = _edd_form__WEBPACK_IMPORTED_MODULE_1__["default"];
-window.axios = axios__WEBPACK_IMPORTED_MODULE_4___default.a;
-window.Vue.directive('src', _directives_src__WEBPACK_IMPORTED_MODULE_5__["default"]);
+window.Form = _edd_form__WEBPACK_IMPORTED_MODULE_0__["default"];
+window.axios = axios__WEBPACK_IMPORTED_MODULE_3___default.a;
+window.Vue.directive('src', _directives_src__WEBPACK_IMPORTED_MODULE_4__["default"]);
+window.Vue.filter('no', function (value, model) {
+  var page = 1;
+  var data_perpage = 10;
+  if (model.option.table.pagination.current_page != null) page = model.option.table.pagination.current_page;
+  if (model.option.filter.limit != null) data_perpage = model.option.filter.limit;
+  return value + (page - 1) * data_perpage + 1;
+});
 var init = {
-  methods: _objectSpread({}, _init__WEBPACK_IMPORTED_MODULE_3__["default"])
+  methods: _objectSpread({}, _init__WEBPACK_IMPORTED_MODULE_2__["default"])
 };
 window.Mixins = {
-  Navbar: Object(_navbar__WEBPACK_IMPORTED_MODULE_2__["default"])(_edd_form__WEBPACK_IMPORTED_MODULE_1__["default"]),
+  Navbar: Object(_navbar__WEBPACK_IMPORTED_MODULE_1__["default"])(_edd_form__WEBPACK_IMPORTED_MODULE_0__["default"]),
   Init: init
 };
 /**
@@ -32403,7 +32408,6 @@ __webpack_require__.r(__webpack_exports__);
     if (bind.value != null) el.style.backgroundImage = "url('".concat(bind.value["src_".concat(size)], "')");
   },
   update: function update(el, bind) {
-    console.log("update");
     var size = "sm";
     size = bind.arg != null ? bind.arg : size;
     if (bind.value != null) el.style.backgroundImage = "url('".concat(bind.value["src_".concat(size)], "')");

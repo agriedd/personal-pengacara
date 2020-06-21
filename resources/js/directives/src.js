@@ -8,8 +8,6 @@ export default {
             el.style.backgroundImage = `url('${bind.value[`src_${size}`]}')`;
     },
     update: (el, bind)=>{
-        console.log("update");
-        
         let size = "sm";
         size = bind.arg != null ? bind.arg : size;
         if(bind.value != null)

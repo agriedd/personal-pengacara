@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Gambar;
+use Exception;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic;
 use Illuminate\Support\Str;
@@ -43,7 +44,11 @@ class GambarRepostory{
             $imgSize = ["img" => 0, "lg" => 1024, "md" => 512, "sm" => 256, "xs" => 128 ];
             $name = preg_replace("/(.*\/)([^\/]+)$/i", "$2", $gambar->src_ori);
             foreach($imgSize as $img => $size){
-                unlink(storage_path("app/public/{$img}/".$name));
+                try{
+                    unlink(storage_path("app/public/{$img}/".$name));
+                } catch(\Exception $e){
+                    //do nothing
+                }
             }
             $gambar->delete();
         }

@@ -6,7 +6,6 @@
 
 // require('./bootstrap');
 
-import error from './edd/error';
 import Form from './edd/form';
 import Navbar from './navbar';
 import Init from './init'
@@ -18,6 +17,17 @@ window.Form = Form;
 window.axios = Axios
 
 window.Vue.directive('src', src)
+window.Vue.filter('no', (value, model)=>{
+    let page = 1;
+    let data_perpage = 10;
+
+    if(model.option.table.pagination.current_page != null)
+        page = model.option.table.pagination.current_page
+    if(model.option.filter.limit != null)
+        data_perpage = model.option.filter.limit
+
+    return value + ((page - 1) * data_perpage) + 1
+})
 
 const init = {
     methods: {

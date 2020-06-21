@@ -5,7 +5,7 @@
     <div class="card-body">
         <form action="" method="POST" v-on:submit.prevent="{{ $model }}.submit(getContext())">
             <div class="d-flex w-100">
-                <div class="pr-3">
+                <div>
                     <button class="btn btn-sm btn-primary shadow-sm btn-rounded" type="button" v-on:click.prevent="{{ $model }}.openModal('tambah')">
                         <div class="d-flex">
                             <div>
@@ -26,11 +26,15 @@
                     <input type="search" name="search" id="search" class="form-control bg-light rounded-pill px-3 py-2 w-100" placeholder="Temukan" v-model="{{ $model }}.option.filter.search">
                 </div>
                 <div>
-                    <button class="btn btn-link text-decoration-none" type="button">
-                        <svg class="bi bi-list" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                        </svg>
-                    </button>
+                    @isset($action)
+                        {{ $action }}
+                    @else
+                        <button class="btn btn-link text-decoration-none" type="button">
+                            <svg class="bi bi-list" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                        </button>
+                    @endisset
                 </div>
             </div>
         </form>

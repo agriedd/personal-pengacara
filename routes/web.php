@@ -48,6 +48,7 @@ Route::prefix("/admin")->group(function($app){
 //Api
 Route::prefix("/api")->group(function($app){
     Route::resource('artikel', 'Api\ArtikelController');
+    Route::resource('album', 'Api\AlbumController');
 });
 
 //Socialite

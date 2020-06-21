@@ -100,7 +100,7 @@ class ArtikelController extends Controller
         $status = $request->get("status", 0);
 
         $artikel = Article::find($id);
-        $artikel->update([ "slug" => Str::slug($data->get("judul")) ]);
+        $status = $artikel->update([ "slug" => Str::slug($data->get("judul")) ]);
         
         if($status == 1){
             $data->put("published_at", now());
@@ -113,7 +113,11 @@ class ArtikelController extends Controller
             $artikel->cover()->save($cover);
         }
 
-        return $artikel;
+        return [
+            "status"    => $status,
+            "message"   => $status ? "Berhasil menyimpan perubahan 😎" : "Gagal menyimpan perubahan",
+            "data"      => $artikel,
+        ];
     }
 
     /**

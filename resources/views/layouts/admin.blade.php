@@ -12,8 +12,8 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     @endisset
     @stack('script')
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
+    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/js/eddlibrary.css') }}">
     @stack('css')
@@ -32,9 +32,7 @@
                 <div class="loading-bar"></div>
             </div>
         </div>
-        <div class="d-flex" style="z-index: 1040">
-            <notification></notification>
-        </div>
+        <notification style="z-index: 1040"></notification>
     </div>
     @stack('footer')
 </body>

@@ -1,8 +1,11 @@
 
 export default (vue, form) => {
     const album = new window.Form({
-        id: null, title: '', body: '', cover: null
-    }).setCollapse(null, {})
+        id: null, nama: '', keterangan: '',
+    })
+    .setCollapse(null, {
+        table: false
+    })
     .pushModal({
         'preview': false,
     })
