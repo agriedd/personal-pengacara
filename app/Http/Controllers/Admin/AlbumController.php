@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 
 class AlbumController extends Controller{
     public function index(){
-        $albums = Album::all();
-        return view('pages.admin.album.index', compact('albums'));
+        return view('pages.admin.album.index');
     }
     public function info(Request $request, Album $album){
         return view('pages.admin.album.info', compact('album'));

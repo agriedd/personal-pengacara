@@ -86,17 +86,16 @@ class AlbumController extends Controller
         
         $album = Album::findOrFail($id);
         if($album->total_galeri){
-            foreach($album->galeri as $galeri){
+            foreach($album->galeri as $galeri)
                 GambarRepostory::destroy($galeri->gambar);
-            }
             $album->galeri()->delete();
         }
         
         $status = $album->delete();
 
         return [
-            "status"=> $status,
-            "message"=> $status ? "Berhasil menghapus data 😎" : "Gagal menghapus data"
+            "status"    => $status,
+            "message"   => $status ? "Berhasil menghapus data 😎" : "Gagal menghapus data"
         ];
     }
 }

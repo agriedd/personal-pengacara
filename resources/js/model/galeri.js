@@ -1,11 +1,9 @@
 
 export default (vue, form) => {
-    const album = new window.Form({
-        id: null, nama: '', keterangan: '',
+    const galeri = new window.Form({
+        id: null, judul: '', keterangan: '', foto: null,
     })
-    .setCollapse(null, {
-        table: true
-    })
+    .setCollapse(null, {})
     .pushModal({
         'preview': false,
     })
@@ -90,22 +88,22 @@ export default (vue, form) => {
     return Vue.extend({
         data(){
             return {
-                album: album
+                galeri: galeri
             }
         },
         watch: {
-            'album.option.filter.search': function(val){
+            'galeri.option.filter.search': function(val){
                 this.lazy(()=>{
-                    this.album.all(this);
+                    this.galeri.all(this);
                 })
             },
         },
         created(){
-            this.album
+            this.galeri
                 .pushAction('url', (name, option = null) => this.meta(name, option))
-                .pushAction('url_prefix', ()=>"album_")
+                .pushAction('url_prefix', ()=>"galeri_")
             try {
-                this.album.all(this)
+                this.galeri.all(this)
             } catch (error) {
                 //do nothing
             }

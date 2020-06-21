@@ -11,6 +11,7 @@
         Album
     @endcomponent
     @include('pages.admin.album.modal')
+    @include('pages.admin.galeri.modal')
     @component('x.breadcrumb.admin')
         <div class="breadcrumb-item active">
             Album
@@ -45,6 +46,8 @@
     <meta name="album_insert" content="{{ route('album.store') }}">
     <meta name="album_delete" content="{{ route('album.destroy', ["album" => "#id"]) }}">
     <meta name="album_update" content="{{ route('album.update', ["album" => "#id"]) }}">
+
+    <meta name="galeri_insert" content="{{ route('galeri.store') }}">
 @endpush
 @push('script')
     <script src="{{ asset('/js/eddlibrary.umd.min.js') }}" defer></script>
@@ -55,24 +58,37 @@
             Vue.use(eddlibrary.Notification);
             var app = new Vue({
                 el: "#app",
-                mixins: [window.Mixins.Init, window.Mixins.Navbar, window.Mixins.Album],
+                mixins: [window.Mixins.Init, window.Mixins.Navbar, window.Mixins.Album, window.Mixins.Galeri],
                 components: { 'v-table': eddlibrary.Table2, 'table-head': eddlibrary.Table2Head, 'modal': eddlibrary.Modal, 'notification': eddlibrary.Notification },
                 data: {
                     time: 5000,
                 },
                 methods: {
-                    submit(t, e, form = 'insert'){
-                        if(form == 'insert'){
-                            let form = new FormData(e.target);
-                            this.album.add(this, form);
-                        }
-                        if(form == 'update'){
-                            let form = new FormData(e.target);
-                            form.append('_method', 'PUT');
-                            this.album.update(this, form);
+                    submit(type, e, form = 'insert'){
+                        if(type == 'album'){
+                            if(form == 'insert'){
+                                let form = new FormData(e.target);
+                                this.album.add(this, form);
+                            }
+                            if(form == 'update'){
+                                let form = new FormData(e.target);
+                                form.append('_method', 'PUT');
+                                this.album.update(this, form);
+                            }
+                        } else if(type == 'galeri'){
+                            if(form == 'insert'){
+                                let form = new FormData(e.target);
+                                form.append('id_album', this.album.getSelected('id'));
+                                this.galeri.add(this, form);
+                            }
                         }
                     },
-                    removeImage(type, name){},
+                    removeImage(type, name){
+                        if(type == 'galeri'){
+                            this.galeri.removeImage(name);
+                            this.$refs[name].value = "";
+                        }
+                    },
                     konfirmasiHapus(type, index){
                         if(type == "album"){
                             this.album.openModal('hapus', this.album.getData(index));
@@ -82,7 +98,20 @@
                         if(type == "album"){
                             this.album.openModal('ubah', this.album.getData(index));
                         }
+                    },
+                    insert(type, index){
+                        if(type == "galeri"){
+                            this.album.setSelected(this.album.getData(index));
+                            this.galeri.openModal('tambah');
+                        }
                     }
+                },
+                created(){
+                    this.galeri
+                        .pushAction('afterCloseModal', (key)=>{
+                            if(key == 'tambah')
+                                this.album.all(this);
+                        });
                 }
             });
         });

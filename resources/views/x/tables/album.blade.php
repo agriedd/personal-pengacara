@@ -34,7 +34,7 @@
             <td>
                 <div class="d-flex">
                     <div class="img-sm bg-gray-light rounded shadow-sm" v-for="(img, i) in data.item.galeri" v-if="i < 3" v-src:xs="img.gambar"></div>
-                    <a href="javascript:void(0)" @click.prevent="" class="img-sm bg-gray-light rounded shadow-sm text-dark d-flex justify-content-center" title="Tambah galeri">
+                    <a href="javascript:void(0)" @click.prevent="insert('galeri', data.index)" class="img-sm bg-gray-light rounded shadow-sm text-dark d-flex justify-content-center" title="Tambah galeri">
                         <div class="justify-middle">
                             <svg class="bi bi-file-plus" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9 1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8h-1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h5V1z"/>

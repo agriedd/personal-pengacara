@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -33870,264 +33870,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/model/album.js":
-/*!*************************************!*\
-  !*** ./resources/js/model/album.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-/* harmony default export */ __webpack_exports__["default"] = (function (vue, form) {
-  var album = new window.Form({
-    id: null,
-    nama: '',
-    keterangan: ''
-  }).setCollapse(null, {
-    table: true
-  }).pushModal({
-    'preview': false
-  }).pushAction("list", function (context, url, vue) {
-    return new Promise( /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(resolve, reject) {
-        var res, status;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return axios.get(url, {
-                  params: context.getFilter()
-                })["catch"](function (e) {
-                  reject(e);
-                });
-
-              case 2:
-                res = _context.sent;
-                status = context.responseHandler(vue, res.data, function (error) {
-                  return reject(error);
-                });
-                context.setData(vue, res.data);
-                resolve(res);
-
-              case 6:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      return function (_x, _x2) {
-        return _ref.apply(this, arguments);
-      };
-    }());
-  }).pushAction("insert", function (context, url, item, vue) {
-    return new Promise( /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(resolve, reject) {
-        var res, status;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return axios.post(url, item)["catch"](function (e) {
-                  reject(e);
-                });
-
-              case 2:
-                res = _context2.sent;
-                status = context.responseHandler(vue, res.data, function (error) {
-                  return reject(error);
-                });
-                if (status) context.getAction('afterInsert')(context, res, vue);
-                resolve(res);
-
-              case 6:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }));
-
-      return function (_x3, _x4) {
-        return _ref2.apply(this, arguments);
-      };
-    }());
-  }).pushAction("afterInsert", function (context, res, vue) {
-    context.resetForm(vue);
-    context.closeModal('tambah');
-    vue.success("Data berhasil ditambahkan 😎");
-    context.all(vue);
-  }).pushAction("remove", function (context, url, item, vue) {
-    return new Promise( /*#__PURE__*/function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(resolve, reject) {
-        var res, status, afterRemove;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.next = 2;
-                return axios.post(url, _objectSpread(_objectSpread({}, item), {}, {
-                  _method: "DELETE"
-                }))["catch"](function (e) {
-                  reject(e);
-                });
-
-              case 2:
-                res = _context3.sent;
-                status = context.responseHandler(vue, res.data, function (error) {
-                  return reject(error);
-                });
-
-                if (status) {
-                  afterRemove = context.getAction('afterRemove');
-                  if (afterRemove) afterRemove(context, res, vue);
-                }
-
-                resolve(res);
-
-              case 6:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3);
-      }));
-
-      return function (_x5, _x6) {
-        return _ref3.apply(this, arguments);
-      };
-    }());
-  }).pushAction("afterRemove", function (context, res, vue) {
-    context.closeModal('hapus');
-    vue.success(res.data.message || 'Berhasil menghapus data 🔥');
-    context.all(vue);
-  }).pushAction("update", function (context, url, item, vue) {
-    return new Promise( /*#__PURE__*/function () {
-      var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(resolve, reject) {
-        var res, status;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                _context4.next = 2;
-                return axios.post(url, item)["catch"](function (e) {
-                  reject(e);
-                });
-
-              case 2:
-                res = _context4.sent;
-                status = context.responseHandler(vue, res.data, function (err) {
-                  return reject(err);
-                });
-                if (status) context.getAction('afterUpdate')(context, res, vue);
-                resolve(res);
-
-              case 6:
-              case "end":
-                return _context4.stop();
-            }
-          }
-        }, _callee4);
-      }));
-
-      return function (_x7, _x8) {
-        return _ref4.apply(this, arguments);
-      };
-    }());
-  }).pushAction("afterUpdate", function (context, res, vue) {
-    context.resetForm(vue);
-    context.closeModal('ubah');
-    vue.success("Data berhasil disimpan 😎");
-    context.all(vue);
-  }).pushAction("find", function (context, url, vue) {
-    return new Promise( /*#__PURE__*/function () {
-      var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(resolve, reject) {
-        var res, status;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                _context5.next = 2;
-                return axios.get(url)["catch"](function (e) {
-                  return reject(e);
-                });
-
-              case 2:
-                res = _context5.sent;
-                status = context.responseHandler(vue, res.data, function (e) {
-                  return reject(e);
-                });
-                if (status) context.getAction('afterFind')(context, res, vue);
-                resolve(res);
-
-              case 6:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5);
-      }));
-
-      return function (_x9, _x10) {
-        return _ref5.apply(this, arguments);
-      };
-    }());
-  }).pushAction("afterFind", function (context, res, vue) {
-    if (res.data) context.setSelected(res.data);
-  });
-  return Vue.extend({
-    data: function data() {
-      return {
-        album: album
-      };
-    },
-    watch: {
-      'album.option.filter.search': function albumOptionFilterSearch(val) {
-        var _this = this;
-
-        this.lazy(function () {
-          _this.album.all(_this);
-        });
-      }
-    },
-    created: function created() {
-      var _this2 = this;
-
-      this.album.pushAction('url', function (name) {
-        var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-        return _this2.meta(name, option);
-      }).pushAction('url_prefix', function () {
-        return "album_";
-      });
-
-      try {
-        this.album.all(this);
-      } catch (error) {//do nothing
-      }
-    }
-  });
-});
-
-/***/ }),
-
 /***/ "./resources/js/model/galeri.js":
 /*!**************************************!*\
   !*** ./resources/js/model/galeri.js ***!
@@ -34425,34 +34167,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/album.js":
-/*!*************************************!*\
-  !*** ./resources/js/pages/album.js ***!
-  \*************************************/
+/***/ "./resources/js/pages/galeri.js":
+/*!**************************************!*\
+  !*** ./resources/js/pages/galeri.js ***!
+  \**************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _model_album__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../model/album */ "./resources/js/model/album.js");
-/* harmony import */ var _model_galeri__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../model/galeri */ "./resources/js/model/galeri.js");
+/* harmony import */ var _model_galeri__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../model/galeri */ "./resources/js/model/galeri.js");
 __webpack_require__(/*! ../app.js */ "./resources/js/app.js");
 
 
-
-window.Mixins.Album = Object(_model_album__WEBPACK_IMPORTED_MODULE_0__["default"])(window.Form);
-window.Mixins.Galeri = Object(_model_galeri__WEBPACK_IMPORTED_MODULE_1__["default"])(window.Form);
+window.Mixins.Galeri = Object(_model_galeri__WEBPACK_IMPORTED_MODULE_0__["default"])(window.Form);
 
 /***/ }),
 
-/***/ 2:
-/*!*******************************************!*\
-  !*** multi ./resources/js/pages/album.js ***!
-  \*******************************************/
+/***/ 3:
+/*!********************************************!*\
+  !*** multi ./resources/js/pages/galeri.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /mnt/c/projects/web/2020/personalpengacara/resources/js/pages/album.js */"./resources/js/pages/album.js");
+module.exports = __webpack_require__(/*! /mnt/c/projects/web/2020/personalpengacara/resources/js/pages/galeri.js */"./resources/js/pages/galeri.js");
 
 
 /***/ })
