@@ -1,7 +1,7 @@
 
 export default (vue, form) => {
     const artikel = new window.Form({
-        id: null, title: '', body: '', cover: null, info: { title: '', body: '' },
+        id: null, title: '', body: '', cover: null, info: { title: '', body: '', status: false },
     }).setCollapse(null, {
         navHalaman: false,
     })

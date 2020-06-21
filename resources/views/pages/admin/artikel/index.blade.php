@@ -79,35 +79,17 @@
                 methods: {
                     submit(t, e, form = 'insert'){
                         if(form == 'insert'){
-                            if(e.submitter.value == "publikasi"){
-                                let form = new FormData(e.target);
-                                form.append('status', 1);
-                                form.append('body', this.artikel.get('body'));
-                                this.artikel.add(this, form);
-                            }
-                            if(e.submitter.value == "simpan"){
-                                let form = new FormData(e.target);
-                                form.append('status', 0);
-                                form.append('body', this.artikel.get('body'));
-                                this.artikel.add(this, form);
-                            }
+                            let form = new FormData(e.target);
+                            form.append('status', this.artikel.data.info.status ? '1' : '0');
+                            form.append('body', this.artikel.get('info').body);
+                            this.artikel.add(this, form);
                         }
-                        console.log(e);
                         if(form == 'update'){
-                            if(e.submitter.value == "publikasi"){
-                                let form = new FormData(e.target);
-                                form.append('status', 1);
-                                form.append('_method', 'PUT');
-                                form.append('body', this.artikel.get('info').body);
-                                this.artikel.update(this, form);
-                            }
-                            if(e.submitter.value == "simpan"){
-                                let form = new FormData(e.target);
-                                form.append('status', 0);
-                                form.append('_method', 'PUT');
-                                form.append('body', this.artikel.get('info').body);
-                                this.artikel.update(this, form);
-                            }
+                            let form = new FormData(e.target);
+                            form.append('status', this.artikel.data.info.status ? '1' : '0');
+                            form.append('_method', 'PUT');
+                            form.append('body', this.artikel.get('info').body);
+                            this.artikel.update(this, form);
                         }
                     },
                     removeImage(type, name){

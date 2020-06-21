@@ -34,9 +34,8 @@
     </div>
     <div class="form-group">
         <div class="d-flex justify-content-end">
-            <button class="btn btn-sm btn-success mx-1 px-5 py-2 shadow-sm" value="publikasi">
-                Publikasi
-            </button>
+            @component('x.buttons.status-artikel')
+            @endcomponent
             <button class="btn btn-sm btn-dark mx-1 px-5 py-2 shadow-sm" value="simpan">
                 Simpan
             </button>

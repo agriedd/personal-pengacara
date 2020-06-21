@@ -16769,7 +16769,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     cover: null,
     info: {
       title: '',
-      body: ''
+      body: '',
+      status: false
     }
   }).setCollapse(null, {
     navHalaman: false
