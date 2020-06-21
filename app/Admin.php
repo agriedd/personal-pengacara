@@ -14,7 +14,12 @@ class Admin extends Authenticatable
     protected $table = "admin";
     protected $guarded = [];
     protected $redirectTo = "admin";
+    protected $hidden = ["password"];
+    protected $with = ["gambar", "info"];
 
+    public function info(){
+        return $this->belongsTo(User::class, "id_user", "id");
+    }
     public function client(){
         return $this->hasMany(Client::class, "id_admin", "id");
     }

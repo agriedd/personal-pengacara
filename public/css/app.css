@@ -12066,6 +12066,7 @@ a.text-gray-light:focus {
 .placeholder {
   height: 100vh;
   width: 100vw;
+  max-width: 100%;
   position: fixed;
   z-index: 100000;
   top: 0px;
@@ -12190,6 +12191,10 @@ a.text-gray-light:focus {
     left: 100%;
     transform: translateX(100%);
   }
+}
+
+[v-cloak] {
+  display: none !important;
 }
 
 a {
@@ -12791,5 +12796,9 @@ html {
 .fly-down-leave-to {
   transform: translateY(-2rem);
   opacity: 0;
+}
+
+.body-article table {
+  width: 100% !important;
 }
 

@@ -8,6 +8,7 @@ $loading-width: 4rem;
 .placeholder{
     height: 100vh;
     width: 100vw;
+    max-width: 100%;
     position: fixed; z-index: 100000; top: 0px; left: 0px; right: 0px; bottom: 0px;
     background-color: $backdrop-color;
     display: none;
@@ -88,4 +89,8 @@ $loading-width: 4rem;
         left: 100%;
         transform: translateX(100%);
     }
+}
+
+[v-cloak]{
+    display: none!important;
 }

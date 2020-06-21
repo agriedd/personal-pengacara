@@ -12,6 +12,6 @@
         <div class="my-2 text-gray-light">
             Baru saja
         </div>
-        <div v-html="artikel.get('info').body" style="word-break: break-all"></div>
+        <div class="body-article" v-html="artikel.get('info').body" style="word-break: break-all"></div>
     </div>
 </div>

@@ -1,7 +1,16 @@
 
 export default (vue, form) => {
     const artikel = new window.Form({
-        id: null, title: '', body: '', cover: null, info: { title: '', body: '', status: false },
+        id: null, title: '', body: '', cover: null, 
+        info: { 
+            title: '', body: '', status: false 
+        },
+        created_by: { 
+            username: '', email: '',
+            info: {
+                nama: '',
+            }
+        }
     }).setCollapse(null, {
         navHalaman: false,
     })
@@ -73,6 +82,19 @@ export default (vue, form) => {
         context.all(vue);
     })
 
+    .pushAction("find", (context, url, vue)=>{
+        return new Promise(async (resolve, reject) => {
+            let res = await axios.get(url).catch(e => reject(e)),
+                status = context.responseHandler(vue, res.data, e => reject(e));
+            if(status) context.getAction('afterFind')(context, res, vue);
+            resolve(res);
+        });
+    })
+    .pushAction("afterFind", (context, res, vue)=>{
+        if(res.data)
+            context.setSelected(res.data);
+    })
+
     return Vue.extend({
         data(){
             return {
@@ -90,7 +112,11 @@ export default (vue, form) => {
             this.artikel
                 .pushAction('url', (name, option = null) => this.meta(name, option))
                 .pushAction('url_prefix', ()=>"artikel_")
-                .all(this)
+            try {
+                this.artikel.all(this)
+            } catch (error) {
+                //do nothing
+            }
         }
     })
 }

@@ -8,14 +8,16 @@ class ArticleHistory extends Model
 {
     protected $appends = ['description', 'status', 'published_at_diff'];
     protected $guarded = [];
-    protected $casts = ["published_at" => "datetime:d-m-Y H:i:s"];
+    protected $casts = ["published_at" => "datetime:d-M-Y H:i:s"];
 
     public function article(){
         return $this->belongsTo(Article::class, 'id_article', 'id');
     }
     
     public function getDescriptionAttribute(){
-        return substr(strip_tags($this->body), 0, 100);
+        $str = htmlspecialchars_decode(strip_tags($this->body), ENT_NOQUOTES);
+        $str = preg_replace("[\&nbsp;]", " ", $str);
+        return substr($str, 0, 100);
     }
     public function getPublishedAtDiffAttribute(){
         if($this->published_at)

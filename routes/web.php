@@ -29,9 +29,7 @@ Route::prefix("/admin")->group(function($app){
     Route::get('/user', 'Admin\UserController@index')->name('admin.user');
     Route::get('/client', 'Admin\ClientController@index')->name('admin.client');
     Route::prefix("/artikel")->group(function($app){
-        Route::get('/{id}', function(){
-            return "Hello";
-        })->name('admin.artikel.show');
+        Route::get('/{id}', 'Admin\ArticleController@show')->name('admin.artikel.show');
         Route::get('/', 'Admin\ArticleController@index')->name('admin.artikel');
     });
     Route::get('/halaman', 'Admin\HalamanController@index')->name('admin.halaman');

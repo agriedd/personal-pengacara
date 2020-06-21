@@ -8,10 +8,11 @@ class Article extends Model
 {
     protected $table = 'article';
     protected $appends = ['info_url', 'info_url_admin', 'created_at_diff', 'rating'];
-    protected $with = ['info', 'cover'];
+    protected $with = ['info', 'cover', 'created_by'];
+    protected $casts = ['created_at' => 'datetime:d-M-Y H:i:s'];
     protected $guarded = [];
 
-    public function createdBy(){
+    public function created_by(){
         return $this->belongsTo(Admin::class, 'id_admin', 'id');
     }
 

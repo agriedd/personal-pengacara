@@ -21,7 +21,7 @@
 <body>
     @yield('beforecontent')
     <div id="app">
-        <div class="wrapper">
+        <div class="wrapper" v-cloak>
             @yield('sidebar')
             <main class="section-body bg-light" :class="{'sidebar-active': navbar.getCollapse('sidebar', false)}">
                 @yield('content')
