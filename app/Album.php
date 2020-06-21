@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Album extends Model{
     protected $table = 'album';
     protected $appends = ['total_galeri'];
+    protected $with = ['created_by', 'galeri'];
 
-    public function createdBy(){
+    public function created_by(){
         return $this->belongsTo(Admin::class, 'id_admin', 'id');
     }
     public function galeri(){

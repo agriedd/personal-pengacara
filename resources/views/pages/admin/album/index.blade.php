@@ -21,7 +21,7 @@
         <div class="card clean">
             {{-- @include('x.forms.filter', [ 'name' => 'artikel', 'label' => "Artikel", 'model' => 'artikel' ]) --}}
             <hr class="dropdown-divider m-0">
-            @include('x.tables.album')
+            {{-- @include('x.tables.album') --}}
         </div>
         <div class="mb-3"></div>
     </div>

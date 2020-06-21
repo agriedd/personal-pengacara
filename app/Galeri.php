@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Galeri extends Model{
     protected $table = 'galeri';
     protected $guarded = [];
+    protected $with = [ 'album', 'gambar' ];
 
     public function album(){
         return $this->belongsTo(Album::class, 'id_album', 'id');

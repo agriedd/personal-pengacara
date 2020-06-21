@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Repository\AlbumRepository;
 use Illuminate\Http\Request;
 
 class AlbumController extends Controller
@@ -13,7 +14,7 @@ class AlbumController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        
+        return AlbumRepository::filter($request)->paginate(10);
     }
 
     /**
