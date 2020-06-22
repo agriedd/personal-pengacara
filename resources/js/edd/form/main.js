@@ -17,6 +17,7 @@ import all from './custom/all'
 import find from './custom/find'
 import remove from './custom/remove'
 import update from './custom/update'
+import list from './list'
 
 export default e => {
     action(e)
@@ -32,6 +33,7 @@ export default e => {
     selected(e)
     store(e)
     tab(e)
+    list(e)
 
     add(e)
     all(e)

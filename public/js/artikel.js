@@ -32686,7 +32686,8 @@ var Form = function Form(data) {
     tab: null,
     image: {},
     form: {},
-    collapse: {}
+    collapse: {},
+    list: {}
   };
 
   _classCallCheck(this, Form);
@@ -33352,6 +33353,57 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/edd/form/list.js":
+/*!***************************************!*\
+  !*** ./resources/js/edd/form/list.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (e) {
+  e.prototype.getList = function (key) {
+    return this.option.list[key];
+  };
+
+  e.prototype.pushList = function (vue, key, value) {
+    if (!this.listExist(key)) vue.$set(this.option.list, key, []);
+    this.option.list[key].push(value);
+    return this;
+  };
+
+  e.prototype.removeList = function (key, value) {
+    if (this.hasList(key, value)) {
+      var index = this.option.list[key].findIndex(function (e) {
+        return e == value;
+      });
+      if (index != -1) this.option.list[key].splice(index, 1);
+    }
+
+    return true;
+  };
+
+  e.prototype.clearList = function (vue, key) {
+    vue.$delete(this.option.list, key);
+  };
+
+  e.prototype.hasList = function (key, value) {
+    return this.listExist(key) && Array.isArray(this.option.list[key]) && this.option.list[key].includes(value);
+  };
+
+  e.prototype.listExist = function (key) {
+    return this.option.list[key] != null;
+  };
+
+  e.prototype.toggleList = function (vue, key, value) {
+    if (this.hasList(key, value)) this.removeList(key, value);else this.pushList(vue, key, value);
+    return this;
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/edd/form/loading.js":
 /*!******************************************!*\
   !*** ./resources/js/edd/form/loading.js ***!
@@ -33467,6 +33519,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _custom_find__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./custom/find */ "./resources/js/edd/form/custom/find.js");
 /* harmony import */ var _custom_remove__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./custom/remove */ "./resources/js/edd/form/custom/remove.js");
 /* harmony import */ var _custom_update__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./custom/update */ "./resources/js/edd/form/custom/update.js");
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./list */ "./resources/js/edd/form/list.js");
+
 
 
 
@@ -33499,6 +33553,7 @@ __webpack_require__.r(__webpack_exports__);
   Object(_selected__WEBPACK_IMPORTED_MODULE_10__["default"])(e);
   Object(_store__WEBPACK_IMPORTED_MODULE_11__["default"])(e);
   Object(_tab__WEBPACK_IMPORTED_MODULE_12__["default"])(e);
+  Object(_list__WEBPACK_IMPORTED_MODULE_18__["default"])(e);
   Object(_custom_add__WEBPACK_IMPORTED_MODULE_13__["default"])(e);
   Object(_custom_all__WEBPACK_IMPORTED_MODULE_14__["default"])(e);
   Object(_custom_find__WEBPACK_IMPORTED_MODULE_15__["default"])(e);

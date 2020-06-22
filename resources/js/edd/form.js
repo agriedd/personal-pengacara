@@ -11,6 +11,7 @@ const Form = class {
         image: {},
         form: {},
         collapse: {},
+        list: {},
     }){
         this.option = option
         this.data = {}

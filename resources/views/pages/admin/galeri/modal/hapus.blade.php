@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div>
-                <button class="btn btn-light btn-sm rounded-pill px-3 py-2 text-muted" v-on:click="album.closeModal('hapus', false)">
+                <button class="btn btn-light btn-sm rounded-pill px-3 py-2 text-muted" v-on:click="galeri.closeModal('hapus', false)">
                     Tutup <i class="fa fa-times d-md-inline-block d-none"></i>
                 </button>
             </div>
@@ -15,16 +15,16 @@
     </div>
     <div>
         <div class="small alert text-muted">
-            Apakah Anda yakin ingin menghapus album ini:
+            Apakah Anda yakin ingin menghapus galeri ini:
         </div>
         <div class="row alert-danger">
             <div class="p-3">
-                @component('x.info.album')
+                @component('x.info.galeri')
                 @endcomponent
                 <div class="pt-3 small">
                     <div class="card clean tip-left-bottom bg-danger text-danger">
                         <div class="card-body text-light">
-                            Data yang sudah dihapus tidak dapat dikembalikan. album akan terhapus beserta dengan semua galeri yang berhubungan dengan album ini.
+                            Data yang sudah dihapus tidak dapat dikembalikan.
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
     </div>
     <hr class="divider row mt-0">
     <div>
-        <button class="btn btn-sm btn-danger btn-rounded" type="button" @click.prevent="album.remove(getContext())">
+        <button class="btn btn-sm btn-danger btn-rounded" type="button" @click.prevent="galeri.remove(getContext())">
             <div class="d-flex">
                 <div>
                     Hapus

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Album;
+use App\Galeri;
 use App\Http\Controllers\Controller;
+use App\Repository\GaleriRepository;
 use App\Repository\GambarRepostory;
 use Illuminate\Http\Request;
 
@@ -14,8 +16,8 @@ class GaleriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        
+    public function index(Request $request){
+        return GaleriRepository::filter($request)->paginate(10);
     }
 
     /**
@@ -88,8 +90,14 @@ class GaleriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
+        
+        $galeri = Galeri::findOrFail($id);
+        GambarRepostory::destroy($galeri->gambar);
+        $status = $galeri->delete();
+        return [
+            "status"    => $status,
+            "message"   => $status ? "Berhasil menghapus data 😎" : "Gagal menghapus data"
+        ];
     }
 }

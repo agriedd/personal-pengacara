@@ -17,10 +17,10 @@
             </div>
         </div>
     </div>
-    <div class="py-3">
+    <div class="py-3" v-if="album.getSelected('galeri') != null">
         <div v-if="album.getSelected('total_galeri') > 0" class="d-flex justify-content-center">
-            <div class="pr-2" v-for="(galeri, i) in album.getSelected('galeri')" v-if="i < 3">
-                <div class="img-md rounded shadow" v-src:xs="galeri.gambar"></div>
+            <div class="pr-2" v-for="(item, i) in album.getSelected('galeri')" v-if="i < 3">
+                <div class="img-md rounded shadow" v-src:xs="item.gambar"></div>
             </div>
             <div class="pr-2" v-if="album.getSelected('total_galeri') - 3 > 0">
                 <div class="img-md rounded bg-gray-light">
