@@ -102,11 +102,6 @@ export default (vue, form) => {
             this.galeri
                 .pushAction('url', (name, option = null) => this.meta(name, option))
                 .pushAction('url_prefix', ()=>"galeri_")
-            try {
-                this.galeri.all(this)
-            } catch (error) {
-                //do nothing
-            }
         }
     })
 }

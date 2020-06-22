@@ -1,7 +1,7 @@
 export default e => {
     
     e.prototype.errorHandling = function(vue, exception){
-        if(exception.message.search(/422/m) != -1){
+        if(exception.message != null && exception.message.search(/422/m) != -1){
             this.error.setError(exception.response.data.errors, vue);
             vue.danger(exception.response.data.message);
         }
@@ -13,7 +13,7 @@ export default e => {
 
     e.prototype.responseHandler = function(vue, res, callback = null){
 
-        let error = typeof res !== "object" || (res.status != null && !res.status) || res.error || Object.keys(res).length < 1 || res.errors;
+        let error = typeof res !== "object" || (res.status != null && typeof res.status == 'boolean' && !res.status) || res.error || Object.keys(res).length < 1 || res.errors;
         
         /**
          * error jika validasi gagal

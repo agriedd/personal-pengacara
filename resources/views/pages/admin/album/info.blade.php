@@ -20,15 +20,16 @@
             {{ $album->nama }}
         </div>
     @endcomponent
-    
+
 @endsection
 
-
 @push('meta')
-    {{-- <meta name="album_all" content="{{ route('album.index') }}"> --}}
+    <meta name="album_find" content="{{ route('album.show', ['album' => $album->id]) }}">
     <meta name="album_insert" content="{{ route('album.store') }}">
     <meta name="album_delete" content="{{ route('album.destroy', ["album" => "#id"]) }}">
     <meta name="album_update" content="{{ route('album.update', ["album" => "#id"]) }}">
+
+    <meta name="galeri_all" content="{{ route('galeri.index') }}">
 @endpush
 @push('script')
     <script src="{{ asset('/js/eddlibrary.umd.min.js') }}" defer></script>
@@ -39,7 +40,7 @@
             Vue.use(eddlibrary.Notification);
             var app = new Vue({
                 el: "#app",
-                mixins: [window.Mixins.Init, window.Mixins.Navbar, window.Mixins.Album],
+                mixins: [window.Mixins.Init, window.Mixins.Navbar, window.Mixins.Album, window.Mixins.Galeri],
                 components: { 'v-table': eddlibrary.Table2, 'table-head': eddlibrary.Table2Head, 'modal': eddlibrary.Modal, 'notification': eddlibrary.Notification },
                 data: {
                     time: 5000,
@@ -70,7 +71,17 @@
                         // if(type == "artikel"){
                             // this.artikel.openModal('ubah', this.artikel.getData(index));
                         // }
-                    }
+                    },
+                },
+                async created(){
+                    await this.album
+						.pushAction('afterCloseModal', (key)=>{
+							this.album.find(this, false);
+						})
+						.find(this, null, null, false);
+                    this.galeri
+                        .pushFilter(this, { id_album: this.album.getSelected('id') })
+                        .all(this);
                 }
             });
         });

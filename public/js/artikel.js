@@ -33648,7 +33648,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 /* harmony default export */ __webpack_exports__["default"] = (function (e) {
   e.prototype.errorHandling = function (vue, exception) {
-    if (exception.message.search(/422/m) != -1) {
+    if (exception.message != null && exception.message.search(/422/m) != -1) {
       this.error.setError(exception.response.data.errors, vue);
       vue.danger(exception.response.data.message);
     } else vue.danger(exception);
@@ -33659,7 +33659,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   e.prototype.responseHandler = function (vue, res) {
     var callback = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-    var error = _typeof(res) !== "object" || res.status != null && !res.status || res.error || Object.keys(res).length < 1 || res.errors;
+    var error = _typeof(res) !== "object" || res.status != null && typeof res.status == 'boolean' && !res.status || res.error || Object.keys(res).length < 1 || res.errors;
     /**
      * error jika validasi gagal
      * 
