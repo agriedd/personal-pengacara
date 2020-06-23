@@ -73,22 +73,6 @@
                 @endslot
             @endcomponent
             <div class="item-wrapper" :class="{show: navbar.getCollapse('navHalaman', true)}">
-                @component('x.sidebars.item', [ 'name' => 'client', 'link' => route('admin.halaman') ])
-                    @slot('label')
-                        <div>
-                            Halaman
-                        </div>
-                        <div class="small text-gray-light font-weight-normal">
-                            Kelola Halaman
-                        </div>
-                    @endslot
-                    @slot('icon')
-                        <svg class="bi bi-layout-text-window-reverse" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M2 1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm12-1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
-                            <path fill-rule="evenodd" d="M5 15V4H4v11h1zM.5 4h15V3H.5v1zM13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z"/>
-                        </svg>
-                    @endslot
-                @endcomponent
                 @component('x.sidebars.item', [ 'name' => 'album', 'link' => route('admin.album') ])
                     @slot('label')
                         <div>
@@ -107,7 +91,7 @@
                     @endslot
                 @endcomponent
             </div>
-            @component('x.sidebars.item', [ 'name' => 'kunjungan', 'link' => route('admin') ])
+            @component('x.sidebars.item', [ 'name' => 'kunjungan', 'link' => route('admin.kunjungan') ])
                 @slot('label')
                     <div>
                         Kunjungan
@@ -124,7 +108,7 @@
                     </svg>
                 @endslot
             @endcomponent
-            @component('x.sidebars.item', [ 'name' => 'kunjungan', 'link' => route('admin') ])
+            {{-- @component('x.sidebars.item', [ 'name' => 'kunjungan', 'link' => route('admin') ])
                 @slot('label')
                     <div>
                         Tim
@@ -138,7 +122,7 @@
                         <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
                     </svg>
                 @endslot
-            @endcomponent
+            @endcomponent --}}
         </div>
         @component('x.sidebars.item', [ 'name' => 'pengaturan', 'link' => route('admin.pengaturan') ])
             @slot('label')

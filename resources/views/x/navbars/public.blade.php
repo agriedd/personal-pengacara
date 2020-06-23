@@ -6,12 +6,11 @@
     </button>
 
     <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto nav-default">
             @component('x.navbars.home')@endcomponent
         </ul>
     </div>
     <a class="navbar-brand ml-auto" href="{{ url('/') }}">
-        <img src="{{ asset('img/logo.svg') }}" alt="" class="logo" height="40px" width="auto">
     </a>
 </nav>
 <div class="sidebar-home bg-white navbar-light" :class="{show: navbar.getCollapse('menuHome')}" style="background-image: url('{{ asset('img/bg.svg') }}'); background-position: left bottom; background-repeat: no-repeat; background-size: cover">

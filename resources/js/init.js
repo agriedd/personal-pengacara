@@ -39,4 +39,16 @@ export default {
             notif.remove();
         } })
     },
+    copycontent(content){
+        const el = document.createElement('textarea');
+        el.value = content;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        
+        this.$notification.add({ label: "Teks berhasil disalin!", description: null, icon: 'fa-check', className: 'bg-dark text-light', time: 5000, action: (notif)=>{
+            notif.remove();
+        } })
+    },
 }

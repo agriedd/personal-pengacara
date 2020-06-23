@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repository\ArticleRepository;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -20,6 +21,7 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
-        return view('pages.public.home');
+        $artikel = ArticleRepository::latest(3);
+        return view('pages.public.home', compact('artikel'));
     }
 }

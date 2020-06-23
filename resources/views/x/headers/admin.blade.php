@@ -19,10 +19,10 @@
                             <div class="pl-2">
                                 <div class="d-flex justify-content-center flex-column h-100">
                                     <div class="small font-weight-bold text-dark">
-                                        Nama Admin
+                                        {{ auth()->user()->info ? auth()->user()->info->nama : auth()->user()->username }}
                                     </div>
                                     <div class="small text-muted">
-                                        Lorem, ipsum dolor.
+                                        {{ auth()->user()->email }}
                                     </div>
                                 </div>
                             </div>

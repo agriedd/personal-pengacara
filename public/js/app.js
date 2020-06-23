@@ -33920,6 +33920,24 @@ __webpack_require__.r(__webpack_exports__);
         notif.remove();
       }
     });
+  },
+  copycontent: function copycontent(content) {
+    var el = document.createElement('textarea');
+    el.value = content;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    this.$notification.add({
+      label: "Teks berhasil disalin!",
+      description: null,
+      icon: 'fa-check',
+      className: 'bg-dark text-light',
+      time: 5000,
+      action: function action(notif) {
+        notif.remove();
+      }
+    });
   }
 });
 
@@ -33951,11 +33969,17 @@ __webpack_require__.r(__webpack_exports__);
     watch: {
       'navbar.option.collapse.sidebar': function navbarOptionCollapseSidebar(n) {
         this.navbar.setStore('sidebar', n, false);
+      },
+      'navbar.option.collapse.sidebarInfoAdmin': function navbarOptionCollapseSidebarInfoAdmin(n) {
+        this.navbar.setStore('sidebarInfoAdmin', n, false);
       }
     },
     created: function created() {
       this.navbar.setCollapse(this, {
         sidebar: this.navbar.getStore('sidebar', this.navbar.getCollapse('sidebar'), function (e) {
+          return e == 'true' ? true : false;
+        }, false),
+        sidebarInfoAdmin: this.navbar.getStore('sidebarInfoAdmin', this.navbar.getCollapse('sidebarInfoAdmin'), function (e) {
           return e == 'true' ? true : false;
         }, false)
       });

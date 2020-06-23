@@ -7,13 +7,13 @@
         <a class="nav-link text-white h5 font-weight-normal" href="#profil" @click="navbar.toggleCollapse('menuHome', false)">Profil</a>
     </li>
     <li class="nav-item px-1">
-        <a class="nav-link text-white h5 font-weight-normal" href="#">Client</a>
+        <a class="nav-link text-white h5 font-weight-normal" href="#">Artikel</a>
+    </li>
+    <li class="nav-item px-1">
+        <a class="nav-link text-white h5 font-weight-normal" href="#bahan-hukum" @click="navbar.toggleCollapse('menuHome', false)">Bahan Hukum</a>
     </li>
     <li class="nav-item px-1">
         <a class="nav-link text-white h5 font-weight-normal" href="#">Galeri</a>
-    </li>
-    <li class="nav-item px-1">
-        <a class="nav-link text-white h5 font-weight-normal" href="#">Artikel</a>
     </li>
     @guest
         <li class="nav-item px-1">

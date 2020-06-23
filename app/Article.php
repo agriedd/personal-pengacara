@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $table = 'article';
-    protected $appends = ['info_url', 'info_url_admin', 'created_at_diff', 'rating'];
+    protected $appends = ['info_url', 'info_url_public', 'info_url_admin', 'created_at_diff', 'rating'];
     protected $with = ['info', 'cover', 'created_by'];
     protected $casts = ['created_at' => 'datetime:d-M-Y H:i:s'];
     protected $guarded = [];
@@ -29,6 +29,9 @@ class Article extends Model
     public function getInfoUrlAttribute(){
         return route('artikel.show', $this->id);
     }
+    public function getInfoUrlPublicAttribute(){
+        return route('artikel', ['id' => $this->id, 'slug' => $this->slug]);
+    }
     public function getInfoUrlAdminAttribute(){
         return route('admin.artikel.show', $this->id);
     }
@@ -37,5 +40,12 @@ class Article extends Model
     }
     public function getRatingAttribute(){
         return $this->rate_up - $this->rate_down;
+    }
+
+    public function scopePublished($query){
+        return $query->whereHas('info', function($q){
+            return $q
+                ->whereNotNull('published_at');
+        });
     }
 }

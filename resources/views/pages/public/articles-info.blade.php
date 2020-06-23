@@ -5,7 +5,7 @@
 @section('content')
     <div>
         <h3 class="font-weight-light">
-            {{ $slug }}
+            {{ $artikel->info->title }}
         </h3>
     </div>
 @endsection

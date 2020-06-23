@@ -25,6 +25,9 @@
         top: 50%; left: 30%;
         transform: translateX(-50%) translateY(-50%);
         font-size: 10rem;
+        h1{
+            color: #10233e!important; 
+        }
         .logo{
             width: 90%;
             max-width: 1000px;
@@ -32,7 +35,6 @@
     }
     .h5{
         max-width: 400px;
-        @extend .ml-auto;
         line-height: 2rem;
     }
     .action{
@@ -60,20 +62,36 @@
             text-align: left!important;
             h1{
                 font-size: 1.5rem;
-                color: $light;
-                text-shadow: 0rem 0rem .25rem rgba(0,0,0, .5);
             }
             .h5{
                 font-size: 1rem;
-                color: $light;
-                text-shadow: 0rem 0rem .25rem rgba(0,0,0, .5);
                 text-align: justify;
-                max-width: unset;
                 margin: unset;
             }
             .logo{
-                width: 100%;
-                filter: drop-shadow(2px 4px 5px $dark);
+                width: 50%;
+                // filter: drop-shadow(2px 4px 5px $dark);
+            }
+        }
+    }
+}
+@include media-breakpoint-down(sm){
+    
+    .landing{
+        .banner{
+            h1{
+                font-size: 1.2rem;
+                max-width: 70%;
+            }
+            .h5{
+                font-size: 1rem;
+                text-align: justify;
+                margin: unset;
+                line-height: 1.5rem;
+                max-width: 50%;
+            }
+            .logo{
+                width: 70%;
             }
         }
     }
@@ -92,19 +110,39 @@
     .navbar-nav{
         padding-left: 2rem;
         .nav-item{
+            font-family: 'Roboto Condensed', sans-serif!important;
             .nav-link{
+                transition: all .25s ease;
                 font-size: 2rem;
                 color: $dark!important;
                 @extend .font-weight-light;
                 &:hover{
                     background: unset;
+                    padding-left: 1rem;
                 }
+            }
+        }
+    }
+}
+.navbar-nav{
+    .nav-item{
+        font-family: 'Roboto Condensed', sans-serif!important;
+    }
+}
+.nav-default{
+    .nav-item{
+        .nav-link{
+            transition: all .25s ease;
+            &:hover{
+                background: yellow;
+                color: $dark!important;
             }
         }
     }
 }
 .page-profil{
     background: #11102A;
+    background: $light;
     min-height: 100vh;
     max-width: 100vw!important;
     overflow-x: hidden;

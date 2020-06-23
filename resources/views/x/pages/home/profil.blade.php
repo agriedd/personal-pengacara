@@ -1,6 +1,6 @@
 <div class="page-profil py-3" id="profil">
     <div class="d-flex mb-2">
-        <h2 class="font-weight-light mx-auto text-light my-3 mb-5">
+        <h2 class="font-weight-light mx-auto text-dark my-3 mb-5">
             Profil
         </h2>
     </div>
@@ -16,10 +16,10 @@
             </div>
             <div class="col-md-8">
                 <div>
-                    <h3 class="text-light font-weight-light">
+                    <h3 class="text-dark font-weight-light">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus autem iusto corrupti nemo consequuntur hic accusantium eaque dolores dolore? Pariatur sed neque eaque repellendus voluptatum beatae sapiente inventore libero quidem.
                     </h3>
-                    <h3 class="text-light font-weight-light">
+                    <h3 class="text-dark font-weight-light">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus autem iusto corrupti nemo consequuntur hic accusantium eaque dolores dolore? Pariatur sed neque eaque repellendus voluptatum beatae sapiente inventore libero quidem.
                     </h3>
                 </div>

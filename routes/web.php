@@ -21,13 +21,14 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/artikel', 'ArtikelController@index')->name('home.artikel');
 Route::get('/artikel/{slug}', 'ArtikelController@artikel')->name('artikel');
+Route::get('/artikel/{id}/{slug}', 'ArtikelController@artikel')->name('artikel');
 Route::get('/artikel/{date}/{slug}', 'ArtikelController@artikelwithdate')->name('artikelwithdate');
 
 //Admin
 Route::prefix("/admin")->group(function($app){
     Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/user', 'Admin\UserController@index')->name('admin.user');
-    Route::get('/client', 'Admin\ClientController@index')->name('admin.client');
+    Route::get('/kunjungan', 'Admin\KunjunganController@index')->name('admin.kunjungan');
     Route::prefix("/artikel")->group(function($app){
         Route::get('/{id}', 'Admin\ArticleController@show')->name('admin.artikel.show');
         Route::get('/', 'Admin\ArticleController@index')->name('admin.artikel');
@@ -50,6 +51,7 @@ Route::prefix("/api")->group(function($app){
     Route::resource('artikel', 'Api\ArtikelController');
     Route::resource('album', 'Api\AlbumController');
     Route::resource('galeri', 'Api\GaleriController');
+    Route::resource('kunjungan', 'Api\KunjunganController');
 });
 
 //Socialite
