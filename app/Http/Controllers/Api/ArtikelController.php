@@ -14,7 +14,10 @@ use Illuminate\Support\Str;
 class ArtikelController extends Controller
 {
     public function index(Request $request){
-        $data = ArticleRepository::filter($request)->paginate(10);
+        if($request->has('all') && auth()->guard('web')->check())
+            $data = ArticleRepository::filterAuth($request)->paginate(10);
+        else
+            $data = ArticleRepository::filter($request)->paginate(10);
         return new ArtikelResource($data);
     }
     public function create(){
@@ -64,7 +67,9 @@ class ArtikelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        return Article::findOrFail($id);
+        if(auth()->guard('web')->check())
+            return ArticleRepository::findAuth($id);
+        return ArticleRepository::find($id);
     }
 
     /**
@@ -97,12 +102,12 @@ class ArtikelController extends Controller
         $data->put("title", $data->get("judul"));
         $admin  = Admin::find(auth()->user()->id);
 
-        $status = $request->get("status", 0);
-
+        $status_artikel = $request->get("status", 0);
+        
         $artikel = Article::find($id);
         $status = $artikel->update([ "slug" => Str::slug($data->get("judul")) ]);
         
-        if($status == 1){
+        if($status_artikel){
             $data->put("published_at", now());
             $artikel_info = $artikel->histories()->create( $data->only(["title", "body", "published_at"])->all() );
         } else

@@ -1,8 +1,8 @@
 <div class="card-body">
     <div>
         <div class="row m-0" v-if="galeri.notEmpty()">
-            <div class="col-lg-3 col-md-4 col-6 d-flex p-1 flex-column" v-for="(item, i) in galeri.getData()" style="min-height: 300px">
-                <div class="h-100 w-100 bg-gray-light img-lg rounded shadow justify-content-between flex-column d-flex" v-src:md="item.gambar" style="flex: 1 1 auto">
+            <div class="col-lg-3 col-md-4 col-6 d-flex p-1 flex-column" v-for="(item, i) in galeri.getData()" style="min-height: 300px;">
+                <div class="h-100 w-100 bg-gray-light img-lg rounded shadow justify-content-between flex-column d-flex" v-src:md="item.gambar" style="flex: 1 1 auto" @click.self="showImage(i)">
                     <div>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -51,6 +51,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div v-else-if="galeri.onSearch() && !galeri.notEmpty()">
+            @include('x.info.search-empty', ['model' => 'galeri'])
+        </div>
+        <div v-else>
+            @include('x.info.data-empty')
         </div>
     </div>
 </div>

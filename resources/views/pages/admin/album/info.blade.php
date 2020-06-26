@@ -26,9 +26,6 @@
     <div class="container">
         <div class="card clean">
             @component('x.forms.filter', [ 'name' => 'galeri', 'label' => "Galeri", 'model' => 'galeri' ])
-                {{-- @slot('action')
-                    @include('pages.admin.album.action.table')
-                @endslot --}}
             @endcomponent
             <hr class="dropdown-divider m-0">
             @include('x.list.galeri')
@@ -92,6 +89,15 @@
                             // this.artikel.openModal('ubah', this.artikel.getData(index));
                         // }
                     },
+                    showImage(ig){
+                        let galeri = this.galeri.getData(ig);
+                        this.galeri.setSelected(galeri);
+                        this.galeri.openModal('preview');
+                    },
+                    selectGaleri(index){
+                        let galeri = this.galeri.getData(index);
+                        this.galeri.setSelected(galeri);
+                    }
                 },
                 async created(){
                     await this.album

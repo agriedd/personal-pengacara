@@ -19,4 +19,7 @@ class GaleriRepository{
             });
         return $query;
     }
+    public static function pinned(){
+        return Galeri::limit(1)->get();
+    }
 }

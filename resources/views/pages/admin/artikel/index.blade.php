@@ -30,7 +30,7 @@
 @endsection
 
 @push('meta')
-    <meta name="artikel_all" content="{{ route('artikel.index') }}">
+    <meta name="artikel_all" content="{{ route('artikel.index', ['all' => true]) }}">
     <meta name="artikel_insert" content="{{ route('artikel.store') }}">
     <meta name="artikel_delete" content="{{ route('artikel.destroy', ["artikel" => "#id"]) }}">
     <meta name="artikel_update" content="{{ route('artikel.update', ["artikel" => "#id"]) }}">
@@ -82,11 +82,13 @@
                             let form = new FormData(e.target);
                             form.append('status', this.artikel.data.info.status ? '1' : '0');
                             form.append('body', this.artikel.get('info').body);
+                            form.append('all', true);
                             this.artikel.add(this, form);
                         }
                         if(form == 'update'){
                             let form = new FormData(e.target);
                             form.append('status', this.artikel.data.info.status ? '1' : '0');
+                            form.append('all', true);
                             form.append('_method', 'PUT');
                             form.append('body', this.artikel.get('info').body);
                             this.artikel.update(this, form);

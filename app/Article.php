@@ -19,6 +19,9 @@ class Article extends Model
     public function info(){
         return $this->hasOne(ArticleHistory::class, 'id_article', 'id')->latest();
     }
+    public function infopublikasi(){
+        return $this->hasOne(ArticleHistory::class, 'id_article', 'id')->latest()->limit(1)->whereNotNull('published_at');
+    }
     public function histories(){
         return $this->hasMany(ArticleHistory::class, 'id_article', 'id');
     }
@@ -45,7 +48,8 @@ class Article extends Model
     public function scopePublished($query){
         return $query->whereHas('info', function($q){
             return $q
-                ->whereNotNull('published_at');
+                ->whereLatestPublished((new ArticleHistory())->getTable(), 'id_article')
+                ->whereNotNull("published_at");
         });
     }
 }

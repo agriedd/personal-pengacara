@@ -33,7 +33,7 @@
 
             </div>
             <div style="flex: 1 1 auto;" class="pr-3 mb-3">
-                <div class="mb-3">
+                <div class="mb-3 d-none d-md-block">
                     <div class="d-flex">
                         <div class="pr-3">
                             <div class="justify-middle">
@@ -60,15 +60,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="position-sticky" style="top: 0px">
+                <div class="position-sticky" style="top: 0px;">
                     <div class="d-flex justify-content-center">
-                        <img :src="galeri.getSelected('gambar').src_md" :key="galeri.getSelected('id')" :alt="galeri.getSelected('judul')" class="rounded" height="100px" width="100px" style="border: 1px solid red">
+                        <img :src="galeri.getSelected('gambar').src_md" :key="galeri.getSelected('id')" :alt="galeri.getSelected('judul')" class="rounded" height="auto" width="100%">
                     </div>
                 </div>
             </div>
-            <div class="h-auto d-flex flex-md-column flex-row" style="max-width: 100%;">
+            <div class="h-auto d-flex flex-md-column flex-row" style="max-width: 100%; overflow-x: auto;">
                 <div class="p-1 rounded d-md-block d-none" :class="[ {'bg-primary': galeri.getSelected('id') == item.id } ]" v-for="(item, i) in album.getSelected('galeri')">
-                    <div class="img-md rounded" v-src:md="item.gambar" style="cursor: pointer;" @click="selectGaleri(i)">
+                    <div class="img-lg rounded" v-src:md="item.gambar" style="cursor: pointer;" @click="selectGaleri(i)">
 
                     </div>
                 </div>

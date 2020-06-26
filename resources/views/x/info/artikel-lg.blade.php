@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-                <button class="btn btn-link text-danger">
+                <button class="btn btn-link text-accent">
                     <div class="d-flex">
                         <div class="pr-2 small">
                             <div class="justify-middle">
@@ -29,16 +29,18 @@
             </div>
         </div>
     </div>
-    <transition name="fly-down">
-        <div class="card-body pt-0 text-dark" v-show="navbar.hasList('artikel', {{ $artikel->id }})">
-            @component('x.tip.default')
-                @slot('tip', 'bg-dark text-dark tip-center-bottom')
-                @slot('card', 'text-light')
-                @component('x.info.share-artikel', [ 'artikel' => $artikel ])
+    <div v-cloak>
+        <transition name="fly-down">
+            <div class="card-body pt-0 text-dark" v-show="navbar.hasList('artikel', {{ $artikel->id }})">
+                @component('x.tip.default')
+                    @slot('tip', 'bg-dark text-dark tip-center-bottom')
+                    @slot('card', 'text-light')
+                    @component('x.info.share-artikel', [ 'artikel' => $artikel ])
+                    @endcomponent
                 @endcomponent
-            @endcomponent
-        </div>
-    </transition>
+            </div>
+        </transition>
+    </div>
     <div class="card-img">
         <div class="img-lg bg-gray-light w-100" style="height: 250px; min-height: 250px; background-image: url('{{ $artikel->cover->src_lg }}')">
         </div>

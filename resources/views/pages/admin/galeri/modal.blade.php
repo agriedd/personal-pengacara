@@ -22,3 +22,10 @@
         @include('pages.admin.galeri.modal.hapus')
     </template>
 </modal>
+
+
+<modal v-if="galeri.getModal('preview')" v-on:modalclose="galeri.closeModal('preview', false)" transition="fly-down" size="lg">
+	<template>
+        @include('pages.admin.galeri.modal.preview')
+    </template>
+</modal>

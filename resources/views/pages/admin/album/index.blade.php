@@ -12,6 +12,7 @@
     @endcomponent
     @include('pages.admin.album.modal')
     @include('pages.admin.galeri.modal')
+    @include('pages.public.galeri.modal')
     @component('x.breadcrumb.admin')
         <div class="breadcrumb-item active">
             Album
@@ -26,7 +27,7 @@
                 @endslot
             @endcomponent
             <hr class="dropdown-divider m-0">
-            <transition name="fly-left" mode="out-in">
+            <transition name="fly-up" mode="out-in">
                 <div :key="album.getCollapse('table', true)">
                     <div v-if="album.getCollapse('table', true)">
                         @include('x.tables.album')
@@ -104,6 +105,18 @@
                             this.album.setSelected(this.album.getData(index));
                             this.galeri.openModal('tambah');
                         }
+                    },
+                    showImage(ia, ig){
+                        let album = this.album.getData(ia);
+                        let galeri = album.galeri[ig];
+                        this.album.setSelected(album);
+                        this.galeri.setSelected(galeri);
+                        this.galeri.openModal('preview');
+                    },
+                    selectGaleri(index){
+                        let album = this.album.getSelected();
+                        let galeri = album.galeri[index];
+                        this.galeri.setSelected(galeri);
                     }
                 },
                 created(){
