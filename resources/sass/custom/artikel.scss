@@ -1,5 +1,7 @@
 .body-article{
     table{
         width: 100%!important;
+        @extend .table-bordered;
+        @extend .table-striped;
     }
 }

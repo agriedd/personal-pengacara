@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class ArtikelController extends Controller
 {
     public function index(Request $request){
-        return view('pages.public.articles');
+        $artikel = ArticleRepository::latest(10);
+        return view('pages.public.articles', compact('artikel'));
     }
     public function artikel(Request $request, $id = null, $slug){
         $artikel = null;
@@ -17,7 +18,9 @@ class ArtikelController extends Controller
             $artikel = ArticleRepository::find($id, $slug);
         else
             $artikel = ArticleRepository::findSlug($slug);
-        return view('pages.public.articles-info', compact('artikel'));
+        ArticleRepository::incrementViews($artikel);
+        $daftar_artikel = ArticleRepository::latest(2);
+        return view('pages.public.articles-info', compact('artikel', 'daftar_artikel'));
     }
     public function artikelwithdate(Request $request, $date, $slug){
         return view('pages.public.articles-info', compact('slug'));

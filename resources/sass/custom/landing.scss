@@ -104,6 +104,8 @@
     z-index: 100;
     transform: translateX(-100%);
     transition: all .5s ease;
+    top: 0px;
+    background-color: $light;
     &.show{
         transform: translateX(0%);
     }
@@ -130,6 +132,13 @@
     }
 }
 .nav-default{
+    &.light{
+        .nav-item{
+            .nav-link{
+                color: $dark!important;
+            }
+        }
+    }
     .nav-item{
         .nav-link{
             transition: all .25s ease;

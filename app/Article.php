@@ -39,7 +39,7 @@ class Article extends Model
         return $this->created_at->diffForHumans();
     }
     public function getRatingAttribute(){
-        return $this->rate_up - $this->rate_down;
+        return $this->vote_up - $this->vote_down;
     }
 
     public function scopePublished($query){

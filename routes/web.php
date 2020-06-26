@@ -19,10 +19,17 @@ Auth::routes();
 //Guest
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/artikel', 'ArtikelController@index')->name('home.artikel');
-Route::get('/artikel/{slug}', 'ArtikelController@artikel')->name('artikel');
-Route::get('/artikel/{id}/{slug}', 'ArtikelController@artikel')->name('artikel');
-Route::get('/artikel/{date}/{slug}', 'ArtikelController@artikelwithdate')->name('artikelwithdate');
+Route::prefix('/artikel')->group(function($app){
+    Route::get('/', 'ArtikelController@index')->name('home.artikel');
+    Route::get('/{slug}', 'ArtikelController@artikel')->name('artikel');
+    Route::get('/{id}/{slug}', 'ArtikelController@artikel')->name('artikel');
+    Route::get('/{date}/{slug}', 'ArtikelController@artikelwithdate')->name('artikelwithdate');
+});
+Route::prefix('/galeri')->group(function($app){
+    Route::get('/', 'GaleriController@index')->name('home.galeri');
+});
+
+Route::get('/galeri/{date}/{slug}', 'ArtikelController@artikelwithdate')->name('artikelwithdate');
 
 //Admin
 Route::prefix("/admin")->group(function($app){
@@ -48,6 +55,7 @@ Route::prefix("/admin")->group(function($app){
 
 //Api
 Route::prefix("/api")->group(function($app){
+    Route::post('artikel/vote/{artikel}', 'Api\ArtikelController@updateVote')->name('artikel.vote');
     Route::resource('artikel', 'Api\ArtikelController');
     Route::resource('album', 'Api\AlbumController');
     Route::resource('galeri', 'Api\GaleriController');

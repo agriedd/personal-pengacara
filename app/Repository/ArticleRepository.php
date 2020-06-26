@@ -34,4 +34,7 @@ class ArticleRepository{
             ->where('slug', $slug)
             ->firstOrFail();
     }
+    public static function incrementViews(Article $artikel){
+        return $artikel->increment('views');
+    }
 }

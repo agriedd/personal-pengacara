@@ -13,7 +13,7 @@
         <a class="nav-link text-white h5 font-weight-normal" href="#bahan-hukum" @click="navbar.toggleCollapse('menuHome', false)">Bahan Hukum</a>
     </li>
     <li class="nav-item px-1">
-        <a class="nav-link text-white h5 font-weight-normal" href="#">Galeri</a>
+        <a class="nav-link text-white h5 font-weight-normal" href="{{ route('home.galeri') }}" @click="navbar.toggleCollapse('menuHome', false)">Galeri</a>
     </li>
     @guest
         <li class="nav-item px-1">

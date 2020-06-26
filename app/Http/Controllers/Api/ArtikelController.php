@@ -119,6 +119,25 @@ class ArtikelController extends Controller
             "data"      => $artikel,
         ];
     }
+    public function updateVote(Request $request, $id){
+        $data = $request->validate([
+            "vote" => 'required|numeric'
+        ]);
+
+        $data   = collect($data);
+        $artikel = Article::find($id);
+
+        if($data->get('vote') == 1)
+            $status = $artikel->increment('vote_up');
+        else
+            $status = $artikel->increment('vote_down');
+
+        return [
+            "status"    => $status,
+            "message"   => $status ? "Berhasil menyimpan perubahan 😎" : "Gagal menyimpan perubahan",
+            "data"      => $artikel,
+        ];
+    }
 
     /**
      * Remove the specified resource from storage.

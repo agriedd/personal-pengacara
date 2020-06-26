@@ -14,6 +14,7 @@ class AlbumController extends Controller
         return AlbumRepository::filter($request)
             ->with(['galeri'])
             ->without(['galeri.album'])
+            ->latest()
             ->paginate(10);
     }
 
