@@ -12,6 +12,10 @@ use Intervention\Image\ImageManagerStatic;
 
 class GambarController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index(){
         $listgambar = Gambar::with(['gambarable'])->get();
         // return response()->json($listgambar);

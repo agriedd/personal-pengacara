@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class KunjunganController extends Controller{
+    
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index(){
         $total_kunjungan = number_format(Kunjungan::count());
         $total_kunjungan_bulan_lalu = number_format(KunjunganRepository::lastMonth()->count());

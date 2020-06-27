@@ -51,6 +51,11 @@ Route::prefix("/admin")->group(function($app){
         Route::get('/{album}', 'Admin\AlbumController@info')->name('admin.album.info');
         Route::post('/{album}', 'Admin\AlbumController@tambahGaleri')->name('admin.album.galeri.tambah');
     });
+    Route::prefix('/bahan-hukum')->group(function($app){
+        Route::get('/', 'Admin\BahanHukumController@index')->name('admin.bahan.hukum');
+        // Route::get('/{album}', 'Admin\AlbumController@info')->name('admin.album.info');
+        // Route::post('/{album}', 'Admin\AlbumController@tambahGaleri')->name('admin.album.galeri.tambah');
+    });
 });
 
 //Api

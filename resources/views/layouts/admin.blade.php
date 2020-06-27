@@ -20,11 +20,15 @@
 </head>
 <body>
     @yield('beforecontent')
-    <div id="app">
+    <div id="app" class="bg-dark">
         <div class="wrapper" v-cloak>
             @yield('sidebar')
-            <main class="section-body bg-light" :class="{'sidebar-active': navbar.getCollapse('sidebar', false)}">
-                @yield('content')
+            <main class="section-body bg-dark p-2 p-lg-3" :class="{'sidebar-active': navbar.getCollapse('sidebar', false)}">
+                <div class="card clean bg-light">
+                    <div class="p-md-3">
+                        @yield('content')
+                    </div>
+                </div>
             </main>
         </div>
         <div class="placeholder" v-cloak>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBerkasTable extends Migration
+class CreateBerkasHukumsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateBerkasTable extends Migration
      */
     public function up()
     {
-        Schema::create('berkas', function (Blueprint $table) {
+        Schema::create('berkas_hukums', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->text('src');
+            $table->text('judul');
             $table->text('keterangan')->nullable();
-            $table->enum('status', [0, 1])->default(1);
-            $table->nullableMorphs('berkasable');
+            $table->unsignedBigInteger('id_admin')->nullable();
 
-            $table->unsignedBigInteger('size')->nullable();
-            $table->string('extension')->nullable();
-            $table->unsignedBigInteger('downloads')->default(0)->nullable();
+            $table->foreign('id_admin')->references('id')->on('admin')
+                ->onDelete('set null')
+                ->onUpdate('cascade');
         });
     }
 
@@ -34,6 +33,6 @@ class CreateBerkasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('berkas');
+        Schema::dropIfExists('berkas_hukums');
     }
 }

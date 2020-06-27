@@ -1,5 +1,5 @@
-<div class="sidebar sidebar-dark clean" :class="{mini: navbar.getCollapse('sidebar', false)}">
-    <div class="inner-sidebar">
+<div class="sidebar sidebar-dark bg-dark clean" :class="{mini: navbar.getCollapse('sidebar', false)}">
+    <div class="inner-sidebar border-0">
         <div class="sidebar-header">
             @component('x.sidebars.toggler')
                 @slot('attributes') @click.prevent="navbar.toggleCollapse('sidebar')" @endslot
@@ -90,7 +90,7 @@
                         </svg>
                     @endslot
                 @endcomponent
-                @component('x.sidebars.item', [ 'name' => 'bahan-hukum', 'link' => route('admin.album') ])
+                @component('x.sidebars.item', [ 'name' => 'bahan-hukum', 'link' => route('admin.bahan.hukum') ])
                     @slot('label')
                         <div>
                             Bahan Hukum

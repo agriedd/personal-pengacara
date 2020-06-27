@@ -5,7 +5,7 @@
     $disabled = isset($disabled) && $disabled ? 'disabled' : '';
 @endphp
 <div class="item {{ $isActive ? "active" : null }} {{ $disabled ?? '' }}" {{ $attributes ?? '' }}>
-    <a href="{{ $link ?? '#' }}" class="inner-item">
+    <a href="{{ $link ?? '#' }}" class="inner-item flex-row-reverse">
         @isset($icon)
             <div class="icon">
                 <div class="inner-icon">
