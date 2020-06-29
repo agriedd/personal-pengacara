@@ -17,4 +17,5 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/pages/kunjungan.js', 'public/js')
     .js('resources/js/pages/publik.js', 'public/js')
     .js('resources/js/pages/galeri.js', 'public/js')
+    .js('resources/js/pages/bahan-hukum.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');

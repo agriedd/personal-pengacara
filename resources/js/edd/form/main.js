@@ -11,6 +11,7 @@ import response from './response'
 import selected from './selected'
 import store from './store'
 import tab from './tab'
+import file from './file'
 
 import add from './custom/add'
 import all from './custom/all'
@@ -34,6 +35,7 @@ export default e => {
     store(e)
     tab(e)
     list(e)
+    file(e)
 
     add(e)
     all(e)

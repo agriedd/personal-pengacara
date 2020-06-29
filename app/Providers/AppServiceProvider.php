@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        config(['app.locale' => 'id']);
+        Carbon::setLocale('id');
+
         Builder::macro('whereLatestPublished', function($table, $parentRelatedColumn){
             //sub query untuk mengambil data terakhir info artikel
             //nantinya sub query ini dijadikan filtering published_at null

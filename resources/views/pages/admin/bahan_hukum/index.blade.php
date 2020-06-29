@@ -6,34 +6,40 @@
     @include('x.sidebars.admin')
 @endsection
 
+@push('prependcontent')
+    @include('pages.admin.bahan_hukum.modal')
+@endpush
 @section('content')
     @component('x.headers.admin')
         Bahan Hukum
     @endcomponent
-    @include('pages.admin.artikel.modal')
-    @component('x.breadcrumb.admin')
-        <div class="breadcrumb-item active">
-            Bahan Hukum
-        </div>
-    @endcomponent
-    <div class="container">
-        <div class="card clean">
-            
-            {{-- @include('x.forms.filter', [ 'name' => 'artikel', 'label' => "Artikel", 'model' => 'artikel' ]) --}}
-
-            <hr class="dropdown-divider m-0">
-
-            {{-- @include('x.tables.artikel') --}}
-        </div>
-        <div class="mb-3"></div>
-    </div>
 @endsection
+@push('appendcontent')
+    <div class="card clean my-2 bg-light">
+        @component('x.breadcrumb.admin')
+            <div class="breadcrumb-item active">
+                Bahan Hukum
+            </div>
+        @endcomponent
+        <div class="container">
+            <div class="card clean">
+                
+                @include('x.forms.filter', [ 'name' => 'bahan_hukum', 'label' => "Bahan Hukum", 'model' => 'bahan_hukum' ])
+    
+                <hr class="dropdown-divider m-0">
+    
+                @include('x.tables.bahan-hukum')
+            </div>
+            <div class="mb-3"></div>
+        </div>
+    </div>
+@endpush
 
 @push('meta')
-    {{-- <meta name="artikel_all" content="{{ route('artikel.index', ['all' => true]) }}"> --}}
-    <meta name="artikel_insert" content="{{ route('artikel.store') }}">
+    <meta name="bahan_hukum_all" content="{{ route('bahan-hukum.index', ['all' => true]) }}">
+    <meta name="bahan_hukum_insert" content="{{ route('bahan-hukum.store') }}">
     {{-- <meta name="artikel_delete" content="{{ route('artikel.destroy', ["artikel" => "#id"]) }}"> --}}
-    {{-- <meta name="artikel_update" content="{{ route('artikel.update', ["artikel" => "#id"]) }}"> --}}
+    <meta name="bahan_hukum_update" content="{{ route('bahan-hukum.update', ["bahan_hukum" => "#id"]) }}">
 @endpush
 @push('script')
     <script src="{{ asset('/js/eddlibrary.umd.min.js') }}" defer></script>
@@ -53,23 +59,21 @@
                     submit(t, e, form = 'insert'){
                         if(form == 'insert'){
                             let form = new FormData(e.target);
-                            form.append('status', this.artikel.data.info.status ? '1' : '0');
-                            form.append('body', this.artikel.get('info').body);
-                            form.append('all', true);
-                            this.artikel.add(this, form);
+                            this.bahan_hukum.add(this, form);
                         }
                         if(form == 'update'){
                             let form = new FormData(e.target);
-                            form.append('status', this.artikel.data.info.status ? '1' : '0');
-                            form.append('all', true);
                             form.append('_method', 'PUT');
-                            form.append('body', this.artikel.get('info').body);
-                            this.artikel.update(this, form);
+                            this.bahan_hukum.update(this, form);
                         }
                     },
-                    removeImage(type, name){
-                        if(type == 'artikel'){
-                            this.artikel.removeImage(name);
+                    selectFile(ev, type, name){
+                        if(type == 'bahan_hukum')
+                            this.bahan_hukum.setFile(ev, name, this);
+                    },
+                    removeFile(type, name){
+                        if(type == 'bahan_hukum'){
+                            this.bahan_hukum.removeFile(name);
                             this.$refs[name].value = "";
                         }
                     },
@@ -79,8 +83,8 @@
                         }
                     },
                     update(type, index){
-                        if(type == "artikel"){
-                            this.artikel.openModal('ubah', this.artikel.getData(index));
+                        if(type == "bahan_hukum"){
+                            this.bahan_hukum.openModal('ubah', this.bahan_hukum.getData(index));
                         }
                     }
                 }

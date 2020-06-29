@@ -65,6 +65,7 @@ Route::prefix("/api")->group(function($app){
     Route::resource('album', 'Api\AlbumController');
     Route::resource('galeri', 'Api\GaleriController');
     Route::resource('kunjungan', 'Api\KunjunganController');
+    Route::resource('bahan-hukum', 'Api\BahanHukumController');
 });
 
 //Socialite

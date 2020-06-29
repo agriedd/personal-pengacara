@@ -1,0 +1,28 @@
+.dropdown-fly-down-zoom{
+    &-enter{
+        transform: translateY(-2rem) scale(0);
+        opacity: 0;
+        
+        &-active{
+            transform-origin: center top;
+            transition: all .25s ease;
+        }
+        &-to{
+            transform: translateY(0rem) scale(1);
+            opacity: 1;
+        }
+    }
+    &-leave{
+        transform: translateY(0rem) scale(1);
+        opacity: 1;
+        
+        &-active{
+            transform-origin: top center;
+            transition: all .25s ease;
+        }
+        &-to{
+            transform: translateY(-2rem);
+            opacity: 0;
+        }
+    }
+}

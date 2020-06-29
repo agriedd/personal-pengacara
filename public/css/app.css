@@ -13280,7 +13280,41 @@ html {
   opacity: 0;
 }
 
+.dropdown-fly-down-zoom-enter {
+  transform: translateY(-2rem) scale(0);
+  opacity: 0;
+}
+
+.dropdown-fly-down-zoom-enter-active {
+  transform-origin: center top;
+  transition: all 0.25s ease;
+}
+
+.dropdown-fly-down-zoom-enter-to {
+  transform: translateY(0rem) scale(1);
+  opacity: 1;
+}
+
+.dropdown-fly-down-zoom-leave {
+  transform: translateY(0rem) scale(1);
+  opacity: 1;
+}
+
+.dropdown-fly-down-zoom-leave-active {
+  transform-origin: top center;
+  transition: all 0.25s ease;
+}
+
+.dropdown-fly-down-zoom-leave-to {
+  transform: translateY(-2rem);
+  opacity: 0;
+}
+
 .body-article table {
   width: 100% !important;
+}
+
+.break-all {
+  word-break: break-all;
 }
 

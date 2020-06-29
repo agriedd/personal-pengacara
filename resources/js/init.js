@@ -39,6 +39,12 @@ export default {
             notif.remove();
         } })
     },
+    debug(message){
+        console.log(message);
+        this.$notification.add({ label: "Debug 🐛!", description: message, icon: 'fa-times', className: 'text-dark bg-light', time: null, action: (notif)=>{
+            notif.remove();
+        } })
+    },
     copycontent(content){
         const el = document.createElement('textarea');
         el.value = content;

@@ -15,7 +15,7 @@ export default e => {
     }
     e.prototype.removeImage = function(key, vue = null){
         this.option.image[key] = null;
-        this.data.foto = null;
+        this.data[key] = null;
         if(vue)
             vue.$delete(this.option.image, key);
     }

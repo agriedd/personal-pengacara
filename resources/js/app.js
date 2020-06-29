@@ -28,6 +28,10 @@ window.Vue.filter('no', (value, model)=>{
 
     return value + ((page - 1) * data_perpage) + 1
 })
+window.Vue.filter('toMB', (value, model)=>{
+    value = value / 1000 / 1024
+    return parseFloat(value.toFixed(2))
+})
 
 const init = {
     methods: {

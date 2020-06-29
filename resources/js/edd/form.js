@@ -9,6 +9,7 @@ const Form = class {
         modal: { tambah: false, ubah: false, update: false, hapus: false, info: false },
         tab: null,
         image: {},
+        file: {},
         form: {},
         collapse: {},
         list: {},

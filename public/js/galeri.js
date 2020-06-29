@@ -32328,6 +32328,10 @@ window.Vue.filter('no', function (value, model) {
   if (model.option.filter.limit != null) data_perpage = model.option.filter.limit;
   return value + (page - 1) * data_perpage + 1;
 });
+window.Vue.filter('toMB', function (value, model) {
+  value = value / 1000 / 1024;
+  return parseFloat(value.toFixed(2));
+});
 var init = {
   methods: _objectSpread({}, _init__WEBPACK_IMPORTED_MODULE_2__["default"])
 };
@@ -32653,6 +32657,7 @@ var Form = function Form(data) {
     },
     tab: null,
     image: {},
+    file: {},
     form: {},
     collapse: {},
     list: {}
@@ -33192,6 +33197,54 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/edd/form/file.js":
+/*!***************************************!*\
+  !*** ./resources/js/edd/form/file.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (e) {
+  e.prototype.setFile = function (e, key, vue) {
+    var index = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+    var file = e.target.files[index];
+    console.log(file);
+    vue.$set(this.option.file, key, {
+      lastModified: file.lastModified,
+      lastModifiedDate: file.lastModifiedDate,
+      name: file.name,
+      size: file.size,
+      type: file.type
+    });
+  };
+
+  e.prototype.getFile = function (key) {
+    return this.option.file[key];
+  };
+
+  e.prototype.hasFile = function (key) {
+    return this.option.file[key] == null ? false : true;
+  };
+
+  e.prototype.removeFile = function (key) {
+    var vue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    this.option.file[key] = null;
+    if (vue) vue.$delete(this.option.file, key);
+  };
+
+  e.prototype.resetImage = function () {
+    var vue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+    for (var key in this.option.file) {
+      this.removeFile(key, vue);
+    }
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/edd/form/filter.js":
 /*!*****************************************!*\
   !*** ./resources/js/edd/form/filter.js ***!
@@ -33302,7 +33355,7 @@ __webpack_require__.r(__webpack_exports__);
   e.prototype.removeImage = function (key) {
     var vue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
     this.option.image[key] = null;
-    this.data.foto = null;
+    this.data[key] = null;
     if (vue) vue.$delete(this.option.image, key);
   };
 
@@ -33482,12 +33535,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _selected__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./selected */ "./resources/js/edd/form/selected.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./store */ "./resources/js/edd/form/store.js");
 /* harmony import */ var _tab__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./tab */ "./resources/js/edd/form/tab.js");
-/* harmony import */ var _custom_add__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./custom/add */ "./resources/js/edd/form/custom/add.js");
-/* harmony import */ var _custom_all__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./custom/all */ "./resources/js/edd/form/custom/all.js");
-/* harmony import */ var _custom_find__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./custom/find */ "./resources/js/edd/form/custom/find.js");
-/* harmony import */ var _custom_remove__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./custom/remove */ "./resources/js/edd/form/custom/remove.js");
-/* harmony import */ var _custom_update__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./custom/update */ "./resources/js/edd/form/custom/update.js");
-/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./list */ "./resources/js/edd/form/list.js");
+/* harmony import */ var _file__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./file */ "./resources/js/edd/form/file.js");
+/* harmony import */ var _custom_add__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./custom/add */ "./resources/js/edd/form/custom/add.js");
+/* harmony import */ var _custom_all__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./custom/all */ "./resources/js/edd/form/custom/all.js");
+/* harmony import */ var _custom_find__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./custom/find */ "./resources/js/edd/form/custom/find.js");
+/* harmony import */ var _custom_remove__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./custom/remove */ "./resources/js/edd/form/custom/remove.js");
+/* harmony import */ var _custom_update__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./custom/update */ "./resources/js/edd/form/custom/update.js");
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./list */ "./resources/js/edd/form/list.js");
+
 
 
 
@@ -33521,12 +33576,13 @@ __webpack_require__.r(__webpack_exports__);
   Object(_selected__WEBPACK_IMPORTED_MODULE_10__["default"])(e);
   Object(_store__WEBPACK_IMPORTED_MODULE_11__["default"])(e);
   Object(_tab__WEBPACK_IMPORTED_MODULE_12__["default"])(e);
-  Object(_list__WEBPACK_IMPORTED_MODULE_18__["default"])(e);
-  Object(_custom_add__WEBPACK_IMPORTED_MODULE_13__["default"])(e);
-  Object(_custom_all__WEBPACK_IMPORTED_MODULE_14__["default"])(e);
-  Object(_custom_find__WEBPACK_IMPORTED_MODULE_15__["default"])(e);
-  Object(_custom_remove__WEBPACK_IMPORTED_MODULE_16__["default"])(e);
-  Object(_custom_update__WEBPACK_IMPORTED_MODULE_17__["default"])(e);
+  Object(_list__WEBPACK_IMPORTED_MODULE_19__["default"])(e);
+  Object(_file__WEBPACK_IMPORTED_MODULE_13__["default"])(e);
+  Object(_custom_add__WEBPACK_IMPORTED_MODULE_14__["default"])(e);
+  Object(_custom_all__WEBPACK_IMPORTED_MODULE_15__["default"])(e);
+  Object(_custom_find__WEBPACK_IMPORTED_MODULE_16__["default"])(e);
+  Object(_custom_remove__WEBPACK_IMPORTED_MODULE_17__["default"])(e);
+  Object(_custom_update__WEBPACK_IMPORTED_MODULE_18__["default"])(e);
 });
 
 /***/ }),
@@ -33916,6 +33972,19 @@ __webpack_require__.r(__webpack_exports__);
       icon: 'fa-times',
       className: 'text-danger bg-dark',
       time: this.time,
+      action: function action(notif) {
+        notif.remove();
+      }
+    });
+  },
+  debug: function debug(message) {
+    console.log(message);
+    this.$notification.add({
+      label: "Debug 🐛!",
+      description: message,
+      icon: 'fa-times',
+      className: 'text-dark bg-light',
+      time: null,
       action: function action(notif) {
         notif.remove();
       }

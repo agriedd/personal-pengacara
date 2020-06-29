@@ -11,23 +11,27 @@
         Artikel
     @endcomponent
     @include('pages.admin.artikel.modal')
-    @component('x.breadcrumb.admin')
-        <div class="breadcrumb-item active">
-            Artikel
-        </div>
-    @endcomponent
-    <div class="container">
-        <div class="card clean">
-            
-            @include('x.forms.filter', [ 'name' => 'artikel', 'label' => "Artikel", 'model' => 'artikel' ])
-
-            <hr class="dropdown-divider m-0">
-
-            @include('x.tables.artikel')
-        </div>
-        <div class="mb-3"></div>
-    </div>
 @endsection
+@push('appendcontent')
+    <div class="card clean my-2 bg-light">
+        @component('x.breadcrumb.admin')
+            <div class="breadcrumb-item active">
+                Artikel
+            </div>
+        @endcomponent
+        <div class="container py-3">
+            <div class="card clean">
+                
+                @include('x.forms.filter', [ 'name' => 'artikel', 'label' => "Artikel", 'model' => 'artikel' ])
+
+                <hr class="dropdown-divider m-0">
+
+                @include('x.tables.artikel')
+            </div>
+            <div class="mb-3"></div>
+        </div>
+    </div>
+@endpush
 
 @push('meta')
     <meta name="artikel_all" content="{{ route('artikel.index', ['all' => true]) }}">
