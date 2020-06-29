@@ -90,7 +90,11 @@ class BahanHukumController extends Controller{
             $berkas_hukum->berkas()->save($berkas);
         }
 
-        return $berkas_hukum;
+        return [
+            "status"    => $status,
+            "message"   => $status ? "Berhasil menyimpan perubahan 😎" : "Gagal menyimpan perubahan",
+            "data"      => $berkas_hukum,
+        ];
     }
 
     /**
@@ -100,6 +104,12 @@ class BahanHukumController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        
+        $berkas_hukum = BerkasHukum::findOrFail($id);
+        BerkasRepository::destroy($berkas_hukum->berkas);
+        $berkas_hukum->delete();
+        return [
+            "status"=> true,
+            "message"=> "Berhasil menghapus data 😎"
+        ];
     }
 }

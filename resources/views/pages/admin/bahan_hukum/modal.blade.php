@@ -18,6 +18,6 @@
 
 <modal v-if="bahan_hukum.getModal('hapus')" v-on:modalclose="bahan_hukum.closeModal('hapus', false)" transition="fly-down">
     <template>
-        {{-- @include('pages.admin.bahan_hukum.modal.hapus') --}}
+        @include('pages.admin.bahan_hukum.modal.hapus')
     </template>
 </modal>

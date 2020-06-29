@@ -38,7 +38,7 @@
 @push('meta')
     <meta name="bahan_hukum_all" content="{{ route('bahan-hukum.index', ['all' => true]) }}">
     <meta name="bahan_hukum_insert" content="{{ route('bahan-hukum.store') }}">
-    {{-- <meta name="artikel_delete" content="{{ route('artikel.destroy', ["artikel" => "#id"]) }}"> --}}
+    <meta name="bahan_hukum_delete" content="{{ route('bahan-hukum.destroy', ["bahan_hukum" => "#id"]) }}">
     <meta name="bahan_hukum_update" content="{{ route('bahan-hukum.update', ["bahan_hukum" => "#id"]) }}">
 @endpush
 @push('script')
@@ -78,8 +78,8 @@
                         }
                     },
                     konfirmasiHapus(type, index){
-                        if(type == "artikel"){
-                            this.artikel.openModal('hapus', this.artikel.getData(index));
+                        if(type == "bahan_hukum"){
+                            this.bahan_hukum.openModal('hapus', this.bahan_hukum.getData(index));
                         }
                     },
                     update(type, index){
