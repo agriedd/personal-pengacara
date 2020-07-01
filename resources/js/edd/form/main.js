@@ -12,6 +12,7 @@ import selected from './selected'
 import store from './store'
 import tab from './tab'
 import file from './file'
+import sort from './sort'
 
 import add from './custom/add'
 import all from './custom/all'
@@ -36,6 +37,7 @@ export default e => {
     tab(e)
     list(e)
     file(e)
+    sort(e)
 
     add(e)
     all(e)

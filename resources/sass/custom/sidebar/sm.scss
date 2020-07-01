@@ -10,7 +10,7 @@
 		background: transparent!important;
 		display: flex; flex-direction: column; justify-content: flex-end;
 		overflow: unset;
-		padding: 0rem;
+		padding: 1rem;
         transition: max-width .15s ease, max-height .15s ease-out;
         
         & > .inner-sidebar{
@@ -19,11 +19,12 @@
             position: relative;
             // padding-top: 2rem;
             display: flex; flex-direction: column;
-            box-shadow: unset!important;
+            // box-shadow: unset!important;
             border-radius: 0rem;
-            box-shadow: 0 -.125rem .25rem rgba(0,0,0,.075);
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
             background: #fff;
             transition: height .15s ease-out, max-height .15s ease;
+            border-radius: .5rem;
 
             & > .sidebar-header{}
             & > .sidebar-body{

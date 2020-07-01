@@ -5,6 +5,11 @@ namespace App\Repository;
 use App\Kunjungan;
 
 class KunjunganRepository{
+    
+    public static function orderWhitelist(){
+        return collect([ 'created_at', 'id', 'uri', 'user_agent', 'ip_address' ]);
+    }
+
     public static function store($data){
         $data = collect($data);
 
@@ -20,6 +25,12 @@ class KunjunganRepository{
                 ->orWhere('location', 'like', "%{$request->search}%")
                 ->orWhere('referer', 'like', "%{$request->search}%")
                 ->orWhere('user_agent', 'like', "%{$request->search}%");
+            })
+            ->when($request->filled("order") && self::orderWhitelist()->contains($request->filled("order")), function($q)use($request){
+                return $q->orderBy(
+                    $request->order,
+                    $request->has("asc") && $request->asc == "true" ? "ASC" : "DESC"
+                );
             });
         return $query;
     }

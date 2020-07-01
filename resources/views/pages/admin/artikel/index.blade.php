@@ -5,12 +5,14 @@
 @section('sidebar')
     @include('x.sidebars.admin')
 @endsection
+@push('prependcontent')
+    @include('pages.admin.artikel.modal')
+@endpush
 
 @section('content')
     @component('x.headers.admin')
         Artikel
     @endcomponent
-    @include('pages.admin.artikel.modal')
 @endsection
 @push('appendcontent')
     <div class="card clean my-2 bg-light">
@@ -46,6 +48,7 @@
     <script>
         window.addEventListener('load', ()=>{
             Vue.use(eddlibrary.Notification);
+            Vue.use(eddlibrary.Modal);
             var app = new Vue({
                 el: "#app",
                 mixins: [window.Mixins.Init, window.Mixins.Navbar, window.Mixins.Artikel],

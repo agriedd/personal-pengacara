@@ -22,6 +22,9 @@ export default (vue, form) => {
             'navbar.option.collapse.sidebarInfoAdmin': function(n){
                 this.navbar.setStore('sidebarInfoAdmin', n, false);
             },
+            'navbar.option.collapse.navHalaman': function(n){
+                this.navbar.setStore('navHalaman', n, false);
+            },
         },
         created(){
             this.navbar.setCollapse(this, {
@@ -29,6 +32,9 @@ export default (vue, form) => {
                     return e == 'true' ? true : false
                 }, false),
                 sidebarInfoAdmin: this.navbar.getStore('sidebarInfoAdmin', this.navbar.getCollapse('sidebarInfoAdmin'), e => {
+                    return e == 'true' ? true : false
+                }, false),
+                navHalaman: this.navbar.getStore('navHalaman', this.navbar.getCollapse('navHalaman'), e => {
                     return e == 'true' ? true : false
                 }, false),
             })

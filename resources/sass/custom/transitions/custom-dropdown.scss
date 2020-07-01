@@ -26,3 +26,32 @@
         }
     }
 }
+.move{
+    &-enter{
+        transform: translateY(-1rem);
+        opacity: 0;
+        
+        &-active{
+            transition: all .5s ease;
+        }
+        &-to{
+            transform: translateY(0rem);
+            opacity: 1;
+        }
+    }
+    &-leave{
+        transform: translateY(0rem);
+        opacity: 1;
+        
+        &-active{
+            transition: all .5s ease;
+        }
+        &-to{
+            transform: translateY(-1rem);
+            opacity: 0;
+        }
+    }
+    &-move{
+        transition: all .25s ease;
+    }
+}

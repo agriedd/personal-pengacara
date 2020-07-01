@@ -1,8 +1,17 @@
 <div class="navbar navbar-light px-0">
     <div class="container-lg">
         <div class="navbar p-0 w-100">
-            <div class="navbar-brand">
-                {{ $slot ?? "Panel Admin" }}
+            <div class="d-flex">
+                <div class="pr-3">
+                    <button class="btn-link btn d-none d-sm-block text-dark shadow-none" type="button" @click.prevent="navbar.toggleCollapse('sidebar')">
+                        <svg class="bi bi-list" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="navbar-brand">
+                    {{ $slot ?? "Panel Admin" }}
+                </div>
             </div>
             <div class="navbar-nav">
 
@@ -28,16 +37,16 @@
                             </div>
                             <div>
                                 <div class="justify-middle px-3 text-muted" v-on:click.prevent="navbar.toggleCollapse('dropdownHeaderUser')">
-                                    <transition name="fly-down" mode="out-in">
+                                    <transition name="zoom" mode="out-in">
                                         <div :key="navbar.getCollapse('dropdownHeaderUser', false)">
                                             <div v-if="!navbar.getCollapse('dropdownHeaderUser', false)">
-                                                <svg class="bi bi-caret-down-fill" width=".8em" height=".8em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                                <svg class="bi bi-chevron-down" width=".8em" height=".8em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                                                 </svg>
                                             </div>
                                             <div v-else>
-                                                <svg class="bi bi-caret-up-fill" width=".8em" height=".8em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                                                <svg class="bi bi-chevron-compact-down" width=".8em" height=".8em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
                                                 </svg>
                                             </div>
                                         </div>

@@ -108,11 +108,19 @@ export default (vue, form) => {
                     this.bahan_hukum.all(this);
                 })
             },
+            'bahan_hukum.option.collapse.filter': function(n){
+                this.bahan_hukum.setStore('filter', n, false);
+            },
         },
         created(){
             this.bahan_hukum
                 .pushAction('url', (name, option = null) => this.meta(name, option))
                 .pushAction('url_prefix', ()=>"bahan_hukum_")
+                .setCollapse(this, {
+                    filter: this.bahan_hukum.getStore('filter', this.bahan_hukum.getCollapse('filter'), e => {
+                        return e == 'true' ? true : false
+                    }, false),
+                })
             try {
                 this.bahan_hukum.all(this)
             } catch (error) {

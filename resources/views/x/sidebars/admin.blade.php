@@ -1,7 +1,7 @@
 <div class="sidebar sidebar-dark bg-dark clean" :class="{mini: navbar.getCollapse('sidebar', false)}">
     <div class="inner-sidebar border-0">
         <div class="sidebar-header">
-            @component('x.sidebars.toggler')
+            @component('x.sidebars.toggler', ['className' => 'd-block d-sm-none'])
                 @slot('attributes') @click.prevent="navbar.toggleCollapse('sidebar')" @endslot
                 @slot('icon')
                     <svg class="bi bi-list" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -9,30 +9,35 @@
                     </svg>
                 @endslot
             @endcomponent
-            <div class="p-2" v-if="navbar.getCollapse('sidebarInfoAdmin', true)">
-                <div class="card border-0 shadow-sm text-dark">
-                    <div class="card-body">
-                        <div class="small">
-                            @lang('sidebars.info-sidebar-admin')
-                        </div>
-                        <div class="mt-3">
-                            <div class="d-flex justify-content-end">
-                                <button class="btn btn-sm btn-primary" @click.prevent="navbar.toggleCollapse('sidebarInfoAdmin', false)">
-                                    Mengerti
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="pt-md-3"></div>
         </div>
-        <div class="sidebar-body scrollable">
+        <transition-group name="move" tag="div" class="sidebar-body scrollable">
+            @component('x.sidebars.item', [ 'name' => 'default', 'link' => route('admin') ])
+                @slot('label')
+                    <div>
+                        Panel Admin
+                    </div>
+                    <div class="small text-gray-lighten font-weight-normal">
+                        Halaman Awal Panel Admin
+                    </div>
+                @endslot
+                @slot('iconActive')
+                    <svg class="bi bi-grid-1x2-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm9 0a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1V1zm0 9a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-5z"/>
+                    </svg>
+                @endslot
+                @slot('icon')
+                    <svg class="bi bi-grid-1x2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M6 1H1v14h5V1zm9 0h-5v5h5V1zm0 9h-5v5h5v-5zM0 1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm9 0a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1V1zm1 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1h-5z"/>
+                    </svg>
+                @endslot
+            @endcomponent
             @component('x.sidebars.item', [ 'name' => 'artikel', 'link' => route('admin.artikel') ])
                 @slot('label')
                     <div>
                         Artikel
                     </div>
-                    <div class="small text-gray-light font-weight-normal">
+                    <div class="small text-gray-lighten font-weight-normal">
                         Kelola Artikel
                     </div>
                 @endslot
@@ -54,7 +59,7 @@
                     <div>
                         Halaman
                     </div>
-                    <div class="small text-gray-light font-weight-normal">
+                    <div class="small text-gray-lighten font-weight-normal">
                         Kelola Halaman
                     </div>
                 @endslot
@@ -72,13 +77,13 @@
                     </svg>
                 @endslot
             @endcomponent
-            <div class="item-wrapper" :class="{show: navbar.getCollapse('navHalaman', true)}">
+            <div class="item-wrapper show" v-show="navbar.getCollapse('navHalaman', true)" key="halaman">
                 @component('x.sidebars.item', [ 'name' => 'album', 'link' => route('admin.album') ])
                     @slot('label')
                         <div>
                             Galeri
                         </div>
-                        <div class="small text-gray-light font-weight-normal">
+                        <div class="small text-gray-lighten font-weight-normal">
                             Kelola galeri yang akan ditampilkan
                         </div>
                     @endslot
@@ -95,7 +100,7 @@
                         <div>
                             Bahan Hukum
                         </div>
-                        <div class="small text-gray-light font-weight-normal">
+                        <div class="small text-gray-lighten font-weight-normal">
                             Kelola bahan hukum yang akan ditampilkan
                         </div>
                     @endslot
@@ -112,7 +117,7 @@
                     <div>
                         Kunjungan
                     </div>
-                    <div class="small text-gray-light font-weight-normal">
+                    <div class="small text-gray-lighten font-weight-normal">
                         Informasi Kunjungan
                     </div>
                 @endslot
@@ -129,7 +134,7 @@
                     <div>
                         Tim
                     </div>
-                    <div class="small text-gray-light font-weight-normal">
+                    <div class="small text-gray-lighten font-weight-normal">
                         Mengelola tim / pengelola
                     </div>
                 @endslot
@@ -139,13 +144,13 @@
                     </svg>
                 @endslot
             @endcomponent --}}
-        </div>
+        </transition-group>
         @component('x.sidebars.item', [ 'name' => 'pengaturan', 'link' => route('admin.pengaturan') ])
             @slot('label')
                 <div>
                     Pengaturan
                 </div>
-                <div class="small text-gray-light font-weight-normal">
+                <div class="small text-gray-lighten font-weight-normal">
                 </div>
             @endslot
             @slot('iconActive')

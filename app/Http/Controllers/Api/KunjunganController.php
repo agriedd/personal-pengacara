@@ -14,7 +14,7 @@ class KunjunganController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        return KunjunganRepository::filter($request)->paginate(10);
+        return KunjunganRepository::filter($request)->paginate($request->limit ?? 10);
     }
 
     /**

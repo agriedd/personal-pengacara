@@ -32637,12 +32637,14 @@ var Form = function Form(data) {
     filter: {
       search: '',
       page: 1,
-      limit: 10
+      limit: 10,
+      order: 'id',
+      asc: false
     },
     table: {
       pagination: {},
       sort: {
-        column: 'id',
+        column: 'what the fuck!',
         asc: true
       }
     },
@@ -33536,12 +33538,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./store */ "./resources/js/edd/form/store.js");
 /* harmony import */ var _tab__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./tab */ "./resources/js/edd/form/tab.js");
 /* harmony import */ var _file__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./file */ "./resources/js/edd/form/file.js");
-/* harmony import */ var _custom_add__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./custom/add */ "./resources/js/edd/form/custom/add.js");
-/* harmony import */ var _custom_all__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./custom/all */ "./resources/js/edd/form/custom/all.js");
-/* harmony import */ var _custom_find__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./custom/find */ "./resources/js/edd/form/custom/find.js");
-/* harmony import */ var _custom_remove__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./custom/remove */ "./resources/js/edd/form/custom/remove.js");
-/* harmony import */ var _custom_update__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./custom/update */ "./resources/js/edd/form/custom/update.js");
-/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./list */ "./resources/js/edd/form/list.js");
+/* harmony import */ var _sort__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./sort */ "./resources/js/edd/form/sort.js");
+/* harmony import */ var _custom_add__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./custom/add */ "./resources/js/edd/form/custom/add.js");
+/* harmony import */ var _custom_all__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./custom/all */ "./resources/js/edd/form/custom/all.js");
+/* harmony import */ var _custom_find__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./custom/find */ "./resources/js/edd/form/custom/find.js");
+/* harmony import */ var _custom_remove__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./custom/remove */ "./resources/js/edd/form/custom/remove.js");
+/* harmony import */ var _custom_update__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./custom/update */ "./resources/js/edd/form/custom/update.js");
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./list */ "./resources/js/edd/form/list.js");
+
 
 
 
@@ -33576,13 +33580,14 @@ __webpack_require__.r(__webpack_exports__);
   Object(_selected__WEBPACK_IMPORTED_MODULE_10__["default"])(e);
   Object(_store__WEBPACK_IMPORTED_MODULE_11__["default"])(e);
   Object(_tab__WEBPACK_IMPORTED_MODULE_12__["default"])(e);
-  Object(_list__WEBPACK_IMPORTED_MODULE_19__["default"])(e);
+  Object(_list__WEBPACK_IMPORTED_MODULE_20__["default"])(e);
   Object(_file__WEBPACK_IMPORTED_MODULE_13__["default"])(e);
-  Object(_custom_add__WEBPACK_IMPORTED_MODULE_14__["default"])(e);
-  Object(_custom_all__WEBPACK_IMPORTED_MODULE_15__["default"])(e);
-  Object(_custom_find__WEBPACK_IMPORTED_MODULE_16__["default"])(e);
-  Object(_custom_remove__WEBPACK_IMPORTED_MODULE_17__["default"])(e);
-  Object(_custom_update__WEBPACK_IMPORTED_MODULE_18__["default"])(e);
+  Object(_sort__WEBPACK_IMPORTED_MODULE_14__["default"])(e);
+  Object(_custom_add__WEBPACK_IMPORTED_MODULE_15__["default"])(e);
+  Object(_custom_all__WEBPACK_IMPORTED_MODULE_16__["default"])(e);
+  Object(_custom_find__WEBPACK_IMPORTED_MODULE_17__["default"])(e);
+  Object(_custom_remove__WEBPACK_IMPORTED_MODULE_18__["default"])(e);
+  Object(_custom_update__WEBPACK_IMPORTED_MODULE_19__["default"])(e);
 });
 
 /***/ }),
@@ -33803,6 +33808,27 @@ __webpack_require__.r(__webpack_exports__);
   e.prototype.clearSelected = function () {
     this.option.selected = null;
     return this;
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/edd/form/sort.js":
+/*!***************************************!*\
+  !*** ./resources/js/edd/form/sort.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (e) {
+  e.prototype.setSort = function (data) {
+    var vue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    this.option.table.sort = data;
+    this.setFilter('order', this.option.table.sort.column);
+    this.setFilter('asc', this.option.table.sort.asc);
+    if (vue) this.all(vue);
   };
 });
 
@@ -34041,6 +34067,9 @@ __webpack_require__.r(__webpack_exports__);
       },
       'navbar.option.collapse.sidebarInfoAdmin': function navbarOptionCollapseSidebarInfoAdmin(n) {
         this.navbar.setStore('sidebarInfoAdmin', n, false);
+      },
+      'navbar.option.collapse.navHalaman': function navbarOptionCollapseNavHalaman(n) {
+        this.navbar.setStore('navHalaman', n, false);
       }
     },
     created: function created() {
@@ -34049,6 +34078,9 @@ __webpack_require__.r(__webpack_exports__);
           return e == 'true' ? true : false;
         }, false),
         sidebarInfoAdmin: this.navbar.getStore('sidebarInfoAdmin', this.navbar.getCollapse('sidebarInfoAdmin'), function (e) {
+          return e == 'true' ? true : false;
+        }, false),
+        navHalaman: this.navbar.getStore('navHalaman', this.navbar.getCollapse('navHalaman'), function (e) {
           return e == 'true' ? true : false;
         }, false)
       });

@@ -1,17 +1,15 @@
 <div class="" v-if="album.notEmpty()">
     <v-table v-model="album.getData()" :pagination="album.option.table.pagination" :edd-data="album">
         <template v-slot:header>
-            <tr class="position-sticky" style="top: 0px">
-                <table-head id="id"></table-head>
-                <table-head id="nama" text="Nama"></table-head>
-                <table-head id="galeri">
-                    Galeri
-                </table-head>
-                <table-head id="created_at">
-                    Tanggal buat
-                </table-head>
-                <table-head id="aksi" text="Aksi" unsorted></table-head>
-            </tr>
+            <table-head id="id"></table-head>
+            <table-head id="nama" text="Nama"></table-head>
+            <table-head id="galeri">
+                Galeri
+            </table-head>
+            <table-head id="created_at">
+                Tanggal buat
+            </table-head>
+            <table-head id="aksi" text="Aksi" unsorted></table-head>
         </template>
         <template v-slot:default="data">
             <td>

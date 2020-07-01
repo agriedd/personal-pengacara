@@ -2,8 +2,8 @@ import init from './form/main'
 
 const Form = class {
     constructor(data, option = {
-        filter: { search: '', page: 1, limit: 10 },
-        table: {pagination: {}, sort: { column: 'id', asc: true }},
+        filter: { search: '', page: 1, limit: 10, order: 'id', asc: false },
+        table: {pagination: {}, sort: { column: 'what the fuck!', asc: true }},
         data: [],
         selected: null,
         modal: { tambah: false, ubah: false, update: false, hapus: false, info: false },
