@@ -6,6 +6,9 @@ export default (vue, form) => {
     .setCollapse(null, {
         table: true
     })
+    .setFilter(null, {
+        empty: false
+    })
     .pushModal({
         'preview': false,
     })
@@ -99,11 +102,19 @@ export default (vue, form) => {
                     this.album.all(this);
                 })
             },
+            'album.option.collapse.filter': function(n){
+                this.album.setStore('filter', n, false);
+            },
         },
         created(){
             this.album
                 .pushAction('url', (name, option = null) => this.meta(name, option))
                 .pushAction('url_prefix', ()=>"album_")
+                .setCollapse(this, {
+                    filter: this.album.getStore('filter', this.album.getCollapse('filter', false), e => {
+                        return e == 'true' ? true : false
+                    }, false),
+                })
             try {
                 this.album.all(this)
             } catch (error) {

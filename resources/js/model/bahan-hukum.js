@@ -117,7 +117,7 @@ export default (vue, form) => {
                 .pushAction('url', (name, option = null) => this.meta(name, option))
                 .pushAction('url_prefix', ()=>"bahan_hukum_")
                 .setCollapse(this, {
-                    filter: this.bahan_hukum.getStore('filter', this.bahan_hukum.getCollapse('filter'), e => {
+                    filter: this.bahan_hukum.getStore('filter', this.bahan_hukum.getCollapse('filter', false), e => {
                         return e == 'true' ? true : false
                     }, false),
                 })

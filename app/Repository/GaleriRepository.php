@@ -16,7 +16,8 @@ class GaleriRepository{
             ->when($request->filled("id_album"), function($q)use($request){
                 return $q
                     ->where('id_album', $request->id_album);
-            });
+            })
+            ->latest();
         return $query;
     }
     public static function pinned(){

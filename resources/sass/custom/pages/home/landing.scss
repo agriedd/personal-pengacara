@@ -1,0 +1,32 @@
+.home-landing{
+    min-height: 100vh;
+    padding-top: calc(60px + 1rem); margin-bottom: 25vh;
+    .banner-wrapper{
+        margin-bottom: 5rem; border-radius: 2rem; max-height: calc(1366px - 100px);
+
+        .banner-image{
+            border-radius: 1rem; margin-bottom: -25vh; 
+            background-position: right top; background-size: cover; 
+            max-height: 1366px; 
+            overflow: hidden
+        }
+        .banner-bg{
+            max-width: 50%;
+            width: 50%;
+            background: linear-gradient(90deg, #0008, #0000);
+        }
+        .banner-text{
+            width: 100%;
+            max-width: 50%;
+            @extend .pl-3;
+        }
+        .banner-button{
+            background: linear-gradient(45deg, darken($red, 10), $orange);
+            background: -webkit-linear-gradient(45deg, darken($red, 10), $orange);
+            border-color: lighten($pink, 50);
+            box-shadow: 0 0.5rem 1rem rgba($red, .25) !important;
+        }
+    }
+}
+@import "./landing-xs.scss";
+@import "./landing-md.scss";

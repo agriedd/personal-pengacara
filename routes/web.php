@@ -1,5 +1,7 @@
 <?php
 
+use App\Repository\ArticleRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,6 +17,10 @@ use Illuminate\Support\Facades\Auth;
 */
 Auth::routes();
 
+//test
+Route::get('/test', function(Request $request){
+    dd(ArticleRepository::filterAuth($request)->with('info')->get());
+})->name('test');
 
 //Guest
 

@@ -8,7 +8,7 @@
         <div>
             <div class="container">
                 <div class="position-relative">
-                    <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: -4rem; left: -4rem; height: 80px; opacity: .7; transform: rotateZ(0deg)">
+                    <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: 0rem; left: -4rem; height: 30px; opacity: .7; transform: rotateZ(0deg)">
                 </div>
                 <div class="justify-middle">
                     @if(count($artikel))

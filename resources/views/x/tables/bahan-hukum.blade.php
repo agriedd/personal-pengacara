@@ -113,11 +113,15 @@
         </template>
     </v-table>
 </div>
-<div v-else-if="bahan_hukum.onSearch()">
+<div v-else-if="bahan_hukum.onSearch() && bahan_hukum.notLoading()">
     @component('x.info.search-empty', [ "model" => "bahan_hukum" ])
     @endcomponent
 </div>
-<div v-else>
+<div v-else-if="bahan_hukum.notLoading()">
     @component('x.info.data-empty')
+    @endcomponent
+</div>
+<div v-else>
+    @component('x.placeholders.table', ['row' => 10, 'col' => 6, 'height' => '100px'])
     @endcomponent
 </div>

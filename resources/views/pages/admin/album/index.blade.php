@@ -42,27 +42,41 @@
                 </transition>
             </div>
         @endcomponent
-        <div class="container">
+        <div class="container" key="table">
             <transition name="fly-down" mode="out-in">
                 <div :key="album.tab('page')">
+
                     <div v-if="album.isTab('album')">
                         <div class="card clean">
-                            @component('x.forms.filter', [ 'name' => 'album', 'label' => "Album", 'model' => 'album' ])
-                                @slot('action')
-                                    @include('pages.admin.album.action.table')
-                                @endslot
-                            @endcomponent
-                            <hr class="dropdown-divider m-0">
-                            <transition name="fly-up" mode="out-in">
-                                <div :key="album.getCollapse('table', true)">
-                                    <div v-if="album.getCollapse('table', true)">
-                                        @include('x.tables.album')
-                                    </div>
-                                    <div v-else>
-                                        @include('x.list.album')
+                            
+                            <transition-group name="move" tag="div" class="row m-0 flex-lg-row-reverse" mode="out-in">
+                                <div v-if="album.getCollapse('filter')" class="col-lg-4 p-0 d-flex" key="filter">
+                                    <div class="w-100">
+                                        @component('x.filters.default', ['model' => 'album'])
+                                            @include('pages.admin.album.filter')
+                                        @endcomponent
                                     </div>
                                 </div>
-                            </transition>
+                                <div key="table" class="col-lg px-0">
+                                    @component('x.forms.filter', [ 'name' => 'album', 'label' => "Album", 'model' => 'album' ])
+                                        @slot('action')
+                                            @include('pages.admin.album.action.table')
+                                        @endslot
+                                    @endcomponent
+                                    <hr class="dropdown-divider m-0">
+                                    <transition name="fly-up" mode="out-in">
+                                        <div :key="album.getCollapse('table', true)">
+                                            <div v-if="album.getCollapse('table', true)">
+                                                @include('x.tables.album')
+                                            </div>
+                                            <div v-else>
+                                                @include('x.list.album')
+                                            </div>
+                                        </div>
+                                    </transition>
+                                </div>
+                            </transition-group>
+
                         </div>
                     </div>
                     <div v-else>
@@ -73,6 +87,7 @@
                             @include('x.list.galeri', ['album' => true])
                         </div>
                     </div>
+
                     <div class="mb-3"></div>
                 </div>
             </transition>
@@ -164,6 +179,24 @@
                     },
                     filter(type, name){
                         this.album.saveFilter(this);
+                    },
+                    page(type, name, data){
+                        if(type == 'galeri'){
+                            this.galeri.option.filter.page = data.page;
+                            this.galeri.all(this);
+                        }
+                        if(type == 'album'){
+                            this.album.option.filter.page = data.page;
+                            this.album.all(this);
+                        }
+                    },
+                    sort(type, name, data){
+                        if(type == 'galeri'){
+                            this.galeri.setSort(data.data, this)
+                        }
+                        if(type == 'album'){
+                            this.album.setSort(data.data, this)
+                        }
                     }
                 },
                 created(){

@@ -17,7 +17,7 @@
 
             </div>
             <div>
-                <div class="nav-item dropdown bg-light rounded p-2">
+                <div class="nav-item dropdown rounded p-2">
                     <a href="{{ route('admin.pengaturan') }}" class="">
                         <div class="d-flex">
                             <div>

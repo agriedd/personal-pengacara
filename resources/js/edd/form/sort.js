@@ -6,5 +6,6 @@ export default e => {
         this.setFilter('asc', this.option.table.sort.asc)
         if(vue)
             this.all(vue)
+        return this
     }
 }

@@ -1,8 +1,8 @@
 <div class="" v-if="artikel.notEmpty()">
-    <v-table v-model="artikel.getData()" :pagination="artikel.option.table.pagination" :edd-data="artikel">
+    <v-table v-model="artikel.getData()" :pagination="artikel.option.table.pagination" :edd-data="artikel" @page="page('artikel', 'table', $event)" :sort="artikel.option.table.sort" @sort="sort('artikel', 'table', $event)">
         <template v-slot:header>
             <table-head unsorted id="cover"></table-head>
-            <table-head id="nama" text="Judul"></table-head>
+            <table-head id="title" text="Judul"></table-head>
             <table-head id="views">
                 <svg class="bi bi-eye" width="1.2em" height="1.2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"/>
@@ -12,10 +12,10 @@
             <table-head id="created_at">
                 Dibuat pada
             </table-head>
-            <table-head id="created_at">
+            <table-head id="vote_up">
                 Nilai
             </table-head>
-            <table-head id="status" text="Status"></table-head>
+            <table-head id="published_at" text="Status"></table-head>
             <table-head id="aksi" text="Aksi" unsorted></table-head>
         </template>
         <template v-slot:default="data">
@@ -120,11 +120,15 @@
         </template>
     </v-table>
 </div>
-<div v-else-if="artikel.onSearch()">
+<div v-else-if="artikel.onSearch() && artikel.notLoading()">
     @component('x.info.search-empty', [ "model" => "artikel" ])
     @endcomponent
 </div>
-<div v-else>
+<div v-else-if="artikel.notLoading()">
     @component('x.info.data-empty')
+    @endcomponent
+</div>
+<div v-else>
+    @component('x.placeholders.table', ['row' => 10, 'col' => 7, 'height' => '100px'])
     @endcomponent
 </div>

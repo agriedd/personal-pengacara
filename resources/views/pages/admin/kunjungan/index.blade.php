@@ -100,12 +100,6 @@
                         this.kunjungan.setSort(data.data, this)
                     }
                 },
-                provide(){
-                    return {
-                        sortable: true,
-                        sort_object: this.kunjungan.option.table.sort
-                    };
-                },
                 created(){
                     this.kunjungan.all(this);
                 }

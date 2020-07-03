@@ -51,11 +51,15 @@
         </template>
     </v-table>
 </div>
-<div v-else-if="kunjungan.onSearch()">
+<div v-else-if="kunjungan.onSearch() && kunjungan.notLoading()">
     @component('x.info.search-empty', [ "model" => "kunjungan" ])
     @endcomponent
 </div>
-<div v-else>
+<div v-else-if="kunjungan.notLoading()">
     @component('x.info.data-empty')
+    @endcomponent
+</div>
+<div v-else>
+    @component('x.placeholders.table', ['row' => 10, 'col' => 4, 'height' => '100px'])
     @endcomponent
 </div>

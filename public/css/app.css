@@ -9653,7 +9653,8 @@ button.bg-light-primary:focus {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
-.shadow {
+.shadow,
+.placeholder .loading {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
@@ -9971,6 +9972,7 @@ button.bg-light-primary:focus {
 }
 
 .pl-3,
+.home-landing .banner-wrapper .banner-text,
 .px-3,
 .btn.btn-rounded {
   padding-left: 1rem !important;
@@ -12431,8 +12433,12 @@ a.text-light-primary:focus {
 }
 
 .sidebar.sidebar-dark > .inner-sidebar .item.active > .inner-item {
-  background: #20c997;
+  background: rgba(32, 201, 151, 0.15);
   border-radius: 0.5rem;
+}
+
+.sidebar.sidebar-dark > .inner-sidebar .item.active > .inner-item > .icon {
+  color: #20c997;
 }
 
 .sidebar .sidebar-backdrop {
@@ -13027,7 +13033,7 @@ a.text-light-primary:focus {
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background-color: #f8f9fa;
+  background-color: #343a40;
   display: none;
 }
 
@@ -13038,17 +13044,17 @@ a.text-light-primary:focus {
 }
 
 .placeholder .loading {
-  background-color: #f8f9fa;
-  height: 1rem;
-  width: 100%;
-  max-width: 4rem;
-  background-color: #f9f9fa;
+  height: 2rem;
+  width: 2rem;
+  max-width: 2rem;
+  background-color: #3ce0af;
   margin: auto;
   position: relative;
-  overflow: hidden;
   -webkit-filter: blur(10px) contrast(10px);
           filter: blur(10px) contrast(10px);
   border-radius: 10rem;
+  -webkit-animation: rotate 4s linear infinite;
+          animation: rotate 4s linear infinite;
 }
 
 .placeholder .loading.bottom {
@@ -13077,34 +13083,74 @@ a.text-light-primary:focus {
 }
 
 .placeholder .loading .loading-bar {
-  width: 0px;
-  height: 100%;
-  -webkit-animation: loading-bar 4s ease infinite;
-          animation: loading-bar 4s ease infinite;
-  background: #3395ff;
+  height: 2rem;
+  width: 2rem;
+  max-width: 2rem;
+  margin: auto;
+  position: relative;
   border-radius: 10rem;
+  -webkit-animation: rotate 6s linear infinite;
+          animation: rotate 6s linear infinite;
+}
+
+.placeholder .loading .loading-bar::before {
+  content: "";
+  height: 0.5rem;
+  width: 0.5rem;
+  background: #3ce0af;
+  position: absolute;
+  top: 0px;
+  left: 0rem;
+  border-radius: 10rem;
+  transform: translateY(50%);
+  -webkit-filter: blur(0.05rem);
+          filter: blur(0.05rem);
+  -webkit-animation: rotate-child-before 4s ease-out infinite 0.15s;
+          animation: rotate-child-before 4s ease-out infinite 0.15s;
+}
+
+.placeholder .loading .loading-bar::after {
+  content: "";
+  height: 3rem;
+  width: 3rem;
+  background: #3ce0af;
+  position: absolute;
+  top: 0px;
+  right: 0rem;
+  border-radius: 10rem;
+  transform: translateY(50%) translateX(50%);
+  -webkit-filter: blur(0.25rem);
+          filter: blur(0.25rem);
+  -webkit-animation: rotate-child-after 7s ease-out infinite 0.35s;
+          animation: rotate-child-after 7s ease-out infinite 0.35s;
 }
 
 .placeholder .loading::before {
   content: "";
   height: 1rem;
   width: 1rem;
-  background: #3395ff;
+  background: #3ce0af;
   position: absolute;
   top: 0px;
-  left: 0px;
+  left: 0rem;
   border-radius: 10rem;
+  transform: translateY(50%);
+  -webkit-animation: rotate-child-before 8s ease-out infinite 0.25s;
+          animation: rotate-child-before 8s ease-out infinite 0.25s;
 }
 
 .placeholder .loading::after {
   content: "";
   height: 1rem;
   width: 1rem;
-  background: #3395ff;
+  background: #3ce0af;
   position: absolute;
   top: 0px;
-  right: 0px;
+  right: 0rem;
   border-radius: 10rem;
+  transform: translateY(50%);
+  -webkit-animation: rotate-child-after 8s ease-out infinite;
+          animation: rotate-child-after 8s ease-out infinite;
 }
 
 @-webkit-keyframes loading-bar {
@@ -13147,23 +13193,116 @@ a.text-light-primary:focus {
   }
 }
 
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes rotate-child-before {
+  0%, 100% {
+    left: 3rem;
+  }
+
+  50% {
+    left: 4rem;
+  }
+}
+
+@keyframes rotate-child-before {
+  0%, 100% {
+    left: 3rem;
+  }
+
+  50% {
+    left: 4rem;
+  }
+}
+
+@-webkit-keyframes rotate-child-after {
+  0%, 100% {
+    right: 3rem;
+  }
+
+  50% {
+    right: 4rem;
+  }
+}
+
+@keyframes rotate-child-after {
+  0%, 100% {
+    right: 3rem;
+  }
+
+  50% {
+    right: 4rem;
+  }
+}
+
 [v-cloak] {
   display: none !important;
+}
+
+.loading .content {
+  -webkit-animation: loading-placeholder 3s ease-in-out infinite;
+          animation: loading-placeholder 3s ease-in-out infinite;
+}
+
+.loading .content:nth-child(odd) {
+  transition: all 0.25s ease 0.5s;
+}
+
+.loading .content:nth-child(even) {
+  transition: all 0.25s ease 0.25s;
+}
+
+@-webkit-keyframes loading-placeholder {
+  0%, 100% {
+    background: #f8f9fa;
+  }
+
+  50% {
+    background: #ced4da;
+  }
+}
+
+@keyframes loading-placeholder {
+  0%, 100% {
+    background: #f8f9fa;
+  }
+
+  50% {
+    background: #ced4da;
+  }
 }
 
 a {
   color: #004a99;
 }
 
-a[href="#"] {
+a:not(.nav-link)[href="#"] {
   color: black;
 }
 
-a:not([href="#"]) {
+a:not(.nav-link):not([href="#"]) {
   color: #004a99;
 }
 
-a:hover {
+a:not(.nav-link):hover {
   background-color: rgba(0, 123, 255, 0.15);
   text-decoration: none;
 }
@@ -13306,6 +13445,7 @@ body {
   position: fixed;
   height: 100vh;
   width: 100%;
+  max-width: 300px;
   z-index: 100;
   transform: translateX(-100%);
   transition: all 0.5s ease;
@@ -13972,11 +14112,129 @@ html {
   word-break: break-all;
 }
 
+.nav-2.nav.nav-tabs {
+  max-width: 100%;
+  overflow-x: auto;
+  flex-wrap: nowrap !important;
+}
+
 .nav-2.nav.nav-tabs .nav-link {
   border: 0.25rem solid transparent;
+  white-space: nowrap;
 }
 
 .nav-2.nav.nav-tabs .nav-link.active {
   border-color: transparent transparent #6f42c1;
+}
+
+@media (max-width: 767.98px) {
+  .home-content .menu-wrapper {
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+  }
+}
+
+.home-landing {
+  min-height: 100vh;
+  padding-top: calc(60px + 1rem);
+  margin-bottom: 25vh;
+}
+
+.home-landing .banner-wrapper {
+  margin-bottom: 5rem;
+  border-radius: 2rem;
+  max-height: calc(1366px - 100px);
+}
+
+.home-landing .banner-wrapper .banner-image {
+  border-radius: 1rem;
+  margin-bottom: -25vh;
+  background-position: right top;
+  background-size: cover;
+  max-height: 1366px;
+  overflow: hidden;
+}
+
+.home-landing .banner-wrapper .banner-bg {
+  max-width: 50%;
+  width: 50%;
+  background: linear-gradient(90deg, #0008, #0000);
+}
+
+.home-landing .banner-wrapper .banner-text {
+  width: 100%;
+  max-width: 50%;
+}
+
+.home-landing .banner-wrapper .banner-button {
+  background: linear-gradient(45deg, #bd2130, #fd7e14);
+  background: -webkit-linear-gradient(45deg, #bd2130, #fd7e14);
+  border-color: white;
+  box-shadow: 0 0.5rem 1rem rgba(220, 53, 69, 0.25) !important;
+}
+
+@media (max-width: 575.98px) {
+  .home-landing {
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+
+  .home-landing .container {
+    padding: 0px;
+  }
+
+  .home-landing .container-lg {
+    padding: 0px;
+  }
+
+  .home-landing .banner-wrapper {
+    max-height: unset;
+    min-height: 100vh;
+  }
+
+  .home-landing .banner-wrapper > .card-body {
+    padding: 0rem;
+  }
+
+  .home-landing .banner-wrapper .banner-image {
+    border-radius: 0rem;
+    max-height: unset;
+    min-height: 100vh;
+    background-position: 60% top;
+    margin-bottom: 0px;
+  }
+
+  .home-landing .banner-wrapper .banner-bg {
+    max-width: 60%;
+  }
+
+  .home-landing .banner-wrapper .banner-text {
+    padding-left: 0px !important;
+    max-width: 60%;
+  }
+
+  .home-landing .banner-wrapper .banner-text .text-top {
+    font-size: 1.25rem;
+  }
+
+  .home-landing .banner-wrapper .banner-text .text-middle {
+    font-size: 2.5rem;
+  }
+
+  .home-landing .banner-wrapper .banner-text .text-description svg {
+    height: 1em;
+    width: 1em;
+  }
+
+  .home-landing .banner-wrapper .banner-text .text-bottom {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .home-landing .banner-wrapper .banner-image {
+    background-position: 60% top;
+  }
 }
 

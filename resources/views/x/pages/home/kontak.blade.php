@@ -7,11 +7,11 @@
     <div>
         <div class="container">
             <div class="position-relative">
-                <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: -4rem; right: -4rem; height: 80px; opacity: .7; transform: rotateZ(75deg)">
+                <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: -4rem; right: -4rem; height: 30px; opacity: .7; transform: rotateZ(75deg)">
             </div>
             <div class="justify-middle">
                 <div class="row justify-content-center">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="h-100 justify-middle">
                             <div class="d-flex justify-content-center">
                                 <div class="h4 font-weight-light text-gray-light">
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <div class="row text-dark">
                             <div class="col-lg-4 col-md-4 col-6 py-5">
                                 <div class="d-flex">
@@ -32,9 +32,9 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h3>
+                                        <h4>
                                             Facebook
-                                        </h3>
+                                        </h4>
                                         <div>
                                             username
                                         </div>
@@ -51,9 +51,9 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h3>
+                                        <h4>
                                             Instagram
-                                        </h3>
+                                        </h4>
                                         <div>
                                             @username
                                         </div>
@@ -70,9 +70,9 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h3>
+                                        <h4>
                                             Whatsapp
-                                        </h3>
+                                        </h4>
                                         <div>
                                             +62 0000 0000 0000
                                         </div>
@@ -89,9 +89,9 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h3>
+                                        <h4>
                                             Email
-                                        </h3>
+                                        </h4>
                                         <div>
                                             username@mail.com
                                         </div>
@@ -108,9 +108,9 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h3>
+                                        <h4>
                                             Twitter
-                                        </h3>
+                                        </h4>
                                         <div>
                                             @username
                                         </div>

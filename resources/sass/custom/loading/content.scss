@@ -1,0 +1,20 @@
+.loading{
+    .content{
+        animation: loading-placeholder 3s ease-in-out infinite;
+        &:nth-child(odd){
+            transition: all .25s ease 0.5s;
+        }
+        &:nth-child(even){
+            transition: all .25s ease 0.25s;
+        }
+    }
+}
+
+@keyframes loading-placeholder{
+    0%, 100%{
+        background: $gray-100;
+    }
+    50%{
+        background: $gray-400;
+    }
+}

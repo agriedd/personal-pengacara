@@ -1,7 +1,8 @@
 @php
     $isActive = false;
     $name = $name ?? 'undefined';
-    $isActive = !!preg_match("/^(admin\/)($name)(.*)/", request()->route()->uri());
+    $default = !!preg_match("/^(admin\/?)$/", request()->route()->uri()) && $name == "default";
+    $isActive = !!preg_match("/^(admin\/)($name)(.*)/", request()->route()->uri()) || $default;
     $disabled = isset($disabled) && $disabled ? 'disabled' : '';
 @endphp
 <div class="item {{ $isActive ? "active" : null }} {{ $disabled ?? '' }}" {{ $attributes ?? '' }} key="{{ $name }}">

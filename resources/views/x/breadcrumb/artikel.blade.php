@@ -23,6 +23,9 @@
         <div>
             <div class="justify-middle">
                 <div class="breadcrumb rounded-pill m-0 small">
+                    <a href="{{ route('home') }}" class="breadcrumb-item">
+                        Home
+                    </a>
                     <a href="{{ route('home.artikel') }}" class="breadcrumb-item">
                         Artikel
                     </a>

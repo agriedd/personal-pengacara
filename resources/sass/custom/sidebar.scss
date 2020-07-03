@@ -69,8 +69,12 @@ $accent: $success;
                 }
                 &.active{
                     & > .inner-item{
-                        background: $accent;
+                        background: rgba($accent, .15);
                         border-radius: .5rem;
+
+                        & > .icon{
+                            color: $accent;
+                        }
 
                         &:hover{
                             // background: rgba(lighten(darken($accent, 5), 80),.025);

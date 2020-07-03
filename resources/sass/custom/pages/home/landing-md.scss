@@ -1,0 +1,21 @@
+@include media-breakpoint-down(md) {
+    .home-landing{
+        .container{
+        }
+        .banner-wrapper{
+            & > .card-body{
+            }
+            .banner-image{
+                background-position: 60% top;
+            }
+            .banner-bg{
+            }
+            .banner-text{
+                .text-top{}
+                .text-middle{}
+                .text-description{}
+                .text-bottom{}
+            }
+        }
+    }
+}

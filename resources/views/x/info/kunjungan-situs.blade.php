@@ -128,7 +128,7 @@
                         </svg>
                     </div>
                     <div>
-                        <div class="display-4 font-weight-light text-right">
+                        <div class="h2 font-weight-light text-right">
                             {{ $total_kunjungan_hari_ini }}
                         </div>
                         <div class="small">

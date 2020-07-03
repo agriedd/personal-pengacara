@@ -69,7 +69,7 @@
                 </div>
                 <div class="col-12 pt-5" key="pagination">
                     <div class="d-flex justify-content-end">
-                        <edd-pagination :pagination="galeri.option.table.pagination"></edd-pagination>
+                        <edd-pagination :pagination="galeri.option.table.pagination" @page="page('galeri', 'list', $event)"></edd-pagination>
                     </div>
                 </div>
             </transition-group>

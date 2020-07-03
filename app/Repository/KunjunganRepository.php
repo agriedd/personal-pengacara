@@ -26,7 +26,7 @@ class KunjunganRepository{
                 ->orWhere('referer', 'like', "%{$request->search}%")
                 ->orWhere('user_agent', 'like', "%{$request->search}%");
             })
-            ->when($request->filled("order") && self::orderWhitelist()->contains($request->filled("order")), function($q)use($request){
+            ->when($request->filled("order") && self::orderWhitelist()->contains($request->order), function($q)use($request){
                 return $q->orderBy(
                     $request->order,
                     $request->has("asc") && $request->asc == "true" ? "ASC" : "DESC"

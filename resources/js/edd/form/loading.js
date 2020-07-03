@@ -25,4 +25,10 @@ export default e => {
         let i = this.promises.findIndex((p)=> p === promise);
         this.promises.splice(i, 1);
     }
+    e.prototype.isLoading = function(){
+        return this.loading
+    }
+    e.prototype.notLoading = function(){
+        return !this.loading
+    }
 }

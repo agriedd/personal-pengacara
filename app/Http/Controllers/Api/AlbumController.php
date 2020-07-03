@@ -15,7 +15,7 @@ class AlbumController extends Controller
             ->with(['galeri'])
             ->without(['galeri.album'])
             ->latest()
-            ->paginate(10);
+            ->paginate($request->limit ?? 10);
     }
 
     /**

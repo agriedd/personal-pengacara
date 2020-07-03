@@ -34,6 +34,7 @@
                             <input type="range" class="form-control-range" step="10" min="10" max="50" v-model="{{ $model }}.option.filter.limit" v-on:input="filter('{{ $model }}', 'limit', $event)">
                         </div>
                     </div>
+                    {{ $slot ?? null }}
                 </div>
             </div>
         @endcomponent

@@ -11,12 +11,14 @@ import Navbar from './navbar';
 import Init from './init'
 import Axios from 'axios'
 import src from './directives/src';
+import img from './directives/img';
 
 window.Vue = require('vue');
 window.Form = Form;
 window.axios = Axios
 
 window.Vue.directive('src', src)
+window.Vue.directive('img', img)
 window.Vue.filter('no', (value, model)=>{
     let page = 1;
     let data_perpage = 10;
