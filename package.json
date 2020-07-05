@@ -40,8 +40,10 @@
         "@ckeditor/ckeditor5-utils": "^19.0.1",
         "@ckeditor/ckeditor5-vue": "^1.0.1",
         "@tinymce/tinymce-vue": "^3.2.2",
+        "apexcharts": "^3.19.3",
         "bootstrap": "^4.5.0",
         "bootstrap-icons": "^1.0.0-alpha4",
-        "v-tooltip": "^2.0.3"
+        "v-tooltip": "^2.0.3",
+        "vue-apexcharts": "^1.5.3"
     }
 }
