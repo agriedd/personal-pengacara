@@ -1,7 +1,7 @@
 <div class="card-body">
     <div>
         <div v-if="galeri.notEmpty()">
-            <transition-group tag="div" name="move" class="row m-0">
+            <transition-group tag="div" name="move" class="row m-md-0">
                 <div class="col-lg-3 col-md-4 col-6 d-flex p-1 flex-column" v-for="(item, i) in galeri.getData()" style="min-height: 300px;" :key="item.id">
                     <div class="h-100 w-100 bg-gray-light img-lg rounded shadow justify-content-between flex-column d-flex" v-src:md="item.gambar" style="flex: 1 1 auto" @click.self="showImage(i)">
                         <div>

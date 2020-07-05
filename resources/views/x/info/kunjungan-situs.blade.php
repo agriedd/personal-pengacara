@@ -50,7 +50,7 @@
                 <div class="d-flex">
                     <div class="ml-auto">
                         <div class="small">
-                            {{ ($total_kunjungan_bulan_lalu / $total_kunjungan) * 100  }}% dari total kunjungan
+                            {{ sprintf('%.2f', ($total_kunjungan_bulan_lalu / $total_kunjungan) * 100 )  }}% dari total kunjungan
                         </div>
                     </div>
                 </div>

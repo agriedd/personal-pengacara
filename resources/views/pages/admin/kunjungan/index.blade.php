@@ -101,7 +101,9 @@
                     }
                 },
                 created(){
-                    this.kunjungan.all(this);
+                    this.kunjungan
+                        .setSort({column: 'created_at', asc: false}, this)
+                        .all(this);
                 }
             });
         });
