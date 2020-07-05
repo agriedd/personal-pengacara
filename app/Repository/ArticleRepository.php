@@ -71,8 +71,10 @@ class ArticleRepository{
         $query = self::filterAuth($request);
         return $query;
     }
-    public static function latest($n){
-        return Article::published()->latest()->limit($n)->get();
+    public static function latest($n, $published = true){
+        return Article::when($published, function($q){
+            return $q->published();
+        })->latest()->limit($n)->get();
     }
     public static function find($id, $slug = null){
         return Article::when(isset($slug), function($q) use($slug){

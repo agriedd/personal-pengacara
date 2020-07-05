@@ -12,11 +12,13 @@ import Init from './init'
 import Axios from 'axios'
 import src from './directives/src';
 import img from './directives/img';
+import vTooltip from 'v-tooltip'
 
 window.Vue = require('vue');
 window.Form = Form;
 window.axios = Axios
 
+window.vTooltip = vTooltip
 window.Vue.directive('src', src)
 window.Vue.directive('img', img)
 window.Vue.filter('no', (value, model)=>{

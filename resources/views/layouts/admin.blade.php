@@ -23,7 +23,7 @@
         <div class="wrapper" v-cloak>
             @yield('sidebar')
             <main class="section-body bg-dark p-2 p-lg-3" :class="{'sidebar-active': navbar.getCollapse('sidebar', false)}">
-                <div class="card border-0 shadow bg-white position-sticky" style="top: -.25rem; z-index: 1;">
+                <div class="card border-0 shadow bg-white position-sticky" style="top: -.25rem; z-index: 1020;">
                     <div class="px-md-3">
                         @yield('content')
                     </div>

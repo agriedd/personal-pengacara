@@ -27,7 +27,12 @@ class Article extends Model
         return $this->hasMany(ArticleHistory::class, 'id_article', 'id');
     }
     public function cover(){
-        return $this->morphOne(Gambar::class, 'gambarable')->latest();
+        return $this->morphOne(Gambar::class, 'gambarable')->latest()->withDefault([
+            "src_ori" => "",
+            "src_lg" => "",
+            "src_md" => "",
+            "src_sm" => "",
+        ]);
     }
 
     public function getInfoUrlAttribute(){
