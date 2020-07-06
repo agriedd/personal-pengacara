@@ -11,12 +11,16 @@ import Navbar from './navbar';
 import Init from './init'
 import Axios from 'axios'
 import src from './directives/src';
+import img from './directives/img';
+import vTooltip from 'v-tooltip'
 
 window.Vue = require('vue');
 window.Form = Form;
 window.axios = Axios
 
+window.vTooltip = vTooltip
 window.Vue.directive('src', src)
+window.Vue.directive('img', img)
 window.Vue.filter('no', (value, model)=>{
     let page = 1;
     let data_perpage = 10;
@@ -27,6 +31,10 @@ window.Vue.filter('no', (value, model)=>{
         data_perpage = model.option.filter.limit
 
     return value + ((page - 1) * data_perpage) + 1
+})
+window.Vue.filter('toMB', (value, model)=>{
+    value = value / 1000 / 1024
+    return parseFloat(value.toFixed(2))
 })
 
 const init = {

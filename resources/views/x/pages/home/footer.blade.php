@@ -2,7 +2,7 @@
     <div>
         <div class="container py-5">
             <div class="position-relative">
-                <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: -4rem; right: -4rem; height: 80px; opacity: .7; transform: rotateZ(75deg)">
+                <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: -4rem; right: -4rem; height: 40px; opacity: .7; transform: rotateZ(75deg)">
             </div>
             <div class="justify-middle text-light">
                 <div class="row justify-content-center">

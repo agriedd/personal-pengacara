@@ -1,14 +1,15 @@
 a{
     color: darken($blue, 20);
-    
-    &[href="#"]{
-        color: darken($blue, 50);
-    }
-    &:not([href="#"]){
-        color: darken($blue, 20);
-    }
-    &:hover{
-        background-color: rgba($blue, .15);
-        text-decoration: none;
+    &:not(.nav-link){
+        &[href="#"]{
+            color: darken($blue, 50);
+        }
+        &:not([href="#"]){
+            color: darken($blue, 20);
+        }
+        &:hover{
+            background-color: rgba($blue, .15);
+            text-decoration: none;
+        }
     }
 }

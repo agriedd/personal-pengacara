@@ -1,0 +1,26 @@
+.nav-2{
+    &.nav{
+        &.nav-tabs{
+
+            @extend .border-bottom-0;
+            max-width: 100%;
+            overflow-x: auto;
+            flex-wrap: nowrap!important;
+
+            .nav-link{
+
+                @extend .border-left-0;
+                @extend .border-right-0;
+                @extend .border-top-0;
+                @extend .rounded-0;
+                @extend .mb-0;
+                border: .25rem solid transparent;
+                white-space: nowrap;
+
+                &.active{
+                    border-color: transparent transparent $primary;
+                }
+            }
+        }
+    }
+}

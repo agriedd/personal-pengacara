@@ -4,40 +4,17 @@
 
 @section('content')
     <div>
-        <div class="container-fluid landing" style="background-image: url('{{ asset('img/bg.jpg') }}'); background-attachment: fixed">
-            <div class="banner">
-                <img src="{{ asset('img/logo_full.png') }}" alt="" class="logo">
-                <h1 class="font-weight-bold" style="font-family: 'Libre Baskerville', serif;">
-                    {{-- Selamat datang --}}
-                    <div>
-                        Website Pengacara Kupang - NTT,
-                    </div>
-                    <div>
-                        BERNARD S. ANIN,SH.,MH
-                        & Rekan
-                    </div>
-                </h1>
-                <div class="h5 font-weight-normal">
-                    {{-- <div>
-                        <strong>
-                        </strong>
-                    </div> --}}
-                    <div>
-                        Kantor Advokat atau Pengacara BERNARD S. ANIN,SH.,MH dan Rekan yang ber-alamat di Lorem, ipsum dolor.
-                    </div>
-                </div>
-            </div>
-            <div>
-                <a href="https://wa.me/6281338204888?text={{ urlencode("Saya ingin berkonsultasi dengan Anda.") }}" target="_blank" class="btn btn-rounded action shadow text-dark" style="border-radius: .5rem!important">
-                    KONSULTASI
-                </a>
+        <div class="d-flex justify-content-center flex-md-row flex-column home-content">
+            @include('x.nav.mini-sidebar-home')
+            <div style="flex: 1 1 auto;" class="w-100">
+                @include('x.pages.home.landing')
+                @include('x.pages.home.profil')
+                @include('x.pages.home.bahan-hukum')
+                @include('x.pages.home.artikel')
+                @include('x.pages.home.kontak')
+                @include('x.pages.home.footer')
             </div>
         </div>
-        @include('x.pages.home.profil')
-        @include('x.pages.home.bahan-hukum')
-        @include('x.pages.home.artikel')
-        @include('x.pages.home.kontak')
-        @include('x.pages.home.footer')
     </div>
 @endsection
 

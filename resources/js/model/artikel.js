@@ -13,6 +13,7 @@ export default (vue, form) => {
         }
     }).setCollapse(null, {
         navHalaman: false,
+        filter: false,
     })
     .pushModal({
         'preview': false,
@@ -107,16 +108,19 @@ export default (vue, form) => {
                     this.artikel.all(this);
                 })
             },
+            'artikel.option.collapse.filter': function(n){
+                this.artikel.setStore('filter', n, false);
+            },
         },
         created(){
             this.artikel
                 .pushAction('url', (name, option = null) => this.meta(name, option))
                 .pushAction('url_prefix', ()=>"artikel_")
-            try {
-                this.artikel.all(this)
-            } catch (error) {
-                //do nothing
-            }
+                .setCollapse(this, {
+                    filter: this.artikel.getStore('filter', this.artikel.getCollapse('filter', false), e => {
+                        return e == 'true' ? true : false
+                    }, false),
+                })
         }
     })
 }

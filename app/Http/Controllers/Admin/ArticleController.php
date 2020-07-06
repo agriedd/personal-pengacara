@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index(Request $request){
         $articles = ArticleRepository::all($request);
         return view('pages.admin.artikel.index', compact('articles'));

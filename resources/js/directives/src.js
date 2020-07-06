@@ -1,5 +1,3 @@
-import { update } from "lodash";
-
 export default {
     inserted: (el, bind)=>{
         let size = "sm";

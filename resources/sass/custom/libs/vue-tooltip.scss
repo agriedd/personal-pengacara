@@ -1,0 +1,7 @@
+.tooltip{
+    &.vue-tooltip-theme{
+        &[aria-hidden="false"]{
+            opacity: 1;
+        }
+    }
+}

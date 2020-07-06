@@ -3,7 +3,9 @@ export default (vue, form) => {
     const kunjungan = new window.Form({
         id: null, judul: '', keterangan: '', foto: null,
     })
-    .setCollapse(null, {})
+    .setCollapse(null, {
+        filter: false,
+    })
     .pushModal({
         'preview': false,
     })
@@ -80,11 +82,19 @@ export default (vue, form) => {
                     this.kunjungan.all(this);
                 })
             },
+            'kunjungan.option.collapse.filter': function(n){
+                this.kunjungan.setStore('filter', n, false);
+            },
         },
         created(){
             this.kunjungan
                 .pushAction('url', (name, option = null) => this.meta(name, option))
                 .pushAction('url_prefix', ()=>"kunjungan_")
+                .setCollapse(this, {
+                    filter: this.kunjungan.getStore('filter', this.kunjungan.getCollapse('filter'), e => {
+                        return e == 'true' ? true : false
+                    }, false),
+                })
         }
     })
 }

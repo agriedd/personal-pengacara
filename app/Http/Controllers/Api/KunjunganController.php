@@ -14,7 +14,26 @@ class KunjunganController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        return KunjunganRepository::filter($request)->paginate(10);
+        return KunjunganRepository::filter($request)->paginate($request->limit ?? 10);
+    }
+    /**
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function report(Request $request){
+        $data = KunjunganRepository::report($request)->get();
+        $dates = collect($data)->map(function($item){
+            return $item->date->format("Y-M");
+        });
+        $values = collect($data)->pluck('total');
+        $avg = $data->average('total');
+
+        return [
+            "dates"  => $dates,
+            "values"  => $values,
+            "rata_rata"  => $avg,
+            "data"  => $data,
+        ];
     }
 
     /**

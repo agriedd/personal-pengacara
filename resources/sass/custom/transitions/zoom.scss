@@ -1,0 +1,26 @@
+.zoom{
+    &-enter{
+        transform: scale(1.5);
+        opacity: 0;
+        
+        &-active{
+            transition: all .25s ease;
+        }
+        &-to{
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    &-leave{
+        transform: scale(1);
+        opacity: 1;
+        
+        &-active{
+            transition: all .25s ease;
+        }
+        &-to{
+            transform: scale(1.5);
+            opacity: 0;
+        }
+    }
+}

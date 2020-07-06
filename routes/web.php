@@ -1,5 +1,7 @@
 <?php
 
+use App\Repository\ArticleRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,6 +17,10 @@ use Illuminate\Support\Facades\Auth;
 */
 Auth::routes();
 
+//test
+Route::get('/test', function(Request $request){
+    dd(ArticleRepository::filterAuth($request)->with('info')->get());
+})->name('test');
 
 //Guest
 
@@ -51,15 +57,25 @@ Route::prefix("/admin")->group(function($app){
         Route::get('/{album}', 'Admin\AlbumController@info')->name('admin.album.info');
         Route::post('/{album}', 'Admin\AlbumController@tambahGaleri')->name('admin.album.galeri.tambah');
     });
+    Route::prefix('/bahan-hukum')->group(function($app){
+        Route::get('/', 'Admin\BahanHukumController@index')->name('admin.bahan.hukum');
+        // Route::get('/{album}', 'Admin\AlbumController@info')->name('admin.album.info');
+        // Route::post('/{album}', 'Admin\AlbumController@tambahGaleri')->name('admin.album.galeri.tambah');
+    });
 });
 
 //Api
 Route::prefix("/api")->group(function($app){
     Route::post('artikel/vote/{artikel}', 'Api\ArtikelController@updateVote')->name('artikel.vote');
     Route::resource('artikel', 'Api\ArtikelController');
+    
     Route::resource('album', 'Api\AlbumController');
     Route::resource('galeri', 'Api\GaleriController');
+
+    Route::get('kunjungan/report', 'Api\KunjunganController@report')->name('kunjungan.report');
     Route::resource('kunjungan', 'Api\KunjunganController');
+    
+    Route::resource('bahan-hukum', 'Api\BahanHukumController');
 });
 
 //Socialite

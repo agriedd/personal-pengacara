@@ -12,19 +12,23 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     @endisset
     @stack('script')
-    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
-    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/js/eddlibrary.css') }}">
     @stack('css')
 </head>
 <body>
     @yield('beforecontent')
-    <div id="app">
+    <div id="app" class="bg-dark">
+        @stack('prependcontent')
         <div class="wrapper" v-cloak>
             @yield('sidebar')
-            <main class="section-body bg-light" :class="{'sidebar-active': navbar.getCollapse('sidebar', false)}">
-                @yield('content')
+            <main class="section-body bg-dark p-2 p-lg-3" :class="{'sidebar-active': navbar.getCollapse('sidebar', false)}">
+                <div class="card border-0 shadow bg-white position-sticky" style="top: -.25rem; z-index: 1020;">
+                    <div class="px-md-3">
+                        @yield('content')
+                    </div>
+                </div>
+                @stack('appendcontent')
             </main>
         </div>
         <div class="placeholder" v-cloak>

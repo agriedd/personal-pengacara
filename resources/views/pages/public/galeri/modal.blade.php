@@ -60,10 +60,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="position-sticky" style="top: 0px;">
-                    <div class="d-flex justify-content-center">
-                        <img :src="galeri.getSelected('gambar').src_md" :key="galeri.getSelected('id')" :alt="galeri.getSelected('judul')" class="rounded" height="auto" width="100%">
-                    </div>
+                <div class="position-sticky" style="top: 0px; overflow: hidden;">
+                    <transition name="fly-left" mode="out-in">
+                        <div class="d-flex justify-content-center" :key="galeri.getSelected('id')">
+                            <img :src="galeri.getSelected('gambar').src_md" :key="galeri.getSelected('id')" :alt="galeri.getSelected('judul')" class="rounded" height="auto" width="100%">
+                        </div>
+                    </transition>
                 </div>
             </div>
             <div class="h-auto d-flex flex-md-column flex-row" style="max-width: 100%; overflow-x: auto;">

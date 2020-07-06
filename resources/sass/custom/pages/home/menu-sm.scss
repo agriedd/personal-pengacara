@@ -1,0 +1,9 @@
+@include media-breakpoint-down(sm) {
+    .home-content{
+        .menu-wrapper{
+            position: fixed;
+            top: 0px;
+            z-index: 1;
+        }
+    }
+}

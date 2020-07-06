@@ -1,9 +1,9 @@
-$backdrop-color: $light;
+$backdrop-color: $dark;
 $loading-bar-color: linear-gradient(45deg, darken($blue, 40), #f28);
-$loading-bar-color: lighten($blue, 10);
+$loading-bar-color: lighten($accent, 10);
 $loading-color: lighten($dark, 75);
-$loading-height: 1rem;
-$loading-width: 4rem;
+$loading-height: 2rem;
+$loading-width: 2rem;
 
 .placeholder{
     height: 100vh;
@@ -18,15 +18,15 @@ $loading-width: 4rem;
     }
     
     .loading{
-        background-color: $backdrop-color;
         height: $loading-height;
-        width: 100%; max-width: $loading-width;
-        background-color: $loading-color;
+        width: 2rem; max-width: $loading-width;
+        background-color: $loading-bar-color;
         margin: auto;
         position: relative;
-        overflow: hidden;
         filter: blur(10px) contrast(10px);
         border-radius: 10rem;
+        animation: rotate 4s linear infinite;
+        @extend .shadow;
         
         &.bottom{
             margin-bottom: 2rem;
@@ -49,27 +49,56 @@ $loading-width: 4rem;
         }
         
         .loading-bar{
-            width: 0px;
-            height: 100%;
-            animation: loading-bar 4s ease infinite;
-            background: $loading-bar-color;
+            height: $loading-height;
+            width: 2rem; max-width: $loading-width;
+            margin: auto;
+            position: relative;
             border-radius: 10rem;
+            animation: rotate 6s linear infinite;
+            
+            &::before{
+                content: '';
+                height: .5rem;
+                width: .5rem;
+                background: $loading-bar-color;
+                position: absolute; top: 0px; left: 0rem;
+                border-radius: 10rem;
+                transform: translateY(50%);
+                filter: blur(.05rem);
+                animation: rotate-child-before 4s ease-out infinite .15s;
+            }
+            &::after{
+                content: '';
+                height: 3rem;
+                width: 3rem;
+                background: $loading-bar-color;
+                position: absolute; top: 0px; right: 0rem;
+                border-radius: 10rem;
+                transform: translateY(50%) translateX(50%);
+                filter: blur(.25rem);
+                animation: rotate-child-after 7s ease-out infinite .35s;
+            }
         }
+    
         &::before{
             content: '';
-            height: $loading-height;
-            width: $loading-height;
+            height: 1rem;
+            width: 1rem;
             background: $loading-bar-color;
-            position: absolute; top: 0px; left: 0px;
+            position: absolute; top: 0px; left: 0rem;
             border-radius: 10rem;
+            transform: translateY(50%);
+            animation: rotate-child-before 8s ease-out infinite .25s;
         }
         &::after{
             content: '';
-            height: $loading-height;
-            width: $loading-height;
+            height: 1rem;
+            width: 1rem;
             background: $loading-bar-color;
-            position: absolute; top: 0px; right: 0px;
+            position: absolute; top: 0px; right: 0rem;
             border-radius: 10rem;
+            transform: translateY(50%);
+            animation: rotate-child-after 8s ease-out infinite;
         }
     }
 }
@@ -88,6 +117,30 @@ $loading-width: 4rem;
         width: 100%;
         left: 100%;
         transform: translateX(100%);
+    }
+}
+@keyframes rotate{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes rotate-child-before{
+    0%, 100%{
+        left: 3rem;
+    }
+    50%{
+        left: 4rem;
+    }
+}
+@keyframes rotate-child-after{
+    0%, 100%{
+        right: 3rem;
+    }
+    50%{
+        right: 4rem;
     }
 }
 

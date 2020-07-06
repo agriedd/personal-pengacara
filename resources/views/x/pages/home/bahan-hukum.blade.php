@@ -2,18 +2,17 @@
     <div class="d-flex mb-2">
         <h2 class="font-weight-light mx-auto text-dark my-3 mb-5">
             Bahan Hukum
-            <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: -4rem; left: -2rem; height: 100px; opacity: .25; transform: rotateZ(45deg)">
         </h2>
     </div>
     <div>
         <div class="container">
             <div class="position-relative">
-                <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: -4rem; right: 0%; height: 200px; opacity: .5; transform: rotateZ(20deg)">
+                <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: -4rem; right: 0%; height: 100px; opacity: .5; transform: rotateZ(20deg)">
             </div>
             <div class="justify-middle">
-                <div class="row justify-content-center">
-                    <div class="col-lg-3 col-md-4 col-sm-6 my-3" v-for="i in 4">
-                        <div class="card clean w-100 mb-3 h-100 tip-center-top text-light" style="min-height: 250px; background-size: cover; background-position: center">
+                <div class="row justify-content-center m-0">
+                    <div class="col-lg-3 col-md-4 col-sm-6 p-1">
+                        <div class="card clean w-100 mb-3 h-100 text-light" style="min-height: 250px; background-size: cover; background-position: center">
                             <div class="card-body text-dark">
                                 <div class="d-flex justify-content-center mb-3">
                                     <div class="h4 text-dark">

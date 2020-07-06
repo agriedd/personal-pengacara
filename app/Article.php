@@ -2,18 +2,22 @@
 
 namespace App;
 
+use App\Casts\Number;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
     protected $table = 'article';
-    protected $appends = ['info_url', 'info_url_public', 'info_url_admin', 'created_at_diff', 'rating'];
+    protected $appends = ['info_url', 'info_url_public', 'info_url_admin', 'created_at_diff', 'rating', 'views_int'];
     protected $with = ['info', 'cover', 'created_by'];
-    protected $casts = ['created_at' => 'datetime:d-M-Y H:i:s'];
+    protected $casts = ['created_at' => 'datetime:d-M-Y H:i:s', 'views' => Number::class];
     protected $guarded = [];
 
     public function created_by(){
-        return $this->belongsTo(Admin::class, 'id_admin', 'id');
+        return $this->belongsTo(Admin::class, 'id_admin', 'id')->withDefault([
+            "email" => "",
+            "username" => "",
+        ]);
     }
 
     public function info(){
@@ -26,7 +30,12 @@ class Article extends Model
         return $this->hasMany(ArticleHistory::class, 'id_article', 'id');
     }
     public function cover(){
-        return $this->morphOne(Gambar::class, 'gambarable')->latest();
+        return $this->morphOne(Gambar::class, 'gambarable')->latest()->withDefault([
+            "src_ori" => "",
+            "src_lg" => "",
+            "src_md" => "",
+            "src_sm" => "",
+        ]);
     }
 
     public function getInfoUrlAttribute(){
@@ -43,6 +52,9 @@ class Article extends Model
     }
     public function getRatingAttribute(){
         return $this->vote_up - $this->vote_down;
+    }
+    public function getViewsIntAttribute(){
+        return $this->original['views'];
     }
 
     public function scopePublished($query){

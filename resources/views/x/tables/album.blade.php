@@ -1,17 +1,15 @@
 <div class="" v-if="album.notEmpty()">
-    <v-table v-model="album.getData()" :pagination="album.option.table.pagination" :edd-data="album">
+    <v-table v-model="album.getData()" :pagination="album.option.table.pagination" :edd-data="album" @page="page('album', 'table', $event)" :sort="album.option.table.sort" @sort="sort('album', 'table', $event)">
         <template v-slot:header>
-            <tr class="position-sticky" style="top: 0px">
-                <table-head id="id"></table-head>
-                <table-head id="nama" text="Nama"></table-head>
-                <table-head id="galeri">
-                    Galeri
-                </table-head>
-                <table-head id="created_at">
-                    Tanggal buat
-                </table-head>
-                <table-head id="aksi" text="Aksi" unsorted></table-head>
-            </tr>
+            <table-head id="id" unsorted></table-head>
+            <table-head id="nama" text="Nama"></table-head>
+            <table-head id="galeri">
+                Galeri
+            </table-head>
+            <table-head id="created_at">
+                Tanggal buat
+            </table-head>
+            <table-head id="" text="Aksi" unsorted></table-head>
         </template>
         <template v-slot:default="data">
             <td>
@@ -84,11 +82,15 @@
         </template>
     </v-table>
 </div>
-<div v-else-if="album.onSearch()">
+<div v-else-if="album.onSearch() && album.notLoading()">
     @component('x.info.search-empty', [ "model" => "album" ])
     @endcomponent
 </div>
-<div v-else>
+<div v-else-if="album.notLoading()">
     @component('x.info.data-empty')
+    @endcomponent
+</div>
+<div v-else>
+    @component('x.placeholders.table', ['row' => 10, 'col' => 1, 'height' => '100px'])
     @endcomponent
 </div>

@@ -2,7 +2,7 @@
     $model = $model ?? "navbar";
     $tambah = isset($tambah) ? $tambah : true;
 @endphp
-<div>
+<div style="z-index: 0">
     <div class="card-body">
         <form action="" method="POST" v-on:submit.prevent="{{ $model }}.submit(getContext())">
             <div class="d-flex w-100">

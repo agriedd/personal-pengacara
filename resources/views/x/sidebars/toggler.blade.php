@@ -4,8 +4,8 @@
     $isActive = !!preg_match("/^(admin\/)($name)(.*)/", request()->route()->uri());
     $disabled = isset($disabled) && $disabled ? 'disabled' : '';
 @endphp
-<div class="item {{ $isActive ? "active" : null }} {{ $disabled ?? '' }}" {{ $attributes ?? '' }}>
-    <a href="{{ $link ?? '#' }}" class="inner-item">
+<div class="item {{ $isActive ? "active" : null }} {{ $disabled ?? '' }} {{ $className ?? "" }}" {{ $attributes ?? '' }}>
+    <a href="{{ $link ?? '#' }}" class="inner-item flex-row-reverse">
         @isset($icon)
             <div class="icon">
                 <div class="inner-icon">
