@@ -14,7 +14,10 @@ class Article extends Model
     protected $guarded = [];
 
     public function created_by(){
-        return $this->belongsTo(Admin::class, 'id_admin', 'id');
+        return $this->belongsTo(Admin::class, 'id_admin', 'id')->withDefault([
+            "email" => "",
+            "username" => "",
+        ]);
     }
 
     public function info(){

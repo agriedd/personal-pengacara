@@ -83,7 +83,7 @@
                                     @slot('tip', 'bg-gray-dark h-100')
                                     @slot('card', 'text-white')
                                     <div class="d-flex rounded py-2">
-                                        <div class="small text-info">
+                                        <div class="small text-warning">
                                             <div class="justify-middle">
                                                 Total Berkas
                                             </div>
@@ -313,7 +313,6 @@
                                         categories: res.data.dates,
                                     }
                                 });
-
                                 resolve(res);
                             });
                         }, this.meta('kunjungan_report'));
