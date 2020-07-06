@@ -29,7 +29,7 @@ class AdminController extends Controller
 
         $bulan_ini = KunjunganRepository::month()->count();
         $bulan_lalu = KunjunganRepository::lastMonth()->count();
-        $perbandingan_bulan_lalu = Number::short($bulan_lalu - $bulan_ini, 0);
+        $perbandingan_bulan_lalu = Number::short($bulan_ini - $bulan_lalu, 0);
         $total_kunjungan_bulan_ini = Number::short($bulan_ini, 0);
         $total_kunjungan_bulan_lalu = Number::short($bulan_lalu, 0);
         return view('pages.admin.index', compact(

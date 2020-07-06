@@ -23717,8 +23717,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var action = this.getAction('list');
     if (callback) action = callback;
     if (action == null) throw new Error("😕 Sepertinya aksi LIST belum di atur");
-    var target_url = this.getUrl('all');
-    if (url) target_url = url;
+    var target_url = this.getUrl('all') || url;
     if (target_url == null) throw new Error("😕 Sepertinya aksi URL belum di atur");
     return this.fn(function (context) {
       return new Promise( /*#__PURE__*/function () {

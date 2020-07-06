@@ -151,7 +151,7 @@
                                                     </div>
                                                     <hr class="row divider">
                                                     <div class="text-white small py-2">
-                                                        {{ $perbandingan_bulan_lalu }} kunjungan
+                                                        {{ $perbandingan_bulan_lalu > 0 ? "+" : null }}{{ $perbandingan_bulan_lalu }} kunjungan
                                                     </div>
                                                 </div>
                                             </div>
@@ -223,7 +223,7 @@
 @endpush
 
 @push('meta')
-    <meta name="kunjungan_report" content="{{ route('kunjungan.index') }}">
+    <meta name="kunjungan_report" content="{{ route('kunjungan.report') }}">
 @endpush
 
 @push('script')
@@ -234,7 +234,7 @@
         window.addEventListener('load', ()=>{
             Vue.use(eddlibrary.Notification);
             Vue.use(vTooltip);
-            var app = new Vue({
+            window.app = new Vue({
                 el: "#app",
                 mixins: [window.Mixins.Init, window.Mixins.Navbar, window.Mixins.Kunjungan],
                 components: { 'modal': eddlibrary.Modal, 'notification': eddlibrary.Notification },
@@ -242,7 +242,7 @@
                     time: 5000,
                     options: {
                         chart: {
-                            id: 'vuechart-example',
+                            id: 'chart1',
                             toolbar: {
                                 autoSelected: "pan",
                                 show: false
@@ -252,16 +252,16 @@
                             borderColor: "#555",
                             clipMarkers: false,
                             yaxis: {
-                            lines: {
-                                show: false
-                            }
+                                lines: {
+                                    show: false
+                                }
                             }
                         },
                         dataLabels: {
                             enabled: false
                         },
                         xaxis: {
-                            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+                            categories: []
                         },
                         stroke: {
                             curve: 'smooth'
@@ -282,9 +282,6 @@
                     series: [{
                         name: 'series-1',
                         data: [30, 40, 45, 50, 49, 60, 70, 91]
-                    },{
-                        name: 'series-1',
-                        data: [ 49, 60, 70, 91, 30, 40, 45, 50]
                     }]
                 },
                 methods: {
@@ -300,8 +297,25 @@
                     sort(type, name, data){
                     },
                     laporanKunjungan(){
-                        this.kunjungan.all(this, (e)=>{
-                            return axios.get()
+                        this.kunjungan.all(this, (context, url, vue)=>{
+                            return new Promise(async(resolve, reject)=>{
+                                let res = await axios.get(url, {
+                                    params: this.kunjungan.getFilter()
+                                }).catch(e => reject(e));
+                                let status = context.responseHandler(vue, res.data, (error)=>reject(error));
+                                this.series.pop();
+                                this.series.push({
+                                    name: 'kunjungan',
+                                    data: res.data.values
+                                });
+                                ApexCharts.exec(this.options.chart.id, 'updateOptions', {
+                                    xaxis: {
+                                        categories: res.data.dates,
+                                    }
+                                });
+
+                                resolve(res);
+                            });
                         }, this.meta('kunjungan_report'));
                     }
                 },

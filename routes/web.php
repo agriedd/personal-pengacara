@@ -68,9 +68,13 @@ Route::prefix("/admin")->group(function($app){
 Route::prefix("/api")->group(function($app){
     Route::post('artikel/vote/{artikel}', 'Api\ArtikelController@updateVote')->name('artikel.vote');
     Route::resource('artikel', 'Api\ArtikelController');
+    
     Route::resource('album', 'Api\AlbumController');
     Route::resource('galeri', 'Api\GaleriController');
+
+    Route::get('kunjungan/report', 'Api\KunjunganController@report')->name('kunjungan.report');
     Route::resource('kunjungan', 'Api\KunjunganController');
+    
     Route::resource('bahan-hukum', 'Api\BahanHukumController');
 });
 

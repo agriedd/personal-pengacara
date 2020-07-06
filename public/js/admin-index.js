@@ -24067,8 +24067,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var action = this.getAction('list');
     if (callback) action = callback;
     if (action == null) throw new Error("😕 Sepertinya aksi LIST belum di atur");
-    var target_url = this.getUrl('all');
-    if (url) target_url = url;
+    var target_url = this.getUrl('all') || url;
     if (target_url == null) throw new Error("😕 Sepertinya aksi URL belum di atur");
     return this.fn(function (context) {
       return new Promise( /*#__PURE__*/function () {
@@ -25561,7 +25560,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_apexcharts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-apexcharts */ "./node_modules/vue-apexcharts/dist/vue-apexcharts.js");
 /* harmony import */ var vue_apexcharts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_apexcharts__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var apexcharts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apexcharts */ "./node_modules/apexcharts/dist/apexcharts.esm.js");
 __webpack_require__(/*! ../app.js */ "./resources/js/app.js");
+
 
 
 
