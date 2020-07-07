@@ -18,7 +18,8 @@ window.Vue = require('vue');
 window.Form = Form;
 window.axios = Axios
 
-window.vTooltip = vTooltip
+// window.vTooltip = vTooltip
+window.Vue.use(vTooltip);
 window.Vue.directive('src', src)
 window.Vue.directive('img', img)
 window.Vue.filter('no', (value, model)=>{

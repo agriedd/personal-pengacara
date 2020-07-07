@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -23162,8 +23162,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 window.Form = _edd_form__WEBPACK_IMPORTED_MODULE_0__["default"];
-window.axios = axios__WEBPACK_IMPORTED_MODULE_3___default.a;
-window.vTooltip = v_tooltip__WEBPACK_IMPORTED_MODULE_6__["default"];
+window.axios = axios__WEBPACK_IMPORTED_MODULE_3___default.a; // window.vTooltip = vTooltip
+
+window.Vue.use(v_tooltip__WEBPACK_IMPORTED_MODULE_6__["default"]);
 window.Vue.directive('src', _directives_src__WEBPACK_IMPORTED_MODULE_4__["default"]);
 window.Vue.directive('img', _directives_img__WEBPACK_IMPORTED_MODULE_5__["default"]);
 window.Vue.filter('no', function (value, model) {
@@ -25245,7 +25246,7 @@ window.Mixins.Galeri = Object(_model_galeri__WEBPACK_IMPORTED_MODULE_0__["defaul
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /*!********************************************!*\
   !*** multi ./resources/js/pages/galeri.js ***!
   \********************************************/

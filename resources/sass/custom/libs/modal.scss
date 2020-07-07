@@ -1,0 +1,6 @@
+$modal-backdrop-blur: 1px;
+
+.modal-backdrop{
+    -webkit-backdrop-filter: grayscale(1);
+    backdrop-filter: grayscale(1);
+}

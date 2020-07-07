@@ -7,7 +7,7 @@
     <div>
         <div class="container">
             <div class="position-relative">
-                <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: -4rem; right: 0%; height: 100px; opacity: .5; transform: rotateZ(20deg)">
+                <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: -1rem; right: 0%; height: 2rem; opacity: .5; transform: rotateZ(20deg)">
             </div>
             <div class="justify-middle">
                 <div class="row justify-content-center m-0">

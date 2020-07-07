@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -24925,9 +24925,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/model/album.js":
+/***/ "./resources/js/model/admin.js":
 /*!*************************************!*\
-  !*** ./resources/js/model/album.js ***!
+  !*** ./resources/js/model/admin.js ***!
   \*************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -24949,7 +24949,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 /* harmony default export */ __webpack_exports__["default"] = (function (vue, form) {
-  var album = new window.Form({
+  var admin = new window.Form({
     id: null,
     nama: '',
     keterangan: ''
@@ -25153,49 +25153,145 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   return Vue.extend({
     data: function data() {
       return {
-        album: album
+        admin: admin
       };
     },
     watch: {
-      'album.option.filter.search': function albumOptionFilterSearch(val) {
+      'admin.option.filter.search': function adminOptionFilterSearch(val) {
         var _this = this;
 
         this.lazy(function () {
-          _this.album.all(_this);
+          _this.admin.all(_this);
         });
       },
-      'album.option.collapse.filter': function albumOptionCollapseFilter(n) {
-        this.album.setStore('filter', n, false);
+      'admin.option.collapse.filter': function adminOptionCollapseFilter(n) {
+        this.admin.setStore('filter', n, false);
       }
     },
     created: function created() {
       var _this2 = this;
 
-      this.album.pushAction('url', function (name) {
+      this.admin.pushAction('url', function (name) {
         var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
         return _this2.meta(name, option);
       }).pushAction('url_prefix', function () {
-        return "album_";
+        return "admin_";
       }).setCollapse(this, {
-        filter: this.album.getStore('filter', this.album.getCollapse('filter', false), function (e) {
+        filter: this.admin.getStore('filter', this.admin.getCollapse('filter', false), function (e) {
           return e == 'true' ? true : false;
         }, false)
       });
-
-      try {
-        this.album.all(this);
-      } catch (error) {//do nothing
-      }
     }
   });
 });
 
 /***/ }),
 
-/***/ "./resources/js/model/galeri.js":
-/*!**************************************!*\
-  !*** ./resources/js/model/galeri.js ***!
-  \**************************************/
+/***/ "./resources/js/model/pengaturan.js":
+/*!******************************************!*\
+  !*** ./resources/js/model/pengaturan.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+/* harmony default export */ __webpack_exports__["default"] = (function (vue, form) {
+  var pengaturan = new window.Form({
+    id: null,
+    nama: '',
+    keterangan: ''
+  }).setCollapse(null, {
+    table: true
+  }).setFilter(null, {
+    empty: false
+  }).pushModal({
+    'preview': false
+  }).pushAction("find", function (context, url, vue) {
+    return new Promise( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(resolve, reject) {
+        var res, status;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get(url)["catch"](function (e) {
+                  return reject(e);
+                });
+
+              case 2:
+                res = _context.sent;
+                status = context.responseHandler(vue, res.data, function (e) {
+                  return reject(e);
+                });
+                if (status) context.getAction('afterFind')(context, res, vue);
+                resolve(res);
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x, _x2) {
+        return _ref.apply(this, arguments);
+      };
+    }());
+  }).pushAction("afterFind", function (context, res, vue) {
+    if (res.data) context.setSelected(res.data);
+  });
+  return Vue.extend({
+    data: function data() {
+      return {
+        pengaturan: pengaturan
+      };
+    },
+    watch: {
+      'pengaturan.option.filter.search': function pengaturanOptionFilterSearch(val) {
+        var _this = this;
+
+        this.lazy(function () {
+          _this.pengaturan.all(_this);
+        });
+      },
+      'pengaturan.option.collapse.filter': function pengaturanOptionCollapseFilter(n) {
+        this.pengaturan.setStore('filter', n, false);
+      }
+    },
+    created: function created() {
+      var _this2 = this;
+
+      this.pengaturan.pushAction('url', function (name) {
+        var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+        return _this2.meta(name, option);
+      }).pushAction('url_prefix', function () {
+        return "pengaturan_";
+      }).setCollapse(this, {
+        filter: this.pengaturan.getStore('filter', this.pengaturan.getCollapse('filter', false), function (e) {
+          return e == 'true' ? true : false;
+        }, false)
+      });
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/model/user.js":
+/*!************************************!*\
+  !*** ./resources/js/model/user.js ***!
+  \************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -25216,12 +25312,19 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 /* harmony default export */ __webpack_exports__["default"] = (function (vue, form) {
-  var galeri = new window.Form({
+  var user = new window.Form({
     id: null,
-    judul: '',
+    nama: '',
     keterangan: '',
-    foto: null
-  }).setCollapse(null, {}).pushModal({
+    email: null,
+    info: {
+      nama: ''
+    }
+  }).setCollapse(null, {
+    table: true
+  }).setFilter(null, {
+    empty: false
+  }).pushModal({
     'preview': false
   }).pushAction("list", function (context, url, vue) {
     return new Promise( /*#__PURE__*/function () {
@@ -25417,26 +25520,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   return Vue.extend({
     data: function data() {
       return {
-        galeri: galeri
+        user: user
       };
     },
     watch: {
-      'galeri.option.filter.search': function galeriOptionFilterSearch(val) {
+      'user.option.filter.search': function userOptionFilterSearch(val) {
         var _this = this;
 
         this.lazy(function () {
-          _this.galeri.all(_this);
+          _this.user.all(_this);
         });
+      },
+      'user.option.collapse.filter': function userOptionCollapseFilter(n) {
+        this.user.setStore('filter', n, false);
       }
     },
     created: function created() {
       var _this2 = this;
 
-      this.galeri.pushAction('url', function (name) {
+      this.user.pushAction('url', function (name) {
         var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
         return _this2.meta(name, option);
       }).pushAction('url_prefix', function () {
-        return "galeri_";
+        return "user_";
+      }).setCollapse(this, {
+        filter: this.user.getStore('filter', this.user.getCollapse('filter', false), function (e) {
+          return e == 'true' ? true : false;
+        }, false)
       });
     }
   });
@@ -25496,34 +25606,37 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/album.js":
-/*!*************************************!*\
-  !*** ./resources/js/pages/album.js ***!
-  \*************************************/
+/***/ "./resources/js/pages/pengaturan.js":
+/*!******************************************!*\
+  !*** ./resources/js/pages/pengaturan.js ***!
+  \******************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _model_album__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../model/album */ "./resources/js/model/album.js");
-/* harmony import */ var _model_galeri__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../model/galeri */ "./resources/js/model/galeri.js");
+/* harmony import */ var _model_user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../model/user */ "./resources/js/model/user.js");
+/* harmony import */ var _model_admin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../model/admin */ "./resources/js/model/admin.js");
+/* harmony import */ var _model_pengaturan__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../model/pengaturan */ "./resources/js/model/pengaturan.js");
 __webpack_require__(/*! ../app.js */ "./resources/js/app.js");
 
 
 
-window.Mixins.Album = Object(_model_album__WEBPACK_IMPORTED_MODULE_0__["default"])(window.Form);
-window.Mixins.Galeri = Object(_model_galeri__WEBPACK_IMPORTED_MODULE_1__["default"])(window.Form);
+
+window.Mixins.User = Object(_model_user__WEBPACK_IMPORTED_MODULE_0__["default"])(window.Form);
+window.Mixins.Admin = Object(_model_admin__WEBPACK_IMPORTED_MODULE_1__["default"])(window.Form);
+window.Mixins.Pengaturan = Object(_model_pengaturan__WEBPACK_IMPORTED_MODULE_2__["default"])(window.Form);
 
 /***/ }),
 
-/***/ 2:
-/*!*******************************************!*\
-  !*** multi ./resources/js/pages/album.js ***!
-  \*******************************************/
+/***/ 5:
+/*!************************************************!*\
+  !*** multi ./resources/js/pages/pengaturan.js ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /mnt/c/projects/web/2020/personalpengacara/resources/js/pages/album.js */"./resources/js/pages/album.js");
+module.exports = __webpack_require__(/*! /mnt/c/projects/web/2020/personalpengacara/resources/js/pages/pengaturan.js */"./resources/js/pages/pengaturan.js");
 
 
 /***/ })

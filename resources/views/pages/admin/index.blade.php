@@ -13,10 +13,10 @@
 @endsection
 @push('appendcontent')
     <div class="card border-0 my-2 bg-dark text-light">
-        <div class="container">
+        <div class="container-lg">
             <div class="py-2">
                 <div class="row mb-3">
-                    <div class="col-lg-8 col-md">
+                    <div class="col-lg-8 col-md px-0">
                         <div class="row m-0">
                             <div class="col-lg-4 col-6 p-1">
                                 @component('x.tip.default')
@@ -161,7 +161,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md">
+                    <div class="col-lg-4 col-md px-0">
                         <div class="d-flex flex-column p-1 rounded">
                             <div class="card-body">
                                 <div class="text-gray-light font-weight-bold">
@@ -233,7 +233,6 @@
     <script>
         window.addEventListener('load', ()=>{
             Vue.use(eddlibrary.Notification);
-            Vue.use(vTooltip);
             window.app = new Vue({
                 el: "#app",
                 mixins: [window.Mixins.Init, window.Mixins.Navbar, window.Mixins.Kunjungan],

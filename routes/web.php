@@ -76,6 +76,7 @@ Route::prefix("/api")->group(function($app){
     Route::resource('kunjungan', 'Api\KunjunganController');
     
     Route::resource('bahan-hukum', 'Api\BahanHukumController');
+    Route::resource('admin', 'Api\AdminController');
 });
 
 //Socialite

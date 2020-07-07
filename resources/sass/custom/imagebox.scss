@@ -11,5 +11,18 @@ $box-img: (
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+        position: relative;
+        
+        &:hover{
+            .content{
+                display: block;
+            }
+        }
+        .content{
+            background-color: rgba($dark, .25);
+            display: none;
+            height: 100%;
+            width: 100%;
+        }
     }
 }

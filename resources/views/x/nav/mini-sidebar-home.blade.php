@@ -4,7 +4,7 @@
             <div class="justify-middle position-sticky bg-white rounded" style="max-height: 100vh; top: 0px; z-index: 1">
                 <div class="d-flex flex-md-column flex-row">
                     @auth
-                        <a href="{{ route('admin') }}" style="height: 60px; width: 60px; color: #444264">
+                        <a href="{{ route('admin') }}" style="height: 60px; width: 60px; color: #444264" v-tooltip.end="{ content: 'Panel Admin', offset: 8 }">
                             <div class="justify-middle">
                                 <div class="d-flex justify-content-center">
                                     <div class="rounded-circle bg-gray-light position-relative border border-white" style="height: 1.5rem; width: 1.5rem;">
