@@ -12,6 +12,12 @@
             <ul class="navbar-nav ml-auto nav-default {{ $light ? 'light' : null }}">
                 @component('x.navbars.home')@endcomponent
             </ul>
+            <button @click="navbar.toggleCollapse('menuHome')" class="btn btn-link text-dark shadow-none d-block d-md-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <svg class="bi bi-x" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+                    <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+                </svg>
+            </button>
         </div>
     </div>
     <a class="navbar-brand ml-auto" href="{{ url('/') }}">
@@ -24,7 +30,7 @@
     <div>
         <div class="d-flex justify-content-between p-3 mb-3">
             <div class="pl-3">
-                <img src="{{ asset('img/logo_full.png') }}" alt="" class="logo" style="max-height: 80px; max-width: 70%;">
+                <img src="{{ asset('img/logo_full.png') }}" alt="" class="logo" style="max-height: 100px; max-width: 100%;">
             </div>
             <button @click="navbar.toggleCollapse('menuHome')" class="btn btn-link text-dark shadow-none d-block d-md-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <svg class="bi bi-x" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

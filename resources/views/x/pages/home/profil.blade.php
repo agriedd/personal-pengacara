@@ -19,7 +19,7 @@
                 
                 <div class="card-body text-light">
                     <div class="d-flex">
-                        <div class="pr-3">
+                        <div class="pr-3 d-md-block d-none">
                             <div class="justify-middle justify-content-start text-muted mt-1">
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-diamond" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.482 1.482 0 0 1 0-2.098L6.95.435zm1.4.7a.495.495 0 0 0-.7 0L1.134 7.65a.495.495 0 0 0 0 .7l6.516 6.516a.495.495 0 0 0 .7 0l6.516-6.516a.495.495 0 0 0 0-.7L8.35 1.134z"/>
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                     <div class="d-flex pt-4">
-                        <div class="pr-3">
+                        <div class="pr-3 d-md-block d-none">
                             <div class="justify-middle justify-content-start text-muted mt-1">
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-diamond" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.482 1.482 0 0 1 0-2.098L6.95.435zm1.4.7a.495.495 0 0 0-.7 0L1.134 7.65a.495.495 0 0 0 0 .7l6.516 6.516a.495.495 0 0 0 .7 0l6.516-6.516a.495.495 0 0 0 0-.7L8.35 1.134z"/>
@@ -158,12 +158,12 @@
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td style="vertical-align: top; min-width: 200px">
+                                            <td style="vertical-align: top; min-width: 100px">
                                                 <h5 class="font-weight-light">
                                                     Taman Kanak-kanak
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">
                                                     :
                                                 </h5>
@@ -450,7 +450,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td style="vertical-align: top; min-width: 200px">
+                                                        <td style="vertical-align: top; min-width: 100px">
                                                             <h5 class="font-weight-light">
                                                                 Taman Kanak-kanak
                                                             </h5>

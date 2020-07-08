@@ -6,7 +6,7 @@
                     <div class="col-md">
                         <div class="py-2 justify-middle">
                             <div>
-                                <div class="text-dark text-top">
+                                {{-- <div class="text-dark text-top">
                                     Website Pengacara Kupang - NTT
                                 </div>
                                 <div class="h3 font-weight-bold text-dark text-middle my-2">
@@ -14,7 +14,8 @@
                                 </div>
                                 <div class="text-dark text-bottom">
                                     Kantor Advokat atau Pengacara BERNARD S. ANIN,SH.,MH dan Rekan yang ber-alamat di Lorem, ipsum dolor.
-                                </div>
+                                </div> --}}
+                                <img src="{{ asset('img/logo_full.png') }}" alt="" style="width: 100%" class="logo">
                                 <div class="pt-4">
                                     <button class="btn btn-primary btn-sm shadow-sm rounded px-5 py-3 mx-auto">
                                         KONSULTASI

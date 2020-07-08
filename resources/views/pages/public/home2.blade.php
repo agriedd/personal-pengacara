@@ -4,17 +4,36 @@
 
 @section('content')
     <div>
-        <div class="d-flex justify-content-center flex-md-row flex-column home-content">
-            @include('x.nav.mini-sidebar-home')
-            <div style="flex: 1 1 auto;" class="w-100">
-                @include('x.pages.home.landing')
-                @include('x.pages.home.profil')
-                @include('x.pages.home.bahan-hukum')
-                @include('x.pages.home.artikel')
-                @include('x.pages.home.kontak')
-                @include('x.pages.home.footer')
+        <div class="container-fluid landing" style="background-image: url('{{ asset('img/bg.jpg') }}')">
+            <div class="text-left banner">
+                <img src="{{ asset('img/logo_full.png') }}" alt="" style="width: 100%" class="logo">
+                <h1 class="">
+                    Selamat datang
+                </h1>
+                <div class="h5 font-weight-normal">
+                    <div>
+                        di website pengacara Kupang - NTT,
+                        <strong>
+                            BERNARD S. ANIN,SH.,MH
+                        </strong>
+                        & Rekan
+                    </div>
+                    <div>
+                        Kantor Advokat atau Pengacara BERNARD S. ANIN,SH.,MH dan Rekan yang ber-alamat di Jl. Tirosa, RT 015 / RW 007, Kelurahan Mata Air, Kecamatan Kupang Tengah, Kabupaten Kupang
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="https://wa.me/6281338204888?text={{ urlencode("Saya ingin berkonsultasi dengan Anda.") }}" target="_blank" class="btn btn-rounded action shadow text-dark">
+                    KONSULTASI
+                </a>
             </div>
         </div>
+        @include('x.pages.home.profil')
+        @include('x.pages.home.bahan-hukum')
+        @include('x.pages.home.artikel')
+        @include('x.pages.home.kontak')
+        @include('x.pages.home.footer')
     </div>
 @endsection
 

@@ -106,7 +106,10 @@
     transform: translateX(-100%);
     transition: all .5s ease;
     top: 0px;
-    background-color: $light;
+    background-color: rgba($light, .7);
+    -wekit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
     &.show{
         transform: translateX(0%);
     }

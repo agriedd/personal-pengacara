@@ -13498,7 +13498,10 @@ body {
   transform: translateX(-100%);
   transition: all 0.5s ease;
   top: 0px;
-  background-color: #f8f9fa;
+  background-color: rgba(248, 249, 250, 0.7);
+  -wekit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 
 .sidebar-home.show {

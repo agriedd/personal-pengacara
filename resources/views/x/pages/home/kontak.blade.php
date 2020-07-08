@@ -24,7 +24,7 @@
                         <div class="row text-dark">
                             <div class="col-lg-4 col-md-4 col-6 py-5">
                                 <div class="d-flex">
-                                    <div class="pr-3">
+                                    <div class="pr-3 d-md-block d-none">
                                         <div class="justify-middle">
                                             <svg class="bi bi-cursor" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52 2.25 8.184z"/>
@@ -36,14 +36,14 @@
                                             Facebook
                                         </h4>
                                         <div>
-                                            username
+                                            Bernard S. Anin
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-6 py-5">
                                 <div class="d-flex">
-                                    <div class="pr-3">
+                                    <div class="pr-3 d-md-block d-none">
                                         <div class="justify-middle">
                                             <svg class="bi bi-cursor" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52 2.25 8.184z"/>
@@ -55,14 +55,14 @@
                                             Instagram
                                         </h4>
                                         <div>
-                                            @username
+                                            @Bernard_anin
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-6 py-5">
                                 <div class="d-flex">
-                                    <div class="pr-3">
+                                    <div class="pr-3 d-md-block d-none">
                                         <div class="justify-middle">
                                             <svg class="bi bi-cursor" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52 2.25 8.184z"/>
@@ -74,14 +74,14 @@
                                             Whatsapp
                                         </h4>
                                         <div>
-                                            +62 0000 0000 0000
+                                            +62 813 3820 4888
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-6 py-5">
                                 <div class="d-flex">
-                                    <div class="pr-3">
+                                    <div class="pr-3 d-md-block d-none">
                                         <div class="justify-middle">
                                             <svg class="bi bi-cursor" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52 2.25 8.184z"/>
@@ -93,26 +93,7 @@
                                             Email
                                         </h4>
                                         <div>
-                                            username@mail.com
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-6 py-5">
-                                <div class="d-flex">
-                                    <div class="pr-3">
-                                        <div class="justify-middle">
-                                            <svg class="bi bi-cursor" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52 2.25 8.184z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h4>
-                                            Twitter
-                                        </h4>
-                                        <div>
-                                            @username
+                                            <a href="mailto:bernardaninofficial@gmail.com">bernardaninofficial@gmail.com</a>
                                         </div>
                                     </div>
                                 </div>

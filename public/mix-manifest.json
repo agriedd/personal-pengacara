@@ -2,11 +2,11 @@
     "/js/admin-index.js": "/js/admin-index.js",
     "/js/album.js": "/js/album.js",
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
     "/js/artikel.js": "/js/artikel.js",
     "/js/bahan-hukum.js": "/js/bahan-hukum.js",
     "/js/galeri.js": "/js/galeri.js",
     "/js/kunjungan.js": "/js/kunjungan.js",
     "/js/pengaturan.js": "/js/pengaturan.js",
-    "/js/publik.js": "/js/publik.js"
+    "/js/publik.js": "/js/publik.js",
+    "/css/app.css": "/css/app.css"
 }

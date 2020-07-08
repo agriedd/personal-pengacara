@@ -24,14 +24,14 @@
                                         </div>
                                     </div>
                                     <div class="h5 text-light text-bottom">
-                                        Kantor Advokat atau Pengacara BERNARD S. ANIN,SH.,MH dan Rekan yang ber-alamat di Lorem, ipsum dolor.
+                                        Kantor Advokat atau Pengacara BERNARD S. ANIN,SH.,MH dan Rekan yang ber-alamat di Jl. Tirosa, RT 015 / RW 007, Kelurahan Mata Air, Kecamatan Kupang Tengah, Kabupaten Kupang
                                     </div>
                                 </div>
                             </div>
                             <div class="w-100 d-flex mt-3">
-                                <button class="btn btn-danger banner-button px-5 py-3 mx-auto">
+                                <a href="{{ route('tampilan2') }}" class="btn btn-danger banner-button px-5 py-3 mx-auto">
                                     KONSULTASI
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
