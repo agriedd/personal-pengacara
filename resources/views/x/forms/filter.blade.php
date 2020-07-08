@@ -25,10 +25,10 @@
                         </button>
                     </div>
                 @endif
-                <div class="px-3 w-100">
+                <div class="px-3 w-100 d-sm-block d-none">
                     <input type="search" name="search" id="search" class="form-control bg-light rounded-pill px-3 py-2 w-100" placeholder="Temukan" v-model="{{ $model }}.option.filter.search">
                 </div>
-                <div>
+                <div class="ml-auto">
                     @isset($action)
                         {{ $action }}
                     @else
@@ -39,6 +39,9 @@
                         </button>
                     @endisset
                 </div>
+            </div>
+            <div class="d-sm-none d-block pt-3">
+                <input type="search" name="search" id="search" class="form-control bg-light rounded-pill px-3 py-2 w-100" placeholder="Temukan" v-model="{{ $model }}.option.filter.search">
             </div>
         </form>
     </div>

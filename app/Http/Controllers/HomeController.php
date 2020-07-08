@@ -24,4 +24,8 @@ class HomeController extends Controller
         $artikel = ArticleRepository::latest(3);
         return view('pages.public.home', compact('artikel'));
     }
+    public function tampilan2(){
+        $artikel = ArticleRepository::latest(3);
+        return view('pages.public.home2', compact('artikel'));
+    }
 }

@@ -21,6 +21,8 @@ Auth::routes();
 Route::get('/test', function(Request $request){
     dd(ArticleRepository::filterAuth($request)->with('info')->get());
 })->name('test');
+//test
+Route::get('/tampilan2', 'HomeController@tampilan2')->name('tampilan2');
 
 //Guest
 
