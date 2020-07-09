@@ -8,10 +8,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <div class="card clean w-100 mb-3" style="background-color: #4544FF; background-image: url('{{ asset('img/profil.png') }}'); height: 100vh; max-height: 400px; background-size: cover;  background-position: center">
-                    <div class="card-body">
-                        <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: -4rem; left: -2rem; height: 100px; opacity: .25;">
-                        <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; top: 50%; right: -1rem; height: 50px; transform: translateY(-50%)">
+                <div class="position-sticky" style="top: 0px;">
+                    <div class="card clean w-100 mb-3" style="background-color: #4544FF; background-image: url('{{ asset('img/profil.png') }}'); height: 100vh; max-height: 400px; background-size: cover;  background-position: center;">
+                        <div class="card-body">
+                            <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; bottom: -4rem; left: -2rem; height: 100px; opacity: .25;">
+                            <img src="{{ asset('img/dots.svg') }}" alt="" style="position: absolute; top: 50%; right: -1rem; height: 50px; transform: translateY(-50%)">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,102 +36,102 @@
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td>
-                                                <h5 class="font-weight-light">
+                                            <td style="vertical-align: top">
+                                                <h5 class="font-weight-light text-muted">
                                                     Nama
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">
                                                     :
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light">
                                                     Bernard Sakarias Anin,S.H.,M.H
                                                 </h5>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <h5 class="font-weight-light">
+                                            <td style="vertical-align: top">
+                                                <h5 class="font-weight-light text-muted">
                                                     Tempat Tanggal Lahir
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">
                                                     :
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light">
                                                     Kefamenanu, 23 Februari 1989
                                                 </h5>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <h5 class="font-weight-light">
+                                            <td style="vertical-align: top">
+                                                <h5 class="font-weight-light text-muted">
                                                     Pekerjaan
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">
                                                     :
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light">
                                                     Advokat
                                                 </h5>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <h5 class="font-weight-light">
+                                            <td style="vertical-align: top">
+                                                <h5 class="font-weight-light text-muted">
                                                     Kewarganegaraan
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">
                                                     :
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light">
                                                     Indonesia
                                                 </h5>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <h5 class="font-weight-light">
+                                            <td style="vertical-align: top">
+                                                <h5 class="font-weight-light text-muted">
                                                     Agama
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">
                                                     :
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light">
                                                     Kristen Protestan
                                                 </h5>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <h5 class="font-weight-light">
+                                            <td style="vertical-align: top">
+                                                <h5 class="font-weight-light text-muted">
                                                     Alamat
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">
                                                     :
                                                 </h5>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: top">
                                                 <h5 class="font-weight-light">
                                                     Jl. Tirosa, RT 015 / RW 007, Kelurahan Mata Air, Kecamatan Kupang Tengah, Kabupaten Kupang
                                                 </h5>
@@ -155,114 +157,33 @@
                                 Riwayat Pendidikan
                             </h5>
                             <div>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td style="vertical-align: top; min-width: 100px">
-                                                <h5 class="font-weight-light">
-                                                    Taman Kanak-kanak
-                                                </h5>
-                                            </td>
-                                            <td style="vertical-align: top">
-                                                <h5 class="font-weight-light px-2">
-                                                    :
-                                                </h5>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-weight-light">
-                                                    TK Kristen Petra Kefamenanu (1993 - 1994)
-                                                </h5>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="vertical-align: top">
-                                                <h5 class="font-weight-light">
-                                                    Sekolah Dasar
-                                                </h5>
-                                            </td>
-                                            <td style="vertical-align: top">
-                                                <h5 class="font-weight-light px-2">
-                                                    :
-                                                </h5>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-weight-light">
-                                                    SD Yupenkris IV Kefamenanu (1994 - 2000)
-                                                </h5>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="vertical-align: top">
-                                                <h5 class="font-weight-light">
-                                                    Sekolah Menengah Pertama
-                                                </h5>
-                                            </td>
-                                            <td style="vertical-align: top">
-                                                <h5 class="font-weight-light px-2">
-                                                    :
-                                                </h5>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-weight-light">
-                                                    SMP Negeri 1 Kefamenanu (2000 - 2003)
-                                                </h5>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="vertical-align: top">
-                                                <h5 class="font-weight-light">
-                                                    Sekolah Menengah Atas
-                                                </h5>
-                                            </td>
-                                            <td style="vertical-align: top">
-                                                <h5 class="font-weight-light px-2">
-                                                    :
-                                                </h5>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-weight-light">
-                                                    SMA Negeri 1 Kefamenanu (2003 - 2006)
-                                                </h5>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="vertical-align: top">
-                                                <h5 class="font-weight-light">
-                                                    Strata I
-                                                </h5>
-                                            </td>
-                                            <td style="vertical-align: top">
-                                                <h5 class="font-weight-light px-2">
-                                                    :
-                                                </h5>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-weight-light">
-                                                    Fakultas Hukum Universitas Nusa Cendana (2007 - 2012)
-                                                </h5>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="vertical-align: top">
-                                                <h5 class="font-weight-light">
-                                                    Strata II
-                                                </h5>
-                                            </td>
-                                            <td style="vertical-align: top">
-                                                <h5 class="font-weight-light px-2">
-                                                    :
-                                                </h5>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-weight-light">
-                                                    Jurusan Hukum dan Sistem Hukum Pidana, Program Studi Ilmu Hukum, Program Pasca Sarjana, Universitas Nusa Cendana (2014 - 2016)
-                                                </h5>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <h5 class="text-dark font-weight-light">
-                                    </h5>
-                                </table>
+                                <div class="timeline text-light">
+                                    @component('x.timeline.item-home')
+                                        @slot('label', 'Taman Kanak-kanak')
+                                        @slot('years', '1993 - 1994')
+                                        TK Kristen Petra Kefamenanu
+                                    @endcomponent
+                                    @component('x.timeline.item-home')
+                                        @slot('label', 'Sekolah Dasar')
+                                        @slot('years', '1994 - 2000')
+                                        SD Yupenkris IV Kefamenanu
+                                    @endcomponent
+                                    @component('x.timeline.item-home')
+                                        @slot('label', 'Sekolah Menengah Pertama')
+                                        @slot('years', '2000 - 2003')
+                                        SMP Negeri 1 Kefamenanu
+                                    @endcomponent
+                                    @component('x.timeline.item-home')
+                                        @slot('label', 'Strata I')
+                                        @slot('years', '2007 - 2012')
+                                        Fakultas Hukum Universitas Nusa Cendana
+                                    @endcomponent
+                                    @component('x.timeline.item-home')
+                                        @slot('label', 'Strata II')
+                                        @slot('years', '2014 - 2016')
+                                        Jurusan Hukum dan Sistem Hukum Pidana, Program Studi Ilmu Hukum, Program Pasca Sarjana, Universitas Nusa Cendana
+                                    @endcomponent
+                                </div>
                             </div>
                         </div>
                     </div>

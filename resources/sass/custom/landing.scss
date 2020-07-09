@@ -153,8 +153,9 @@
         }
     }
 }
+$bg-dark: #11102A;
 .page-profil{
-    background: #11102A;
+    background: $bg-dark;
     // background: $light;
     min-height: 100vh;
     max-width: 100vw!important;

@@ -14186,6 +14186,51 @@ html {
   backdrop-filter: grayscale(1);
 }
 
+.timeline .timeline-item {
+  padding-bottom: 1em;
+  position: relative;
+}
+
+.timeline .timeline-item .timeline-icon {
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #11102A;
+  position: relative;
+}
+
+.timeline .timeline-item:first-child::before {
+  content: "";
+  height: 50%;
+  width: 0px;
+  border-left: 1px dashed #f8f9fa;
+  position: absolute;
+  bottom: 0%;
+  left: 2.5rem;
+}
+
+.timeline .timeline-item:last-child::before {
+  content: "";
+  height: 50%;
+  width: 0px;
+  border-left: 1px dashed #f8f9fa;
+  position: absolute;
+  top: 0%;
+  left: 2.5rem;
+}
+
+.timeline .timeline-item:not(:first-child):not(:last-child)::before {
+  content: "";
+  height: 100%;
+  width: 0px;
+  border-left: 1px dashed #f8f9fa;
+  position: absolute;
+  top: 0%;
+  left: 2.5rem;
+}
+
 @media (max-width: 767.98px) {
   .home-content .menu-wrapper {
     position: fixed;

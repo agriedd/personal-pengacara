@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="">
-    <div class="landing bg-dark">
+    <div class="landing">
         <div class="justify-middle">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-md-8 col-sm-10">
-                        <div class="card border-0 bg-dark text-light">
+                        <div class="card border-0 bg-light">
                             <div class="card-body">
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
@@ -48,25 +48,21 @@
                                     <div class="row justify-content-end">
                                         <div class="col-md-8 py-3">
                                             <div class="small text-muted">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio numquam tenetur voluptatem possimus, perferendis blanditiis corrupti esse nesciunt. Pariatur ab quae vitae repellendus laudantium accusantium officiis nostrum perferendis quaerat quam!
+                                                Masukan email dan password
                                             </div>
                                         </div>
                                     </div>
             
                                     <div class="form-group row mb-0">
                                         <div class="col-md-8 offset-md-4">
-                                            <button type="submit" class="btn btn-primary w-100">
+                                            <button type="submit" class="btn btn-primary w-100 shadow">
                                                 {{ __('Login') }}
                                             </button>
-                                            {{-- <a href="{{ url("login/facebook") }}" class="btn btn-primary">
-                                                Facebook
-                                            </a> --}}
-            
-                                            {{-- @if (Route::has('password.request'))
-                                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                    {{ __('Forgot Your Password?') }}
+                                            @if (Route::has('password.request'))
+                                                <a class="btn btn-link my-3" href="{{ route('password.request') }}">
+                                                    lupa kata sandi?
                                                 </a>
-                                            @endif --}}
+                                            @endif
                                         </div>
                                     </div>
                                 </form>

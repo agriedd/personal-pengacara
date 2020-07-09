@@ -19,6 +19,7 @@ Auth::routes();
 
 //test
 Route::get('/test', function(Request $request){
+    // return view('auth.passwords.reset', ['token' => '39129']);
     dd(ArticleRepository::filterAuth($request)->with('info')->get());
 })->name('test');
 //test
@@ -27,6 +28,7 @@ Route::get('/tampilan2', 'HomeController@tampilan2')->name('tampilan2');
 //Guest
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home.home');
 Route::prefix('/artikel')->group(function($app){
     Route::get('/', 'ArtikelController@index')->name('home.artikel');
     Route::get('/{slug}', 'ArtikelController@artikel')->name('artikel');

@@ -19,7 +19,7 @@
                         @component('x.menu.artikel-publik', ['artikel' => $artikel])
                         @endcomponent
                     </div>
-                    <div class="col-md">
+                    <div class="col-md pt-4">
                         <div class="card shadow-lg border-0">
                             <div>
                                 <div class="w-100 bg-gray-light img-md rounded-top" style="height: 300px; background-image: url('{{ $artikel->cover->src_lg }}')">
