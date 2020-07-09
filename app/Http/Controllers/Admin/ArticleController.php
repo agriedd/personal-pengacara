@@ -15,10 +15,12 @@ class ArticleController extends Controller
 
     public function index(Request $request){
         $articles = ArticleRepository::all($request);
-        return view('pages.admin.artikel.index', compact('articles'));
+        return view('pages.admin.artikel.index', compact('articles'))
+        ->with('title', 'Artikel | Panel Admin');
     }
     public function show(Request $request, $id){
         $article = Article::findOrFail($id);
-        return view('pages.admin.artikel.info', compact('article'));
+        return view('pages.admin.artikel.info', compact('article'))
+        ->with('title', 'Artikel | Panel Admin');
     }
 }

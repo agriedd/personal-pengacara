@@ -14,6 +14,7 @@ class HalamanController extends Controller
 
     public function index(Request $request){
         $halaman = HalamanRepository::all($request);
-        return view('pages.admin.halaman.index', compact('halaman'));
+        return view('pages.admin.halaman.index', compact('halaman'))
+        ->with('title', 'Halaman | Panel Admin');
     }
 }

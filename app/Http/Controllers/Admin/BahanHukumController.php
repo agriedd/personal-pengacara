@@ -13,10 +13,12 @@ class BahanHukumController extends Controller{
 
     public function index(Request $request){
         // $articles = ArticleRepository::all($request);
-        return view('pages.admin.bahan_hukum.index');
+        return view('pages.admin.bahan_hukum.index')
+        ->with('title', 'Bahan Hukum | Panel Admin');
     }
     public function show(Request $request, $id){
         // $article = Article::findOrFail($id);
-        return view('pages.admin.bahan_hukum.info');
+        return view('pages.admin.bahan_hukum.info')
+        ->with('title', 'Bahan Hukum | Panel Admin');
     }
 }

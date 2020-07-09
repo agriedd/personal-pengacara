@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#343a40">
     @stack('meta')
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
     @isset($appjs)
         <script src="{{ asset("js/{$appjs}") }}" defer></script>
     @else

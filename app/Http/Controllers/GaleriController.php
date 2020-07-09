@@ -12,6 +12,7 @@ class GaleriController extends Controller
     public function index(Request $request){
         $album = AlbumRepository::all($request);
         $galeri_pinned = GaleriRepository::pinned()->first();
-        return view('pages.public.galeri', compact('album', 'galeri_pinned'));
+        return view('pages.public.galeri', compact('album', 'galeri_pinned'))
+            ->with('title', 'Galeri');
     }
 }

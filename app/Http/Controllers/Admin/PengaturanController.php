@@ -14,6 +14,7 @@ class PengaturanController extends Controller{
 
     public function index(){
         // dd(Admin::first()->info);
-        return view('pages.admin.pengaturan.index');
+        return view('pages.admin.pengaturan.index')
+        ->with('title', 'Pengaturan | Panel Admin');
     }
 }

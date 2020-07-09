@@ -22,7 +22,8 @@ class HomeController extends Controller
      */
     public function index(){
         $artikel = ArticleRepository::latest(3);
-        return view('pages.public.home', compact('artikel'));
+        return view('pages.public.home', compact('artikel'))
+            ->with('title', 'Website Pengacara Kupang | Bernard S. Anin');
     }
     public function tampilan2(){
         $artikel = ArticleRepository::latest(3);

@@ -14,6 +14,7 @@ class ClientController extends Controller
 
     public function index(Request $request){
         $clients = Client::all();
-        return view('pages.admin.client.index', compact('clients'));
+        return view('pages.admin.client.index', compact('clients'))
+        ->with('title', 'Client | Panel Admin');
     }
 }

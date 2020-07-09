@@ -21,6 +21,7 @@ class KunjunganController extends Controller{
         $total_kunjungan_bulan_lalu = Number::short(KunjunganRepository::lastMonth()->count(), 1);
         $total_kunjungan_bulan_ini = Number::short(KunjunganRepository::month()->count(), 1);
         $total_kunjungan_hari_ini = Number::short(KunjunganRepository::today()->count(), 1);
-        return view('pages.admin.kunjungan.index', compact('total_kunjungan', 'total_kunjungan_bulan_lalu', 'total_kunjungan_bulan_ini', 'total_kunjungan_hari_ini'));
+        return view('pages.admin.kunjungan.index', compact('total_kunjungan', 'total_kunjungan_bulan_lalu', 'total_kunjungan_bulan_ini', 'total_kunjungan_hari_ini'))
+        ->with('title', 'Total Kunjungan | Panel Admin');
     }
 }

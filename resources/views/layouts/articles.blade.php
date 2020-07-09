@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#FFFFFF">
     @stack('meta')
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
     <script src="{{ asset('js/publik.js') }}" defer></script>
     @stack('script')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

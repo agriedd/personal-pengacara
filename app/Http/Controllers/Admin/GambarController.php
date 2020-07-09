@@ -19,7 +19,8 @@ class GambarController extends Controller
     public function index(){
         $listgambar = Gambar::with(['gambarable'])->get();
         // return response()->json($listgambar);
-        return view('pages.admin.gambar.index', compact('listgambar'));
+        return view('pages.admin.gambar.index', compact('listgambar'))
+        ->with('title', 'Gambar | Panel Admin');
     }
     public function upload(Request $request){
         $data = $request->validate([

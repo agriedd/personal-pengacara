@@ -40,7 +40,8 @@ class AdminController extends Controller
             'total_kunjungan', 
             'total_kunjungan_bulan_ini',
             'perbandingan_bulan_lalu'
-        ));
+        ))
+        ->with('title', 'Panel Admin');
     }
     
 }

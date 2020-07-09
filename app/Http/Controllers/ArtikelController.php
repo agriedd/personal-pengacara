@@ -10,7 +10,8 @@ class ArtikelController extends Controller
 {
     public function index(Request $request){
         $artikel = ArticleRepository::latest(10);
-        return view('pages.public.articles', compact('artikel'));
+        return view('pages.public.articles', compact('artikel'))
+            ->with('title', 'Artikel');
     }
     public function artikel(Request $request, $id = null, $slug){
         $artikel = null;
@@ -20,9 +21,11 @@ class ArtikelController extends Controller
             $artikel = ArticleRepository::findSlug($slug);
         ArticleRepository::incrementViews($artikel);
         $daftar_artikel = ArticleRepository::latest(2);
-        return view('pages.public.articles-info', compact('artikel', 'daftar_artikel'));
+        return view('pages.public.articles-info', compact('artikel', 'daftar_artikel'))    
+            ->with('title', "Artikel | {$artikel->title}");
     }
     public function artikelwithdate(Request $request, $date, $slug){
-        return view('pages.public.articles-info', compact('slug'));
+        return view('pages.public.articles-info', compact('slug'))
+            ->with('title', 'Artikel');
     }
 }

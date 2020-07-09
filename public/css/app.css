@@ -13016,7 +13016,8 @@ a.text-light-primary:focus {
   }
 
   .sidebar .sidebar-backdrop {
-    visibility: hidden !important;
+    -webkit-backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px);
   }
 
   /*Section Body*/

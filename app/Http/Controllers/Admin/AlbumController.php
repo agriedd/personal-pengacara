@@ -14,10 +14,12 @@ class AlbumController extends Controller{
     }
 
     public function index(){
-        return view('pages.admin.album.index');
+        return view('pages.admin.album.index')
+        ->with('title', 'Album | Panel Admin');
     }
     public function info(Request $request, Album $album){
-        return view('pages.admin.album.info', compact('album'));
+        return view('pages.admin.album.info', compact('album'))
+        ->with('title', 'Album | Panel Admin');
     }
     public function tambahGaleri(Request $request, Album $album){
         $data = $request->validate([

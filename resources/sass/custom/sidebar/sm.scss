@@ -123,7 +123,8 @@
             }
         }
         .sidebar-backdrop{
-            visibility: hidden!important;
+            // visibility: hidden!important;
+            backdrop-filter: blur(3px);
         }
 
 	}
