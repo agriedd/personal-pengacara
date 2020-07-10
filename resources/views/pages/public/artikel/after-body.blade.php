@@ -14,8 +14,12 @@
                             @slot('card', 'text-light')
                             <div>
                                 <div class="flex justify-content-center">
-                                    <a href="javascript:void(0)" class="btn btn-link text-light text-decoration-none" @click.prevent="like(null, true)">
-                                        Suka
+                                    <a href="javascript:void(0)" class="btn btn-link text-light text-decoration-none" @click.prevent="toggleRipple('suka')">
+                                        <v-ripple v-bind:state="getRipple('suka')" animate="animated bounceIn" color="#dc3545" class="d-flex">
+                                            <div>
+                                                Suka
+                                            </div>
+                                        </v-ripple>
                                     </a>
                                     <a href="javascript:void(0)" class="btn btn-link text-light text-decoration-none" @click.prevent="like(null, false)">
                                         Tidak Suka

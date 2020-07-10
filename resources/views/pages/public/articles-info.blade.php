@@ -105,6 +105,10 @@
     <meta name="artikel_update" content="{{ route('artikel.vote', ['artikel' => $artikel] ) }}">
 @endpush
 
+@push('css')
+    <link rel="stylesheet" href="{{ asset('/js/eddlibrary.css') }}">
+@endpush
+
 @push('footer')
     <script src="{{ asset('/js/eddlibrary.umd.min.js') }}" defer></script>
     <script>
@@ -116,8 +120,9 @@
                     time: 5000,
                     disabled: false,
                     vote: true,
+                    ripples: {},
                 },
-                components: {notification: eddlibrary.Notification},
+                components: {notification: eddlibrary.Notification, 'v-ripple': eddlibrary.Ripple },
                 mixins: [window.Mixins.Navbar, window.Mixins.Init, window.Mixins.Artikel],
                 methods: {
                     like(id, value){
@@ -132,6 +137,20 @@
                             this.success("Terimakasih telah meluangkan waktu untuk membaca artikel ini");
                             this.disabled = true;
                         }
+                    },
+                    toggleRipple(key){
+                        if(this.ripples[key] == null)
+                            this.$set(this.ripples, key, false);
+                        this.ripples[key] = true;
+                        setTimeout(()=>{
+                            this.like(null, true);
+                            this.ripples[key] = false;
+                        }, 500);
+                    },
+                    getRipple(key){
+                        if(this.ripples[key] == null)
+                            this.$set(this.ripples, key, false);
+                        return this.ripples[key];
                     }
                 },
                 created(){
