@@ -40,6 +40,7 @@ Route::prefix('/galeri')->group(function($app){
 });
 
 Route::get('/galeri/{date}/{slug}', 'ArtikelController@artikelwithdate')->name('artikelwithdate');
+Route::get('/dload/bahan/hukum/{bahan_hukum}', 'BahanHukumController@download')->name('bahan.hukum.download');
 
 //Admin
 Route::prefix("/admin")->group(function($app){

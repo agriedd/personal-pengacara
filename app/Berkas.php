@@ -3,12 +3,14 @@
 namespace App;
 
 use App\Casts\File;
+use App\Casts\Number;
 use Illuminate\Database\Eloquent\Model;
 
 class Berkas extends Model{
     protected $guarded = [];
     protected $casts = [
-        'src' => File::class  
+        'src' => File::class,
+        'downloads' => Number::class,
     ];
     protected $appends = ['name'];
 
