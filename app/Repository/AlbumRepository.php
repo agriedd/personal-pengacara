@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Album;
+use Illuminate\Support\Facades\Auth;
 
 class AlbumRepository{
 
@@ -37,7 +38,9 @@ class AlbumRepository{
                 $request->has("asc") && $request->asc == "true" ? "ASC" : "DESC"
             );
         })
-        ->when($request->filled("empty") && $request->empty == "false", function($q)use($request){
+        ->when(Auth::check() && $request->filled("empty") && $request->empty == "false", function($q)use($request){
+            return $q->has('galeri');
+        }, function($q){
             return $q->has('galeri');
         });
         return $query;

@@ -37,9 +37,12 @@
                                     <tbody>
                                         <tr>
                                             <td style="vertical-align: top">
-                                                <h5 class="font-weight-light text-muted">
+                                                <h5 class="font-weight-light text-muted d-md-block d-none">
                                                     Nama
                                                 </h5>
+                                                <div class="text-muted small d-block d-md-none">
+                                                    Nama
+                                                </div>
                                             </td>
                                             <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">
@@ -54,9 +57,12 @@
                                         </tr>
                                         <tr>
                                             <td style="vertical-align: top">
-                                                <h5 class="font-weight-light text-muted">
+                                                <h5 class="font-weight-light text-muted d-md-block d-none">
                                                     Tempat Tanggal Lahir
                                                 </h5>
+                                                <div class="text-muted small d-block d-md-none">
+                                                    Tempat Tanggal Lahir
+                                                </div>
                                             </td>
                                             <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">
@@ -71,9 +77,12 @@
                                         </tr>
                                         <tr>
                                             <td style="vertical-align: top">
-                                                <h5 class="font-weight-light text-muted">
+                                                <h5 class="font-weight-light text-muted d-md-block d-none">
                                                     Pekerjaan
                                                 </h5>
+                                                <div class="text-muted small d-block d-md-none">
+                                                    Pekerjaan
+                                                </div>
                                             </td>
                                             <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">
@@ -88,9 +97,12 @@
                                         </tr>
                                         <tr>
                                             <td style="vertical-align: top">
-                                                <h5 class="font-weight-light text-muted">
+                                                <h5 class="font-weight-light text-muted d-md-block d-none">
                                                     Kewarganegaraan
                                                 </h5>
+                                                <div class="text-muted small d-block d-md-none">
+                                                    Kewarganegaraan
+                                                </div>
                                             </td>
                                             <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">
@@ -105,9 +117,12 @@
                                         </tr>
                                         <tr>
                                             <td style="vertical-align: top">
-                                                <h5 class="font-weight-light text-muted">
+                                                <h5 class="font-weight-light text-muted d-md-block d-none">
                                                     Agama
                                                 </h5>
+                                                <div class="text-muted small d-block d-md-none">
+                                                    Agama
+                                                </div>
                                             </td>
                                             <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">
@@ -122,9 +137,12 @@
                                         </tr>
                                         <tr>
                                             <td style="vertical-align: top">
-                                                <h5 class="font-weight-light text-muted">
+                                                <h5 class="font-weight-light text-muted d-md-block d-none">
                                                     Alamat
                                                 </h5>
+                                                <div class="text-muted small d-block d-md-none">
+                                                    Alamat
+                                                </div>
                                             </td>
                                             <td style="vertical-align: top">
                                                 <h5 class="font-weight-light px-2">

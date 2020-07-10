@@ -6731,12 +6731,12 @@ var CheckList_component = normalizeComponent(
 )
 
 /* harmony default export */ var CheckList = (CheckList_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"645c0256-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Modal.vue?vue&type=template&id=3ee92751&
-var Modalvue_type_template_id_3ee92751_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal-backdrop",staticStyle:{"background-color":"rgba(0,0,0,.5)"},attrs:{"id":_vm.id},on:{"click":function($event){return _vm.backdropclick($event)}}},[_c('div',{staticClass:"modal-dialog modal-dialog-scrollable modal-dialog-centered",class:_vm.modalclass},[_c('transition',{attrs:{"name":_vm.transition}},[(_vm.show)?_c('div',{staticClass:"modal-content border-0 shadow",class:_vm.modalcontentclass},[_vm._t("header"),_c('div',{staticClass:"modal-body"},[_vm._t("default")],2),_vm._t("footer")],2):_vm._e()])],1)])}
-var Modalvue_type_template_id_3ee92751_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"645c0256-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Modal.vue?vue&type=template&id=32d3d310&
+var Modalvue_type_template_id_32d3d310_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal-backdrop",staticStyle:{"background-color":"rgba(0,0,0,.5)"},attrs:{"id":_vm.id},on:{"click":function($event){return _vm.backdropclick($event)}}},[_c('div',{staticClass:"modal-dialog modal-dialog-scrollable modal-dialog-centered",class:_vm.modalclass},[_c('transition',{attrs:{"name":_vm.transition}},[(_vm.show)?_c('div',{staticClass:"modal-content border-0 shadow",class:_vm.modalcontentclass},[_vm._t("header"),_c('div',{staticClass:"modal-body"},[_vm._t("default")],2),_vm._t("footer")],2):_vm._e()])],1)])}
+var Modalvue_type_template_id_32d3d310_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Modal.vue?vue&type=template&id=3ee92751&
+// CONCATENATED MODULE: ./src/components/Modal.vue?vue&type=template&id=32d3d310&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Modal.vue?vue&type=script&lang=js&
 
@@ -6846,6 +6846,11 @@ var Modalvue_type_template_id_3ee92751_staticRenderFns = []
         case "lg":
           return "modal-lg";
           break;
+
+        case "extra-large":
+        case "xl":
+          return "modal-xl";
+          break;
       }
     },
     thememodal: function thememodal() {
@@ -6903,8 +6908,8 @@ var Modalvue_type_template_id_3ee92751_staticRenderFns = []
 
 var Modal_component = normalizeComponent(
   components_Modalvue_type_script_lang_js_,
-  Modalvue_type_template_id_3ee92751_render,
-  Modalvue_type_template_id_3ee92751_staticRenderFns,
+  Modalvue_type_template_id_32d3d310_render,
+  Modalvue_type_template_id_32d3d310_staticRenderFns,
   false,
   null,
   null,

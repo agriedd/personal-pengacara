@@ -80,6 +80,7 @@
                     time: 5000,
                     disabled: false,
                     vote: true,
+                    fullscreen: false,
                 },
                 components: {notification: eddlibrary.Notification, modal: eddlibrary.Modal},
                 mixins: [window.Mixins.Navbar, window.Mixins.Init, window.Mixins.Album, window.Mixins.Galeri],
