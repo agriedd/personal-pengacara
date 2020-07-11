@@ -27,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
         config(['app.locale' => 'id']);
         Carbon::setLocale('id');
 
+        \Debugbar::disable();
+
         Builder::macro('whereLatestPublished', function($table, $parentRelatedColumn){
             //sub query untuk mengambil data terakhir info artikel
             //nantinya sub query ini dijadikan filtering published_at null

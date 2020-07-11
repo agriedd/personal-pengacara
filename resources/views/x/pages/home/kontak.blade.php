@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="row text-dark">
-                            <div class="col-lg-4 col-md-4 col-6 py-5">
+                            <div class="col-lg-4 col-md-4 col-12 py-md-5 py-3">
                                 <div class="d-flex">
                                     <div class="pr-3 d-md-block d-none">
                                         <div class="justify-middle">
@@ -31,17 +31,17 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div class="text-center text-sm-left w-100">
                                         <h4>
                                             Facebook
                                         </h4>
-                                        <div>
+                                        <div style="word-wrap: break-word;">
                                             Bernard S. Anin
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-6 py-5">
+                            <div class="col-lg-4 col-md-4 col-12 py-md-5 py-3">
                                 <div class="d-flex">
                                     <div class="pr-3 d-md-block d-none">
                                         <div class="justify-middle">
@@ -50,17 +50,17 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div class="text-center text-sm-left w-100">
                                         <h4>
                                             Instagram
                                         </h4>
-                                        <div>
+                                        <div style="word-wrap: break-word;">
                                             @Bernard_anin
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-6 py-5">
+                            <div class="col-lg-4 col-md-4 col-12 py-md-5 py-3">
                                 <div class="d-flex">
                                     <div class="pr-3 d-md-block d-none">
                                         <div class="justify-middle">
@@ -69,17 +69,17 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div class="text-center text-sm-left w-100">
                                         <h4>
                                             Whatsapp
                                         </h4>
-                                        <div>
+                                        <div style="word-wrap: break-word;">
                                             +62 813 3820 4888
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-6 py-5">
+                            <div class="col-lg-4 col-md-4 col-12 py-md-5 py-3">
                                 <div class="d-flex">
                                     <div class="pr-3 d-md-block d-none">
                                         <div class="justify-middle">
@@ -88,11 +88,11 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div class="text-center text-sm-left w-100">
                                         <h4>
                                             Email
                                         </h4>
-                                        <div>
+                                        <div style="word-wrap: break-word;">
                                             <a href="mailto:bernardaninofficial@gmail.com">bernardaninofficial@gmail.com</a>
                                         </div>
                                     </div>

@@ -5,7 +5,6 @@
 @section('content')
 <div>
     <div class="d-flex justify-content-center flex-md-row flex-column home-content">
-        @include('x.nav.mini-sidebar-home')
         <div style="flex: 1 1 auto;" class="w-100">
             @component('x.breadcrumb.artikel')
                 <div class="breadcrumb-item active">
@@ -114,6 +113,7 @@
     <script>
         window.addEventListener('load', ()=>{
             Vue.use(eddlibrary.Notification);
+            Vue.use(eddlibrary.Plugins);
             var app = new Vue({
                 el: "#app",
                 data: {

@@ -61,7 +61,6 @@
             font-size: 10rem;
             text-align: left!important;
             h1{
-                font-size: 1.5rem;
             }
             .h5{
                 font-size: 1rem;
@@ -79,16 +78,16 @@
     
     .landing{
         .banner{
-            h1{
-                font-size: 1.2rem;
-                max-width: 70%;
+            h3{
+                color: $gray-400;
             }
             .h5{
                 font-size: 1rem;
                 text-align: justify;
                 margin: unset;
                 line-height: 1.5rem;
-                max-width: 50%;
+                max-width: 100%;
+                color: $gray-400;
             }
             .logo{
                 width: 70%;

@@ -12,7 +12,7 @@
             <div class="justify-middle">
                 <div class="row justify-content-center m-0">
                     @foreach ($bahanHukum as $item)
-                        <div class="col-lg-3 col-md-4 col-sm-6 p-1">
+                        <div class="col-sm-6 p-1">
                             <div class="card clean w-100 mb-3 h-100 text-light" style="background-size: cover; background-position: center">
                                 <div class="d-flex">
                                     <div>

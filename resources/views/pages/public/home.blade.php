@@ -5,7 +5,6 @@
 @section('content')
     <div>
         <div class="d-flex justify-content-center flex-md-row flex-column home-content">
-            @include('x.nav.mini-sidebar-home')
             <div style="flex: 1 1 auto;" class="w-100">
                 @include('x.pages.home.landing')
                 @include('x.pages.home.profil')
@@ -23,6 +22,7 @@
     <script>
         window.addEventListener('load', ()=>{
             Vue.use(eddlibrary.Notification);
+            Vue.use(eddlibrary.Plugins);
             var app = new Vue({
                 el: "#app",
                 components: {notification: eddlibrary.Notification},

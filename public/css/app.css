@@ -13456,10 +13456,6 @@ body {
     text-align: left !important;
   }
 
-  .landing .banner h1 {
-    font-size: 1.5rem;
-  }
-
   .landing .banner .h5 {
     font-size: 1rem;
     text-align: justify;
@@ -13472,9 +13468,8 @@ body {
 }
 
 @media (max-width: 767.98px) {
-  .landing .banner h1 {
-    font-size: 1.2rem;
-    max-width: 70%;
+  .landing .banner h3 {
+    color: #ced4da;
   }
 
   .landing .banner .h5 {
@@ -13482,7 +13477,8 @@ body {
     text-align: justify;
     margin: unset;
     line-height: 1.5rem;
-    max-width: 50%;
+    max-width: 100%;
+    color: #ced4da;
   }
 
   .landing .banner .logo {

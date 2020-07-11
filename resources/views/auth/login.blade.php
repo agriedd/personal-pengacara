@@ -79,6 +79,7 @@
 @push('footer')
     <script>
         window.addEventListener('load', ()=>{
+            Vue.use(eddlibrary.Plugins);
             var app = new Vue({
                 el: "#app",
                 data: {
