@@ -20,7 +20,7 @@
                 </div>
             </label>
         </div>
-        <div v-else class="h-100 d-flex flex-column justify-content-center w-100">
+        <div v-else class="d-flex flex-column justify-content-center w-100">
             <div>
                 <img :src="admin.getImage('foto')" alt="" style="max-height: 300px; width: auto; max-width: 100%; height: auto;" class="mx-auto rounded-lg shadow">
             </div>

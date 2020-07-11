@@ -8,6 +8,7 @@ use App\Repository\GambarRepostory;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -102,6 +103,27 @@ class AdminController extends Controller
         return [
             "status"=> $user,
             "message"=> $user ? "Berhasil menyimpan perubahan 😎" : "Gagal menyimpan perubahan"
+        ];
+    }
+    
+    public function updatePassword(Request $request, $id){
+        $data = $request->validate([
+            'password'  => 'required|current_password',
+            'password_baru' => 'required|confirmed|min:8',
+            'password_baru_confirmation' => 'required',
+        ], [
+            'current_password' => 'Password lama salah',
+            'min' => 'Password baru setidaknya memiliki minimal :min karakter',
+            'confirmed' => 'Konfirmasi password harus sama dengan password'
+        ]);
+
+        $admin = Admin::findOrFail($id);
+        $admin->password = Hash::make($data['password_baru']);
+        $status = $admin->save();
+        
+        return [
+            "status"=> $status,
+            "message"=> $status ? "Berhasil menyimpan perubahan 😎" : "Gagal menyimpan perubahan"
         ];
     }
 

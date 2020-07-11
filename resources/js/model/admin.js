@@ -1,7 +1,11 @@
 
 export default (vue, form) => {
     const admin = new window.Form({
-        id: null, nama: '', keterangan: '', info: {
+        id: null, nama: '', keterangan: '',
+        password: '',
+        password_baru_confirmation: '',
+        password_baru: '',
+        info: {
             nama: '',
             email: '',
             info: {
@@ -21,6 +25,7 @@ export default (vue, form) => {
     })
     .pushModal({
         'preview': false,
+        'password': false,
     })
     .pushAction("list", (context, url, vue)=>{
         return new Promise(async (resolve, reject)=>{

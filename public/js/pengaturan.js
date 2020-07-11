@@ -23920,6 +23920,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
     var callback = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+    var url = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
     var item = this.data,
         action = this.getAction('update');
     if (data) item = data;
@@ -23929,6 +23930,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         target_url = this.getAction('url')("".concat(urlprefix, "update"), {
       '#id': this.data.id
     });
+    if (url) target_url = url;
     if (target_url == null) throw new Error("😕 Sepertinya aksi URL belum di atur");
     this.error.clear();
     return this.fn(new Promise( /*#__PURE__*/function () {
@@ -24953,6 +24955,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     id: null,
     nama: '',
     keterangan: '',
+    password: '',
+    password_baru_confirmation: '',
+    password_baru: '',
     info: {
       nama: '',
       email: '',
@@ -24969,7 +24974,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   }).setFilter(null, {
     empty: false
   }).pushModal({
-    'preview': false
+    'preview': false,
+    'password': false
   }).pushAction("list", function (context, url, vue) {
     return new Promise( /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(resolve, reject) {
@@ -25341,7 +25347,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   }).setFilter(null, {
     empty: false
   }).pushModal({
-    'preview': false
+    'preview': false,
+    'password': false
   }).pushAction("list", function (context, url, vue) {
     return new Promise( /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(resolve, reject) {

@@ -20,10 +20,8 @@ Auth::routes();
 //test
 Route::get('/test', function(Request $request){
     // return view('auth.passwords.reset', ['token' => '39129']);
-    dd(ArticleRepository::filterAuth($request)->with('info')->get());
+    dd(auth()->user()->info->delete());
 })->name('test');
-//test
-Route::get('/tampilan2', 'HomeController@tampilan2')->name('tampilan2');
 
 //Guest
 
@@ -81,6 +79,8 @@ Route::prefix("/api")->group(function($app){
     Route::resource('kunjungan', 'Api\KunjunganController');
     
     Route::resource('bahan-hukum', 'Api\BahanHukumController');
+
+    Route::put('admin/{admin}/password', 'Api\AdminController@updatePassword')->name('admin.password.update');
     Route::resource('admin', 'Api\AdminController');
 });
 

@@ -14,6 +14,7 @@ export default (vue, form) => {
     })
     .pushModal({
         'preview': false,
+        'password': false,
     })
     .pushAction("list", (context, url, vue)=>{
         return new Promise(async (resolve, reject)=>{

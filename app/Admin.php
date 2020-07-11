@@ -18,7 +18,10 @@ class Admin extends Authenticatable
     protected $with = ["gambar", "info"];
 
     public function info(){
-        return $this->belongsTo(User::class, "id_user", "id");
+        return $this->belongsTo(User::class, "id_user", "id")->withDefault([
+            "foto" => null,
+            "info" => [],
+        ]);
     }
     public function client(){
         return $this->hasMany(Client::class, "id_admin", "id");

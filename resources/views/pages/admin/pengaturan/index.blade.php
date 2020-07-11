@@ -44,10 +44,7 @@
                                         @include('x.tabs.pengaturan-user-info')
                                     </template>
                                     <template v-if="pengaturan.isTab('app')">
-                                        <div class="small">
-                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error in, nulla sapiente at ea voluptates magnam quod officia illum, obcaecati nemo impedit quibusdam minus sunt aperiam modi autem architecto dolorem!
-                                        </div>
-                                        {{-- @include('x.tabs.pengaturan-user-info') --}}
+                                        @include('x.tabs.pengaturan-app')
                                     </template>
                                 </div>
                             </transition>
@@ -62,6 +59,7 @@
 
 @push('meta')
     <meta name="admin_update" content="{{ route('admin.update', ["admin" => "#id"]) }}">
+    <meta name="admin_password_update" content="{{ route('admin.password.update', ["admin" => "#id"]) }}">
     <meta name="admin_find" content="{{ route('admin.show', ["admin" => "#id"]) }}">
     <meta name="admin_id" content="{{ auth()->user()->id }}">
 @endpush
@@ -89,6 +87,12 @@
                                 let data = new FormData(e.target);
                                 data.append('_method', 'PUT');
                                 this.admin.update(this, data);
+                            }
+                            if(form === 'update-password'){
+                                let data = new FormData(e.target);
+                                data.append('_method', 'PUT');
+                                let url = this.meta('admin_password_update', {'#id': this.admin.data.id});
+                                this.admin.update(this, data, null, url);
                             }
                         }
                     },
@@ -119,6 +123,11 @@
                         if(this.ripples[key] == null)
                             this.$set(this.ripples, key, false);
                         return this.ripples[key];
+                    },
+                    resetLocalStorage(){
+                        if(confirm("Apakah Anda yakin ingin menghapus data pegaturan?")){
+                            window.localStorage.clear();
+                        }
                     }
                 },
                 async created(){
@@ -134,6 +143,9 @@
                                 setTimeout(()=>{
                                     this.state = false;
                                 }, 500);
+                        })
+                        .pushAction('afterCloseModal', key => {
+                            this.admin.find(this)
                         });
                 }
             });

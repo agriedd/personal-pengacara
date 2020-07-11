@@ -28,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
         Carbon::setLocale('id');
 
         \Debugbar::disable();
+        \Validator::extendImplicit('current_password',
+            function($attribute, $value, $parameters, $validator){
+                return \Hash::check($value, auth()->user()->password);
+            });
 
         Builder::macro('whereLatestPublished', function($table, $parentRelatedColumn){
             //sub query untuk mengambil data terakhir info artikel

@@ -1,5 +1,5 @@
 export default e => {
-    e.prototype.update = function(vue, data = null, callback = null){
+    e.prototype.update = function(vue, data = null, callback = null, url = null){
         let item = this.data,
             action = this.getAction('update');
         
@@ -11,6 +11,8 @@ export default e => {
         let urlprefix = this.getAction('url_prefix') ? this.getAction('url_prefix')() : '',
             target_url = this.getAction('url')(`${urlprefix}update`, { '#id': this.data.id });
 
+        if(url) target_url = url;
+        
         if(target_url == null)
             throw new Error("😕 Sepertinya aksi URL belum di atur");
         

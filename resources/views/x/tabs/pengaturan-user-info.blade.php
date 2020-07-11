@@ -85,14 +85,14 @@
                                 @slot('tip', 'bg-dark tip-center-top text-dark')
                                 @slot('card', 'text-light')
                                 <div class="small">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque enim, ab nihil earum laboriosam amet officia rem consectetur voluptates ad adipisci? Reprehenderit, rem ducimus ipsum soluta quia harum ea pariatur.
+                                    Dengan mengganti kata sandi secara rutin dapat meningkatkan keamanana akun Anda.
                                 </div>
                             @endcomponent
                             @component('x.tip.default')
                                 @slot('tip', 'bg-warning tip-right-top text-warning')
                                 @slot('card', 'text-light')
                                 <div class="small d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-dark px-3 shadow">
+                                    <button class="btn btn-sm btn-dark px-3 shadow" @click.prevent="user.openModal('password')">
                                         <div class="d-flex">
                                             <div class="pr-3">
                                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

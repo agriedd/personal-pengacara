@@ -14,6 +14,12 @@
     </template>
 </modal>
 
+<modal v-if="user.getModal('password')" v-on:modalclose="user.closeModal('password')" transition="fly-down">
+	<template>
+        @include('pages.admin.user.modal.ubah-password')
+    </template>
+</modal>
+
 {{-- Preview --}}
 
 {{-- <modal v-if="user.getModal('preview')" v-on:modalclose="user.closeModal('preview', false)" transition="fly-down" size="lg">
