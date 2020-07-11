@@ -3,7 +3,12 @@
         <div class="col-md-6">
             <div class="justify-middle">
                 <div class="text-gray-light d-flex justify-content-center">
-                    Foto disini
+                    @include('x.forms.admin-input-foto')
+                    @component('x.validate.error', [ 'model' => 'admin', 'name' => 'foto' ])
+                        <div class="small">
+                            Ukuran maximum file 2MB
+                        </div>
+                    @endcomponent
                 </div>
             </div>
         </div>
@@ -22,7 +27,7 @@
                 </label>
                 <div class="d-flex py-2">
                     <div class="custom-control custom-radio pr-3">
-                        <input type="radio" class="custom-control-input" name="jenis_kelamin" id="laki_laki" value="l" v-model="admin.data.info.info.jenis_kelamin">
+                        <input type="radio" class="custom-control-input" name="jenis_kelamin" id="laki_laki" value="Laki-Laki" v-model="admin.data.info.info.jenis_kelamin">
                         <label for="laki_laki" class="custom-control-label small text-muted">
                             <div class="justify-middle">
                                 Laki Laki
@@ -30,7 +35,7 @@
                         </label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" name="jenis_kelamin" id="perempuan" value="p" v-model="admin.data.info.info.jenis_kelamin">
+                        <input type="radio" class="custom-control-input" name="jenis_kelamin" id="perempuan" value="Perempuan" v-model="admin.data.info.info.jenis_kelamin">
                         <label for="perempuan" class="custom-control-label small text-muted">
                             <div class="justify-middle">
                                 Perempuan

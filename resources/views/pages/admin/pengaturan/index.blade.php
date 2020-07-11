@@ -44,7 +44,10 @@
                                         @include('x.tabs.pengaturan-user-info')
                                     </template>
                                     <template v-if="pengaturan.isTab('app')">
-                                        @include('x.tabs.pengaturan-user-info')
+                                        <div class="small">
+                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error in, nulla sapiente at ea voluptates magnam quod officia illum, obcaecati nemo impedit quibusdam minus sunt aperiam modi autem architecto dolorem!
+                                        </div>
+                                        {{-- @include('x.tabs.pengaturan-user-info') --}}
                                     </template>
                                 </div>
                             </transition>
@@ -58,10 +61,6 @@
 @endpush
 
 @push('meta')
-    {{-- <meta name="kunjungan_all" content="{{ route('kunjungan.index') }}">
-    <meta name="kunjungan_insert" content="{{ route('kunjungan.store') }}">
-    <meta name="kunjungan_delete" content="{{ route('kunjungan.destroy', ["kunjungan" => "#id"]) }}">
-    --}}
     <meta name="admin_update" content="{{ route('admin.update', ["admin" => "#id"]) }}">
     <meta name="admin_find" content="{{ route('admin.show', ["admin" => "#id"]) }}">
     <meta name="admin_id" content="{{ auth()->user()->id }}">
@@ -93,7 +92,12 @@
                             }
                         }
                     },
-                    removeImage(type, name){},
+                    removeImage(type, name){
+                        if(type == 'admin'){
+                            this.admin.removeImage(name);
+                            this.$refs[name].value = "";
+                        }
+                    },
                     konfirmasiHapus(type, index){},
                     update(type, index){},
                     insert(type, index){},

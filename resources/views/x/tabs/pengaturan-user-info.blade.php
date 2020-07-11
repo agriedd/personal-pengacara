@@ -13,10 +13,10 @@
                 <div v-if="user.isTab('info')">
                     <div class="card-body">
                         <div class="d-flex justify-content-center">
-                            <div class="img-lg shadow bg-gray-light overflow-hidden" style="border-radius: 1rem">
+                            <div class="img-lg shadow bg-gray-light overflow-hidden" style="border-radius: 1rem" v-src="admin.getSelected('info').foto">
                                 <div class="content text-light">
                                     <div class="d-flex w-100 justify-middle">
-                                        <button class="btn btn-lg btn-link text-light">
+                                        <button class="btn btn-lg btn-link text-light shadow-none" v-on:click="user.openModal('ubah')">
                                             <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-image" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" d="M14.002 2h-12a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zm-12-1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12z"/>
                                                 <path d="M10.648 7.646a.5.5 0 0 1 .577-.093L15.002 9.5V14h-14v-2l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71z"/>
@@ -36,11 +36,24 @@
                                 </div>
                             </div>
                             <div v-if="admin.getSelected('info') && admin.getSelected('info').info">
-                                <div class="h5 font-weight-light">
+                                <div class="h5 font-weight-light p-2">
                                     @{{ admin.getSelected('info').nama }}
                                 </div>
-                                <div class="small">
+                                <div class="small p-2">
                                     @{{ admin.getSelected('email') }}
+                                </div>
+                                <div class="small p-2">
+                                    @{{ admin.getSelected('info').info.jenis_kelamin }}
+                                </div>
+                                <div class="small p-2">
+                                    @{{ admin.getSelected('info').info.tempat_lahir }},
+                                    @{{ admin.getSelected('info').info.tanggal_lahir }}
+                                </div>
+                                <div class="small p-2">
+                                    @{{ admin.getSelected('info').info.agama }}
+                                </div>
+                                <div class="small p-2">
+                                    @{{ admin.getSelected('info').info.alamat }}
                                 </div>
                             </div>
                         </div>

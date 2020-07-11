@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Admin;
 use App\Http\Controllers\Controller;
+use App\Repository\GambarRepostory;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -71,7 +73,10 @@ class AdminController extends Controller
     public function update(Request $request, $id){
         $data = $request->validate([
             'nama'  => 'required',
-            'jenis_kelamin' => 'required|in:l,p',
+            'jenis_kelamin' => [
+                'required', 
+                Rule::in(['Perempuan','Laki-Laki'])
+            ],
             'tempat_lahir' => '',
             'tanggal_lahir' => 'date',
             'alamat'    => '',
@@ -88,6 +93,11 @@ class AdminController extends Controller
         );
         $user->info()->create($data->except(['email', 'nama'])->all());
         $user->admin()->save($admin);
+        
+        if($request->has("foto")){
+            $foto = GambarRepostory::removeAndInsert($user->foto, $request->foto, []);
+            $user->foto()->save($foto);
+        }
 
         return [
             "status"=> $user,

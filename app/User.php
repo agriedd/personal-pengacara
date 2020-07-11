@@ -12,7 +12,7 @@ class User extends Authenticatable
 
     protected $table = 'user';
     protected $guarded = [];
-    protected $with = [ "info" ];
+    protected $with = [ "info", "foto" ];
 
     /**
      * The attributes that should be hidden for arrays.

@@ -22,7 +22,7 @@
                         <div class="d-flex">
                             <div>
                                 <div class="d-flex justify-content-center flex-column h-100 pl-1">
-                                    <div class="img-xs rounded bg-gray-light"></div>
+                                    <div class="img-xs rounded bg-gray-light" style="background-image: url('{{ auth()->user()->info->foto->src_sm }}')"></div>
                                 </div>
                             </div>
                             <div class="pl-2 d-none d-sm-block">
