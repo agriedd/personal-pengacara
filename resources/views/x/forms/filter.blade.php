@@ -8,7 +8,7 @@
             <div class="d-flex w-100">
                 @if($tambah)
                     <div>
-                        <button class="btn btn-sm btn-primary shadow-sm btn-rounded" type="button" v-on:click.prevent="{{ $model }}.openModal('tambah')">
+                        <button class="btn btn-sm btn-primary shadow-sm btn-rounded" type="button" v-on:click.prevent="{{ $model }}.openModal('tambah')" v-tooltip="{ content: 'Tambah {{ $label }}', offset: 8}">
                             <div class="d-flex">
                                 <div>
                                     Tambah

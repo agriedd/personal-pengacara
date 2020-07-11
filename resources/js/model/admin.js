@@ -1,7 +1,17 @@
 
 export default (vue, form) => {
     const admin = new window.Form({
-        id: null, nama: '', keterangan: '',
+        id: null, nama: '', keterangan: '', info: {
+            nama: '',
+            email: '',
+            info: {
+                jenis_kelamin: null,
+                tempat_lahir: '',
+                tanggal_lahir: '',
+                agama: '',
+                alamat: null
+            }
+        }
     })
     .setCollapse(null, {
         table: true

@@ -24952,7 +24952,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   var admin = new window.Form({
     id: null,
     nama: '',
-    keterangan: ''
+    keterangan: '',
+    info: {
+      nama: '',
+      email: '',
+      info: {
+        jenis_kelamin: null,
+        tempat_lahir: '',
+        tanggal_lahir: '',
+        agama: '',
+        alamat: null
+      }
+    }
   }).setCollapse(null, {
     table: true
   }).setFilter(null, {
@@ -25318,7 +25329,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     keterangan: '',
     email: null,
     info: {
-      nama: ''
+      nama: '',
+      jenis_kelamin: '',
+      tempat_lahir: null,
+      tanggal_lahir: null,
+      agama: null,
+      alamat: null
     }
   }).setCollapse(null, {
     table: true

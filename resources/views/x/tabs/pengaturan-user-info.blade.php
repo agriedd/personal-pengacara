@@ -35,9 +35,9 @@
                                     </svg>
                                 </div>
                             </div>
-                            <div>
-                                <div class="h5">
-                                    @@{{ admin.getSelected('username') }}
+                            <div v-if="admin.getSelected('info') && admin.getSelected('info').info">
+                                <div class="h5 font-weight-light">
+                                    @{{ admin.getSelected('info').nama }}
                                 </div>
                                 <div class="small">
                                     @{{ admin.getSelected('email') }}
@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 pt-2">
+                        <div class="col-sm-6 pt-2 px-0">
                             @component('x.tip.default')
                                 @slot('tip', 'bg-dark tip-center-top text-dark')
                                 @slot('card', 'text-light')

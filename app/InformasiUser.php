@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class InformasiUser extends Model
 {
     protected $table = "informasi_user";
+    protected $guarded = [];
 
     public function user()
     {

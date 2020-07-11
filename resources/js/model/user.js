@@ -2,7 +2,8 @@
 export default (vue, form) => {
     const user = new window.Form({
         id: null, nama: '', keterangan: '', email: null, info: {
-            nama: '',
+            nama: '', jenis_kelamin: '', tempat_lahir: null, tanggal_lahir: null,
+            agama: null, alamat: null,
         }
     })
     .setCollapse(null, {

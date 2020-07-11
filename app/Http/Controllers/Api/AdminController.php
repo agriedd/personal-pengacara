@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Admin;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -67,9 +68,31 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id){
+        $data = $request->validate([
+            'nama'  => 'required',
+            'jenis_kelamin' => 'required|in:l,p',
+            'tempat_lahir' => '',
+            'tanggal_lahir' => 'date',
+            'alamat'    => '',
+            'agama'     => ''
+        ]);
+
+        $admin = Admin::findOrFail($id);
+        $data = collect($data);
+        $data->put('email', $admin->email);
+
+        $user = User::updateOrCreate(
+            ['email' => $admin->email],
+            $data->only(['nama', 'email'])->all()
+        );
+        $user->info()->create($data->except(['email', 'nama'])->all());
+        $user->admin()->save($admin);
+
+        return [
+            "status"=> $user,
+            "message"=> $user ? "Berhasil menyimpan perubahan 😎" : "Gagal menyimpan perubahan"
+        ];
     }
 
     /**

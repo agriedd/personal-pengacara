@@ -61,7 +61,8 @@
     {{-- <meta name="kunjungan_all" content="{{ route('kunjungan.index') }}">
     <meta name="kunjungan_insert" content="{{ route('kunjungan.store') }}">
     <meta name="kunjungan_delete" content="{{ route('kunjungan.destroy', ["kunjungan" => "#id"]) }}">
-    <meta name="kunjungan_update" content="{{ route('kunjungan.update', ["kunjungan" => "#id"]) }}"> --}}
+    --}}
+    <meta name="admin_update" content="{{ route('admin.update', ["admin" => "#id"]) }}">
     <meta name="admin_find" content="{{ route('admin.show', ["admin" => "#id"]) }}">
     <meta name="admin_id" content="{{ auth()->user()->id }}">
 @endpush
@@ -83,7 +84,15 @@
                     ripples: {},
                 },
                 methods: {
-                    submit(type, e, form = 'insert'){},
+                    submit(type, e, form = 'insert'){
+                        if(type === 'user'){
+                            if(form === 'update'){
+                                let data = new FormData(e.target);
+                                data.append('_method', 'PUT');
+                                this.admin.update(this, data);
+                            }
+                        }
+                    },
                     removeImage(type, name){},
                     konfirmasiHapus(type, index){},
                     update(type, index){},
@@ -108,8 +117,11 @@
                         return this.ripples[key];
                     }
                 },
-                created(){
-                    this.admin
+                async created(){
+                    await this.admin
+                        .pushAction('afterCloseModal', key => {
+                            this.admin.find(this)
+                        })
                         .find(this);
                     this.pengaturan.setTab('user');
                     this.user.setTab('info')

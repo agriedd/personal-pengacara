@@ -13,14 +13,6 @@ class User extends Authenticatable
     protected $table = 'user';
     protected $guarded = [];
     protected $with = [ "info" ];
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -43,6 +35,9 @@ class User extends Authenticatable
 
     public function info(){
         return $this->hasOne(InformasiUser::class, "id_user", "id")->latest();
+    }
+    public function admin(){
+        return $this->hasOne(Admin::class, "id_user", "id")->latest();
     }
     public function foto(){
         return $this->morphOne(Gambar::class, 'gambarable')->latest();
