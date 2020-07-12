@@ -18,14 +18,14 @@
         </div>
         <div>
             <div class="row m-0">
-                <div class="col-lg-3 col-6 p-1" v-for="(img, i) in item.galeri" style="height: 200px;" v-if="i < 3">
+                <div class="col-lg-3 col-sm-6 p-1" v-for="(img, i) in item.galeri" style="height: 200px;" v-if="i < 3">
                     <div class="card border-0 shadow h-100 img-md w-100" v-src:sm="img.gambar" style="cursor: pointer" v-on:click="showImage(ia, i)">
                         <div class="card-body">
 
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6 p-1" style="height: 200px;" v-if="item.total_galeri > 3">
+                <div class="col-lg-3 col-sm-6 p-1" style="height: 200px;" v-if="item.total_galeri > 3">
                     <div class="card border-0 h-100 img-md w-100 bg-gray-lighten position-relative" v-src:sm="item.galeri[3].gambar" style="cursor: pointer; overflow: hidden;" v-on:click="showImage(ia, 3)">
                         <div class="card-body position-relative" style="z-index: 1">
                             <div class="justify-middle">

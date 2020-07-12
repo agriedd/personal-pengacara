@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="row text-dark">
-                            <div class="col-lg-4 col-md-4 col-12 py-md-5 py-3">
+                            <div class="col-lg-4 col-md-4 col-12 py-md-5 py-4">
                                 <div class="d-flex">
                                     <div class="pr-3 d-md-block d-none">
                                         <div class="justify-middle">
@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-12 py-md-5 py-3">
+                            <div class="col-lg-4 col-md-4 col-12 py-md-5 py-4">
                                 <div class="d-flex">
                                     <div class="pr-3 d-md-block d-none">
                                         <div class="justify-middle">
@@ -60,7 +60,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-12 py-md-5 py-3">
+                            <div class="col-lg-4 col-md-4 col-12 py-md-5 py-4">
                                 <div class="d-flex">
                                     <div class="pr-3 d-md-block d-none">
                                         <div class="justify-middle">
@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-12 py-md-5 py-3">
+                            <div class="col-lg-4 col-md-4 col-12 py-md-5 py-4">
                                 <div class="d-flex">
                                     <div class="pr-3 d-md-block d-none">
                                         <div class="justify-middle">

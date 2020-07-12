@@ -135,6 +135,10 @@
                         .pushAction('afterCloseModal', key => {
                             this.admin.find(this)
                         })
+                        // .pushAction("afterUpdate", (context, res, vue)=>{
+                        //     context.closeModal('ubah');
+                        //     context.closeModal('password');
+                        // })
                         .find(this);
                     this.pengaturan.setTab('user');
                     this.user.setTab('info')
@@ -146,7 +150,7 @@
                         })
                         .pushAction('afterCloseModal', key => {
                             this.admin.find(this)
-                        });
+                        })
                 }
             });
         });

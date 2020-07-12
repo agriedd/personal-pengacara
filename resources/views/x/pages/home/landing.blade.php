@@ -17,9 +17,11 @@
             </div>
         </div>
     </div>
-    <a href="https://wa.me/6281338204888?text={{ urlencode("Saya ingin berkonsultasi dengan Anda.") }}" target="_blank" class="btn btn-lg rounded-pill action shadow text-dark" style="font-size: 1.25rem; z-index: 2">
-        KONSULTASI
-    </a>
-    <div class="backdrop d-md-none d-block position-absolute w-100 h-75" style="background: linear-gradient(0deg, #000, #0000); bottom: 0px; left: 0px">
+    <transition name="fly-down">
+        <a href="https://wa.me/6281338204888?text={{ urlencode("Saya ingin berkonsultasi dengan Anda.") }}" target="_blank" class="btn btn-lg rounded-pill action shadow text-dark" style="font-size: 1.25rem; z-index: 2" v-show="$scroll.y <= 100">
+            KONSULTASI
+        </a>
+    </transition>
+    <div class="backdrop d-md-none d-block position-absolute w-100 h-75" style="background: linear-gradient(0deg, #11102A, #11102A00); bottom: 0px; left: 0px">
     </div>
 </div>

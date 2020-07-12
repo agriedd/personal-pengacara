@@ -45,34 +45,38 @@
 
             </div>
             <div style="flex: 1 1 auto;" class="pr-3 mb-3">
-                <div class="mb-3 d-none d-md-block">
-                    <div class="d-flex">
-                        <div class="pr-3">
-                            <div class="justify-middle">
-                                <a class="btn btn-success text-light shadow-sm" :href="galeri.getSelected('gambar').src_lg" download>
-                                    <div class="d-flex">
-                                        <div class="">
-                                            <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8z"/>
-                                                <path fill-rule="evenodd" d="M5 7.5a.5.5 0 0 1 .707 0L8 9.793 10.293 7.5a.5.5 0 1 1 .707.707l-2.646 2.647a.5.5 0 0 1-.708 0L5 8.207A.5.5 0 0 1 5 7.5z"/>
-                                                <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 1z"/>
-                                            </svg>
+                <div class="position-sticky" style="top: 0px; overflow: hidden;">
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <div class="pr-3">
+                                <div class="justify-middle">
+                                    <a class="btn btn-success text-light shadow-sm" :href="galeri.getSelected('gambar').src_lg" download>
+                                        <div class="d-flex">
+                                            <div class="">
+                                                <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8z"/>
+                                                    <path fill-rule="evenodd" d="M5 7.5a.5.5 0 0 1 .707 0L8 9.793 10.293 7.5a.5.5 0 1 1 .707.707l-2.646 2.647a.5.5 0 0 1-.708 0L5 8.207A.5.5 0 0 1 5 7.5z"/>
+                                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 1z"/>
+                                                </svg>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <h4 class="font-weight-light mb-0">
-                                @{{ galeri.getSelected('judul') }}
-                            </h4>
-                            <div class="small text-muted">
-                                @{{ galeri.getSelected('created_at') }}
+                            <div>
+                                <transition name="fly-up" mode="out-in">
+                                    <h5 class="font-weight-light mb-0" :key="galeri.getSelected('id')">
+                                        @{{ galeri.getSelected('judul') }}
+                                    </h5>
+                                </transition>
+                                <transition name="fly-up" mode="out-in">
+                                    <div class="small text-gray-light" :key="galeri.getSelected('id')">
+                                        @{{ galeri.getSelected('created_at') }}
+                                    </div>
+                                </transition>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="position-sticky" style="top: 0px; overflow: hidden;">
                     <transition name="fly-left" mode="out-in">
                         <div class="d-flex justify-content-center" :key="galeri.getSelected('id')">
                             <img :src="galeri.getSelected('gambar').src_md" :key="galeri.getSelected('id')" :alt="galeri.getSelected('judul')" class="rounded" height="auto" width="100%">

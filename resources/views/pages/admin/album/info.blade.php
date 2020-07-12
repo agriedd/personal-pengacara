@@ -6,13 +6,16 @@
     @include('x.sidebars.admin')
 @endsection
 
+@push('prependcontent')
+    @include('pages.admin.galeri.modal')
+    @include('pages.admin.album.modal')
+@endpush
+
 @section('content')
 
     @component('x.headers.admin')
         Album
     @endcomponent
-    @include('pages.admin.album.modal')
-    @include('pages.admin.galeri.modal')
     @component('x.breadcrumb.admin')
         <a href="{{ route('admin.album') }}" class="breadcrumb-item active">
             Album

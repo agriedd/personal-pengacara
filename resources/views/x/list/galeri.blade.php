@@ -2,7 +2,7 @@
     <div>
         <div v-if="galeri.notEmpty()">
             <transition-group tag="div" name="move" class="row m-md-0">
-                <div class="col-lg-3 col-md-4 col-6 d-flex p-1 flex-column" v-for="(item, i) in galeri.getData()" style="min-height: 300px;" :key="item.id">
+                <div class="col-lg-3 col-md-4 col-md-6 d-flex p-1 flex-column" v-for="(item, i) in galeri.getData()" style="min-height: 300px;" :key="item.id">
                     <div class="h-100 w-100 bg-gray-light img-lg rounded shadow justify-content-between flex-column d-flex" v-src:md="item.gambar" style="flex: 1 1 auto" @click.self="showImage(i)">
                         <div>
                         </div>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         @if($album ?? false)
-                            <div class="mb-2">
+                            <div class="mb-2" v-if="item.album">
                                 <div class="d-flex">
                                     <div class="pr-3">
                                         <svg class="bi bi-folder" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +57,7 @@
                                     <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                                 </svg>
                             </button>
-                            <a class="btn btn-light" :href="item.gambar.src_lg" download>
+                            <a class="btn btn-light" :href="item.gambar.src_lg" download v-if="item.gambar">
                                 <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8z"/>
                                     <path fill-rule="evenodd" d="M5 7.5a.5.5 0 0 1 .707 0L8 9.793 10.293 7.5a.5.5 0 1 1 .707.707l-2.646 2.647a.5.5 0 0 1-.708 0L5 8.207A.5.5 0 0 1 5 7.5z"/>

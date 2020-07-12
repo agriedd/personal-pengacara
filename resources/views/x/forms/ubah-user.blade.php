@@ -1,6 +1,6 @@
 <form action="" v-on:submit.prevent="submit('user', $event, 'update')" enctype="multipart/form-data">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-md-0 mb-4">
             <div class="justify-middle">
                 <div class="text-gray-light d-flex justify-content-center">
                     @include('x.forms.admin-input-foto')

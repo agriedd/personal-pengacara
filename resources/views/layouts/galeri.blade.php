@@ -15,7 +15,7 @@
 <body>
     @yield('beforecontent')
     <div id="app">
-        @include('x.navbars.public', ['statik' => true, 'container' => true, 'light' => true ])
+        @include('x.navbars.public', ['container' => true, 'light' => true ])
         <main>
             @yield('content')
         </main>

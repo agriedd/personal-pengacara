@@ -8,7 +8,6 @@
 @push('prependcontent')
     @include('pages.admin.album.modal')
     @include('pages.admin.galeri.modal')
-    @include('pages.public.galeri.modal')
 @endpush
 
 @section('content')
@@ -113,12 +112,13 @@
     <script>
         window.addEventListener('load', ()=>{
             Vue.use(eddlibrary.Notification);
-            var app = new Vue({
+            window.app = new Vue({
                 el: "#app",
                 mixins: [window.Mixins.Init, window.Mixins.Navbar, window.Mixins.Album, window.Mixins.Galeri],
                 components: { 'v-table': eddlibrary.Table2, 'table-head': eddlibrary.Table2Head, 'modal': eddlibrary.Modal, 'notification': eddlibrary.Notification, 'pagination': eddlibrary.pagination },
                 data: {
                     time: 5000,
+                    fullscreen: false,
                 },
                 methods: {
                     submit(type, e, form = 'insert'){
@@ -165,17 +165,32 @@
                             this.galeri.openModal('tambah');
                         }
                     },
-                    showImage(ia, ig){
-                        let album = this.album.getData(ia);
-                        let galeri = album.galeri[ig];
-                        this.album.setSelected(album);
-                        this.galeri.setSelected(galeri);
-                        this.galeri.openModal('preview');
+                    showImage(ia, ig = null){
+                        if(ig == null){
+                            let galeri = this.galeri.getData(ia);
+                            if(galeri.album){
+                                this.album.setSelected(galeri.album);
+                                this.galeri.setSelected(galeri);
+                                this.galeri.openModal('preview');
+                            }
+                        }
+                        else{
+                            let album = this.album.getData(ia);
+                            let galeri = album.galeri[ig];
+                            this.album.setSelected(album);
+                            this.galeri.setSelected(galeri);
+                            this.galeri.openModal('preview');
+                        }
                     },
                     selectGaleri(index){
-                        let album = this.album.getSelected();
-                        let galeri = album.galeri[index];
-                        this.galeri.setSelected(galeri);
+                        if(this.album.isTab('galeri')){
+                            let galeri = this.galeri.getData(index);
+                            this.galeri.setSelected(galeri);
+                        } else {
+                            let album = this.album.getSelected();
+                            let galeri = album.galeri[index];
+                            this.galeri.setSelected(galeri);
+                        }
                     },
                     filter(type, name){
                         this.album.saveFilter(this);
@@ -197,7 +212,7 @@
                         if(type == 'album'){
                             this.album.setSort(data.data, this)
                         }
-                    }
+                    },
                 },
                 created(){
                     this.galeri

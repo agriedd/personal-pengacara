@@ -14,7 +14,7 @@
             </div>
         </div>
     </a>
-    <a href="http://api.whatsapp.com/?text={{ urlencode($artikel->info_url_public) }}" class="btn btn-link shadow-none text-light text-decoration-none" target="_blank">
+    <a href="http://api.whatsapp.com/send?text={{ urlencode($artikel->info_url_public) }}" class="btn btn-link shadow-none text-light text-decoration-none" target="_blank">
         <div class="d-flex">
             <div class="pr-3">
                 <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-share" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

@@ -77,6 +77,7 @@
 @endsection
 
 @push('footer')
+    <script src="{{ asset('/js/eddlibrary.umd.min.js') }}" defer></script>
     <script>
         window.addEventListener('load', ()=>{
             Vue.use(eddlibrary.Plugins);

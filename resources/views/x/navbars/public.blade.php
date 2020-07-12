@@ -3,7 +3,7 @@
     $container = isset($container) ? $container : false;
     $light = isset($light) ? $light : false;
 @endphp
-<nav class="navbar navbar-expand-md navbar-dark navbar-home py-3 {{ $statik ? null : 'position-fixed'}} w-100" :class="{'bg-white shadow-lg': $scroll.y >= 100}" style="transition: all .5s ease;">
+    <nav class="navbar navbar-expand-md navbar-dark navbar-home py-3 {{ $statik ? null : 'position-fixed'}} w-100" :class="{'shadow-lg navbar-transparent': $scroll.y >= 100}" style="transition: all .5s ease;">
     @if($container)
         <div class="container-lg">
     @endif
@@ -19,7 +19,7 @@
             <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
         </svg>
     </button>
-    <div class="ml-auto" :class="{'d-none': $scroll.y <= 100}">
+    <div class="ml-auto" :class="{'d-none': $scroll.y <= 100}" v-cloak>
         <a href="https://wa.me/6281338204888?text={{ urlencode("Saya ingin berkonsultasi dengan Anda.") }}" target="_blank" class="btn btn-outline-blue py-2 btn-sm px-3 rounded-pill action shadow-none font-weight-bold">
             Konsultasi
         </a>
