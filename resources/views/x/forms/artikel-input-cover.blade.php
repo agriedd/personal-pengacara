@@ -22,11 +22,11 @@
     </div>
     <div v-else class="h-100 d-flex flex-column justify-content-center w-100">
         <div class="position-relative">
+            <div class="w-100 bg-gray-light img-md" style="height: 250px;" :style="{'background-image': `url('${artikel.getImage('cover')}')`}">
+            </div>
             <button class="btn btn-sm shadow btn-dark position-absolute rounded-pill px-3 py-2" type="button" style="bottom: -1.2rem; left: 50%; transform: translateX(-50%)" v-on:click="removeImage('artikel', 'cover')">
                 Hapus
             </button>
-            <div class="w-100 bg-gray-light img-md" style="height: 250px;" :style="{'background-image': `url('${artikel.getImage('cover')}')`}">
-            </div>
         </div>
     </div>
     <input type="file" ref="cover" class="d-none" id="cover" name="cover" v-on:change="artikel.setImage($event, 'cover', getContext())" accept="image/*">

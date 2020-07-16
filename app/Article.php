@@ -54,7 +54,9 @@ class Article extends Model
         return $this->vote_up - $this->vote_down;
     }
     public function getViewsIntAttribute(){
-        return $this->original['views'];
+        if(isset($this->original['views']))
+            return $this->original['views'];
+        return 0;
     }
 
     public function scopePublished($query){

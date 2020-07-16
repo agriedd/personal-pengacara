@@ -20,7 +20,7 @@ class ArtikelController extends Controller
         else
             $artikel = ArticleRepository::findSlug($slug);
         ArticleRepository::incrementViews($artikel);
-        $daftar_artikel = ArticleRepository::latest(2);
+        $daftar_artikel = ArticleRepository::latest(2, true, [ $artikel->id ]);
         return view('pages.public.articles-info', compact('artikel', 'daftar_artikel'))    
             ->with('title', "Artikel | {$artikel->title}");
     }
