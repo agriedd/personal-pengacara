@@ -17,9 +17,9 @@
                                 </div> --}}
                                 <img src="{{ asset('img/logo_full.png') }}" alt="" style="width: 100%" class="logo">
                                 <div class="pt-4">
-                                    <button class="btn btn-primary btn-sm shadow-sm rounded px-5 py-3 mx-auto">
+                                    <a href="https://wa.me/6281238364640?text={{ urlencode("Saya ingin berkonsultasi dengan Anda.") }}" target="_blank" class="btn btn-primary btn-sm shadow-sm rounded px-5 py-3 mx-auto">
                                         KONSULTASI
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

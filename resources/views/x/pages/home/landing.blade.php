@@ -13,12 +13,12 @@
                 & Rekan
             </div>
             <div>
-                Kantor Advokat atau Pengacara BERNARD S. ANIN,SH.,MH dan Rekan yang ber-alamat di Jl. Tirosa, RT 015 / RW 007, Kelurahan Mata Air, Kecamatan Kupang Tengah, Kabupaten Kupang
+                Kantor Advokat yang ber-alamat di Jl. Tirosa, RT 015 / RW 007, Kelurahan Mata Air, Kecamatan Kupang Tengah, Kabupaten Kupang
             </div>
         </div>
     </div>
     <transition name="fly-down">
-        <a href="https://wa.me/6281338204888?text={{ urlencode("Saya ingin berkonsultasi dengan Anda.") }}" target="_blank" class="btn btn-lg rounded-pill action shadow text-dark" style="font-size: 1.25rem; z-index: 2" v-show="$scroll.y <= 100">
+        <a href="https://wa.me/6281238364640?text={{ urlencode("Saya ingin berkonsultasi dengan Anda.") }}" target="_blank" class="btn btn-lg rounded-pill action shadow text-dark" style="font-size: 1.25rem; z-index: 2" v-show="$scroll.y <= 100">
             KONSULTASI
         </a>
     </transition>

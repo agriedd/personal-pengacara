@@ -20,7 +20,7 @@
         </svg>
     </button>
     <div class="ml-auto" :class="{'d-none': $scroll.y <= 100}" v-cloak>
-        <a href="https://wa.me/6281338204888?text={{ urlencode("Saya ingin berkonsultasi dengan Anda.") }}" target="_blank" class="btn btn-outline-blue py-2 btn-sm px-3 rounded-pill action shadow-none font-weight-bold">
+        <a href="https://wa.me/6281238364640?text={{ urlencode("Saya ingin berkonsultasi dengan Anda.") }}" target="_blank" class="btn btn-outline-blue py-2 btn-sm px-3 rounded-pill action shadow-none font-weight-bold">
             Konsultasi
         </a>
     </div>

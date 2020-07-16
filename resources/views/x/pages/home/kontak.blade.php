@@ -74,7 +74,7 @@
                                             Whatsapp
                                         </h4>
                                         <div style="word-wrap: break-word;">
-                                            +62 813 3820 4888
+                                            +62 812 3836 4640
                                         </div>
                                     </div>
                                 </div>
