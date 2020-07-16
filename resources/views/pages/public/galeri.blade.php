@@ -17,6 +17,8 @@
                         </div>
                     </div>
                     <div class="row flex-md-row-reverse">
+                        @if ($galeri_pinned)
+                            
                         <div class="col-lg-3 col-md-4 mb-3">
                             <div class="card clean">
                                 <div>
@@ -43,6 +45,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-md" v-cloak>
                             <div class="card shadow-sm border-0">
                                 <div class="card-body">
@@ -51,6 +54,28 @@
                                 </div>
                             </div>
                         </div>
+
+                        @else
+                        <div class="col-12" style="min-height: calc(100vh - 250px)">
+                            <div class="d-flex flex-column justify-content-center h-100">
+                                <div class="d-flex justify-content-center">
+                                    <div class="d-flex text-gray-light">
+                                        <div class="pr-3">
+                                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-image-alt" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M10.648 6.646a.5.5 0 0 1 .577-.093l4.777 3.947V15a1 1 0 0 1-1 1h-14a1 1 0 0 1-1-1v-2l3.646-4.354a.5.5 0 0 1 .63-.062l2.66 2.773 3.71-4.71z"/>
+                                                <path fill-rule="evenodd" d="M4.5 5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-weight-light">
+                                                Galeri kosong
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
                     </div>
                     <div class="row my-4">
                         
