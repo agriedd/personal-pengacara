@@ -6,7 +6,7 @@
                     Pengaturan Informasi Akun
                 </div>
                 <div class="">
-                    Lorem ipsum dolor sit amet.
+                    Anda dapat mengubah informasi akun Anda pada menu ini
                 </div>
             </div>
             <div>
@@ -45,7 +45,7 @@
                     Pengaturan Informasi Website
                 </div>
                 <div class="">
-                    Lorem ipsum dolor sit amet.
+                    Anda dapat mengubaha pengaturan website Anda pada menu ini.
                 </div>
             </div>
             <div>
