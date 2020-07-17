@@ -38,8 +38,9 @@ class AlbumRepository{
                 $request->has("asc") && $request->asc == "true" ? "ASC" : "DESC"
             );
         })
-        ->when(Auth::check() && $request->filled("empty") && $request->empty == "false", function($q)use($request){
-            return $q->has('galeri');
+        ->when(Auth::check(), function($q)use($request){
+            if($request->filled("empty") && $request->empty == "false")
+                return $q->has('galeri');
         }, function($q){
             return $q->has('galeri');
         });

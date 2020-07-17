@@ -87,6 +87,21 @@
     @endcomponent
 </div>
 <div v-else-if="album.notLoading()">
+    <div class="alert" v-if="album.option.filter.empty == false">
+        <div class="row m-0">
+            <div class="col-lg-4 col-md-6 ml-auto pt-4 px-0">
+                <div class="d-flex justify-content-end">
+                    @component('x.tip.default')
+                        @slot('tip', 'bg-blue tip-right-top text-blue')
+                        @slot('card', 'text-light')
+                        <div class="small">
+                            Terdapat opsi filter pada aksi diatas, diantaranya filter untuk menyembunyikan album kosong
+                        </div>
+                    @endcomponent
+                </div>
+            </div>
+        </div>
+    </div>
     @component('x.info.data-empty')
     @endcomponent
 </div>
