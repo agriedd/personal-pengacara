@@ -67,7 +67,7 @@
                                     </svg>
                                 @endslot
                             @endcomponent
-                            @component('x.dropdowns.item')
+                            @component('x.dropdowns.item', [ 'link' => route('admin.pengaturan') ])
                                 <div class="small">
                                     Pengaturan Profil
                                 </div>
