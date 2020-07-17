@@ -26,10 +26,10 @@
                                     </div>
                                 </div>
                             </div>
-                            @if(count($artikel))
+                            @if(count($artikel) || $artikel_utama)
                                 <div class="col-md mb-3">
                                     <div>
-                                        @component('x.info.artikel-lg', ['artikel' => $artikel->first()])
+                                        @component('x.info.artikel-lg', ['artikel' => $artikel_utama])
                                         @endcomponent
                                     </div>
                                 </div>

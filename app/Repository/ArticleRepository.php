@@ -75,8 +75,8 @@ class ArticleRepository{
         return Article::when($published, function($q){
             return $q->published();
         })
-        ->when(isset($except) && is_array($except), function($q){
-            return $q->whereNotIn($except);
+        ->when(isset($except) && is_array($except), function($q) use($except){
+            return $q->whereNotIn('id', $except);
         })
         ->latest()->limit($n)->get();
     }

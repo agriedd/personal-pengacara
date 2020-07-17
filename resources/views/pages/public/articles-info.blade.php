@@ -54,43 +54,45 @@
                 @component('pages.public.artikel.after-body')
                 @endcomponent
                 <div class="row my-4">
-                    <div class="col-12">
-                        <div class="alert pt-5">
-                            <div class="d-flex pt-5">
-                                <div class="pr-4">
-                                    <svg class="bi bi-folder" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z"/>
-                                        <path fill-rule="evenodd" d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z"/>
-                                    </svg>
+                    @if(count($daftar_artikel) || $artikel_selanjutnya)
+                        <div class="col-12">
+                            <div class="alert pt-5">
+                                <div class="d-flex pt-5">
+                                    <div class="pr-4">
+                                        <svg class="bi bi-folder" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z"/>
+                                            <path fill-rule="evenodd" d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z"/>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-dark">
+                                        Artikel Lainnya
+                                    </h4>
                                 </div>
-                                <h4 class="text-dark">
-                                    Artikel Lainnya
-                                </h4>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md mb-3">
-                        <div>
-                            @component('x.info.artikel-lg', ['artikel' => $artikel])
-                            @endcomponent
+                        <div class="col-md mb-3">
+                            <div>
+                                @component('x.info.artikel-lg', ['artikel' => $artikel_selanjutnya])
+                                @endcomponent
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4">
-                        <div class="position-sticky" style="top: 0px">
-                            @if(count($daftar_artikel))
-                                @foreach ($daftar_artikel as $index => $item)
-                                    @component('x.info.artikel-sm', ['artikel' => $item])
-                                    @endcomponent
-                                @endforeach
-                            @else
-                                <div class="justify-middle">
-                                    <div class="h3 text-gray-light text-center font-weight-light">
-                                        Belum ada artikel lain
+                        <div class="col-lg-3 col-md-4">
+                            <div class="position-sticky" style="top: 0px">
+                                @if(count($daftar_artikel))
+                                    @foreach ($daftar_artikel as $index => $item)
+                                        @component('x.info.artikel-sm', ['artikel' => $item])
+                                        @endcomponent
+                                    @endforeach
+                                @else
+                                    <div class="justify-middle">
+                                        <div class="h3 text-gray-light text-center font-weight-light">
+                                            Belum ada artikel lain
+                                        </div>
                                     </div>
-                                </div>
-                            @endif
+                                @endif
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
                 <div class="mb-3"></div>
             </div>
