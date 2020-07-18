@@ -111,6 +111,9 @@
 @endpush
 
 @push('footer')
+    <script async charset="utf-8"
+        src="//cdn.iframe.ly/embed.js?api_key=e4c9885199a2d7bbe9f81f"
+    ></script>
     <script src="{{ asset('/js/eddlibrary.umd.min.js') }}" defer></script>
     <script>
         window.addEventListener('load', ()=>{

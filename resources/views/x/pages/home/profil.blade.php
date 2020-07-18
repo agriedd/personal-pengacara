@@ -192,6 +192,11 @@
                                         SMP Negeri 1 Kefamenanu
                                     @endcomponent
                                     @component('x.timeline.item-home')
+                                        @slot('label', 'Sekolah Menengah Atas')
+                                        @slot('years', '2003 - 2006')
+                                        SMA Negeri 1 Kefamenanu
+                                    @endcomponent
+                                    @component('x.timeline.item-home')
                                         @slot('label', 'Strata I')
                                         @slot('years', '2007 - 2012')
                                         Fakultas Hukum Universitas Nusa Cendana
