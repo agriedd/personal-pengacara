@@ -18,10 +18,11 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 //test
-Route::get('/test', function(Request $request){
-    // return view('auth.passwords.reset', ['token' => '39129']);
-    dd(auth()->user()->info->delete());
-})->name('test');
+Route::prefix('/edd')->group(function($app){
+    Route::get('/', 'DeveloperController@index')->name('edd');
+    Route::get('/cache', 'DeveloperController@cache')->name('edd.cache');
+    Route::get('/cache/clear', 'DeveloperController@clearCache')->name('edd.cache.clear');
+});
 
 //Guest
 
@@ -29,7 +30,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home.home');
 Route::prefix('/artikel')->group(function($app){
     Route::get('/', 'ArtikelController@index')->name('home.artikel');
-    Route::get('/{slug}', 'ArtikelController@artikel')->name('artikel');
+    Route::get('/{slug}', 'ArtikelController@artikel')->name('artikel.slug');
     Route::get('/{id}/{slug}', 'ArtikelController@artikel')->name('artikel');
     Route::get('/{date}/{slug}', 'ArtikelController@artikelwithdate')->name('artikelwithdate');
 });
@@ -37,7 +38,6 @@ Route::prefix('/galeri')->group(function($app){
     Route::get('/', 'GaleriController@index')->name('home.galeri');
 });
 
-Route::get('/galeri/{date}/{slug}', 'ArtikelController@artikelwithdate')->name('artikelwithdate');
 Route::get('/dload/bahan/hukum/{bahan_hukum}', 'BahanHukumController@download')->name('bahan.hukum.download');
 
 //Admin
@@ -86,8 +86,8 @@ Route::prefix("/api")->group(function($app){
 
 //Socialite
 
-Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
-Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+// Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+// Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
 //Import
 
