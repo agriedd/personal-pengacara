@@ -23,5 +23,19 @@
         </a>
     </transition>
     <div class="backdrop d-md-none d-block position-absolute w-100 h-75" style="background: linear-gradient(0deg, #11102A, #11102A00); bottom: 0px; left: 0px">
+
+    </div>
+</div>
+<div class="text-light p-3 d-flex" style="background-color: #11102A; min-height: 50vh;">
+    <div>
+        <div class="h-100 justify-content-center d-flex flex-column">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-5 col-md-8">
+                    <h4 class="font-weight-light">
+                        Menerima Permintaan Konsultasi Hukum, Pembuatan Draf/Dokumen Hukum (<i>Legal Drafting</i>) dan Pembuayan Pendapat Hukum Tertulis (<i>Legal Opinion</i>)
+                    </h4>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
